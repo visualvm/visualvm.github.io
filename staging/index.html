@@ -73,7 +73,7 @@ title: Test Page
             <tr>
                 <td width="50%" style="text-align:left; vertical-align:top; background-color: white; border-radius: 5px; border: 1px solid #eaeaea;">
                     <p style="padding: 10px; margin:0px; font-size:23px; font-weight:bold; font-family:Calibri; color:#333333;">News:</p>
-                    {% assign xxxxx = (site.pages | where: "layout" , "news_layout" | reverse) %}
+                    {% assign xxxxx = (site.pages | where: "layout" , "visualvm_news_layout" | reverse) %}
                     {% for xxx in xxxxx limit:3 %}
                         <div class="newsline">
                         <p style="font-size:14px; font-weight:normal; font-family:Open Sans; margin:0px; padding:10px 12px 3px 12px;">
