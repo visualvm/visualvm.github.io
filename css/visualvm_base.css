@@ -1,0 +1,260 @@
+
+/* 
+--------------------------------------------------------------------------------
+--- General Style                                                            ---
+--------------------------------------------------------------------------------
+*/
+
+body {
+    margin: 0px;
+    font-family: "Open Sans", X-LocaleSpecific, sans-serif;
+}
+
+img {
+    border: 0px;
+}
+
+a {
+    /*color: gray;*/
+    text-decoration: underline;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+
+table td, table th {
+    padding: 0px;
+}
+
+
+h2 {
+    font-weight: bold;
+    font-size: 19px;
+    color: #333333;
+    padding: 0px;
+    margin: 10px;
+}
+
+
+.noborders {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+
+
+/* 
+--------------------------------------------------------------------------------
+--- Header and Footer                                                        ---
+--------------------------------------------------------------------------------
+*/
+
+header {
+    background-color: #a9c7de;
+    border-bottom: solid 1px;
+    border-bottom-color: #a1bed4;
+}
+
+header table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+header table td {
+    vertical-align: center;
+}
+
+header #header_left {
+    width: 120px;
+    text-align: left;
+    padding-top: 4px;
+    padding-left: 8px;
+    padding-bottom: 1px;
+}
+
+header #header_center {
+    text-align: center;
+    font-size: 13px;
+    color: #444444;
+}
+
+header #header_right {
+    width: 120px;
+    text-align: right;
+    padding-top: 5px;
+    padding-right: 8px;
+}
+
+.menulnk {
+    margin: 0px 5px 0px 5px;
+    padding: 0px;
+    border: 0px;
+    color: inherit;
+    text-decoration: none;
+}
+
+
+footer {
+    background-color: #eaeaea;
+    border-top: solid 1px;
+    border-top-color: #dbdbdb;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+footer center {
+     font-size: 11px;
+     font-weight: normal;
+}
+
+footer #oracle_logo {
+    padding-left: 1px;
+}
+
+
+/* 
+--------------------------------------------------------------------------------
+--- Content                                                                  ---
+--------------------------------------------------------------------------------
+*/
+
+.content {
+    background-color: #eaf2f7;
+    background: linear-gradient(to bottom, #a9c7de 0%, #eaf2f7 220px, #eaf2f7 100%);
+}
+
+
+/* 
+--------------------------------------------------------------------------------
+--- index.html                                                               ---
+--------------------------------------------------------------------------------
+*/
+
+#logo_big {
+    padding-top: 30px;
+}
+
+#logo_big img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9;
+}
+
+#visualvm_caption {
+    
+}
+
+#visualvm_description {
+    padding-top: 20px;
+    font-size: 15px;
+}
+
+#visualvm_download {
+    padding-top: 30px;
+}
+
+.downloadb {
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    background-color: #3CB371;
+    padding: 12px 47px 12px 47px;
+    border: 1px solid green;
+    border-radius: 3px;
+    box-shadow: 0 0 2px gray;
+    display: inline-block;
+}
+
+.downloadb:hover {
+    text-decoration: inherit;
+    background-color: green;
+    -webkit-transition: background-color 65ms linear;
+    -moz-transition: background-color 65ms linear;
+    -o-transition: background-color 65ms linear;
+    -ms-transition: background-color 65s linear;
+    transition: background-color 65ms linear;
+}
+
+#visualvm_other_downloads {
+    padding-top: 4px;
+    font-size: 11px;
+}
+
+#visualvm_other_downloads a {
+    font-weight: normal;
+    color: gray;
+    text-decoration: none;
+}
+
+#visualvm_other_downloads a:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+#visualvm_screenshot {
+    padding-top: 40px;
+}
+
+#visualvm_screenshot img {
+    vertical-align: middle;
+    max-width: 100%;
+    height: auto;
+    width: auto\9;
+}
+
+#visualvm_news {
+    background-color: #ffeee6;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    border-top: solid 1px;
+    border-top-color: #dbdbdb;
+}
+
+#visualvm_news table {
+    width: 100%;
+    max-width: 800px;
+    border-collapse: separate;
+    border-spacing: 10px 10px;
+}
+
+#visualvm_news table td {
+    width: 50%;
+    text-align: left;
+    vertical-align: top;
+    background-color: white;
+    border: 1px solid #eaeaea;
+    border-radius: 5px;
+}
+
+.newsline {
+    padding: 5px 12px 10px 12px;
+}
+
+.newsline:hover {
+    background-color: #f4f9fb;
+}
+
+.newsline_caption {
+    font-size: 14px;
+    margin: 0px;
+    padding-top: 5px;
+}
+
+.newsline_caption span {
+    color: #5a5a5a;
+}
+
+.newsline_content {
+    font-size: 13px;
+    margin: 0px;
+    padding-top: 5px;
+}
