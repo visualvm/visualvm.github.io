@@ -3,96 +3,58 @@ layout: visualvm_base_layout
 title: Test Page
 ---
 
-<style>
-    .downloadb {
-        background-color:#3CB371;
-    }
-    .downloadb:hover {
-        background-color:green;
-        -webkit-transition: background-color 65ms linear;
-        -moz-transition: background-color 65ms linear;
-        -o-transition: background-color 65ms linear;
-        -ms-transition: background-color 65s linear;
-        transition: background-color 65ms linear;
-    }
+<div class="home">
     
-    .newsline {
-        background-color:inherit;
-    }
-    .newsline:hover {
-        background-color:#f4f9fb;
-    }
-    
-    .menulink {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-</style>
-
-<!--div class="home" style="background:linear-gradient(to bottom, #e2e2ff 0%, #e2e2ff 0px, #e8e8ff 8px, #f2f2ff 200px, #f2f2ff 100%);"-->
-<div class="home" style="background:linear-gradient(to bottom, #a9c7de 0%, #eaf2f7 220px, #eaf2f7 100%);">
-    
-    <div style="height:30px;"></div>
-
-    <center>
-      <img style="max-width: 100%; height: auto; width: auto\9;" src="http://visualvm.github.io/images/visualvm_logo_big.png" />
+    <center id="logo_big">
+        <img src="../images/visualvm_logo_big.png" />
     </center>
     
-    <div style="height:0px;"></div>
-    
-    <center>
-        <b style="font-size:23px; font-weight:bold; font-family:Calibri; color:#333333;">All-in-One Java Troubleshooting Tool</b>
+    <center id="visualvm_caption">
+        <h2 class="noborders">All-in-One Java Troubleshooting Tool</h2>
     </center>
     
-    <div style="height:18px;"></div>
-    
-    <center>
-        <b style="font-size:18px; font-weight:normal; font-family:Calibri Light">VisualVM is a visual tool integrating commandline JDK tools and lightweight profiling capabilities.<br/>Designed for both development and production time use.</b>
+    <center id="visualvm_description">
+        VisualVM is a visual tool integrating commandline JDK tools and lightweight profiling capabilities.<br/>
+        Designed for both development and production time use.
     </center>
     
-    <div style="height:25px;"></div>
-    
-    <center>
-        <a class="downloadb" style="font-size:20px; font-weight:bold; font-family:Calibri; text-decoration:none; color:white; padding:12px 42px 12px 42px; border: 1px solid green; border-radius: 3px; box-shadow: 0 0 2px gray; display: inline-block;" href="#">Download 1.3.9</a>
+    <center id="visualvm_download">
+        <a class="downloadb" href="#">Download 1.3.9</a>
     </center>
     
-    <div style="height:4px;"></div>
-    
-    <center>
-        <span style="font-size:12px; font-weight:normal; font-family:Calibri Light; color: gray">IDE Integrations | Plugins | Previous Versions</b>
+    <center id="visualvm_other_downloads">
+        <a href="#">IDE Integrations</a> | 
+        <a href="#">Plugins</a> | 
+        <a href="#">Previous Versions</a>
     </center>
     
-    <div style="height:30px;"></div>
-    
-    <center style="padding: 0px; margin:0px; border:0px;">
-      <img style="vertical-align:middle; max-width: 100%; height: auto; width: auto\9; padding: 0px; margin:0px; border:0px;" src="http://visualvm.github.io/images/visualvm_screenshot.png" />
+    <center id="visualvm_screenshot">
+        <img src="../images/visualvm_screenshot.png" />
     </center>
     
-    <center style="background-color: #ffeee6; padding: 40px 0px 40px 0px; margin:0px; border:0px; border-top: solid 1px; border-top-color: #dbdbdb/*#aaaaff*/;">
-        <table style="max-width: 810px;" width="100%" cellpadding="0" cellspacing="10">
+    <center id="visualvm_news">
+        <table>
             <tr>
-                <td width="50%" style="text-align:left; vertical-align:top; background-color: white; border-radius: 5px; border: 1px solid #eaeaea;">
-                    <p style="padding: 10px; margin:0px; font-size:23px; font-weight:bold; font-family:Calibri; color:#333333;">News:</p>
-                    {% assign xxxxx = (site.pages | where: "layout" , "visualvm_news_layout" | reverse) %}
-                    {% for xxx in xxxxx limit:3 %}
+                <td>
+                    <h2>News:</h2>
+                    {% assign allnews = (site.pages | where: "layout" , "visualvm_news_layout" | reverse) %}
+                    {% for news in allnews limit:3 %}
                         <div class="newsline">
-                        <p style="font-size:14px; font-weight:normal; font-family:Open Sans; margin:0px; padding:10px 12px 3px 12px;">
-                            <b><span style="color:#5a5a5a;">{{ xxx.date | date: '%B %d, %Y' }}: </span>{{ xxx.title }}</b>
-                        </p>
-                        <p style="font-size:13px; font-weight:normal; font-family:Open Sans; margin:0px; padding:0px 12px 20px 12px;">
-                            {{ xxx.content }}
-                        </p>
+                            <p class="newsline_caption">
+                                <b><span class="newsdate">{{ news.date | date: '%B %d, %Y' }}: </span>{{ news.title }}</b>
+                            </p>
+                            <p class="newsline_content">
+                                {{ news.content }}
+                            </p>
                         </div>
                     {% endfor %}
                 </td>
-                <td width="50%" style="text-align:left; vertical-align:top; background-color: white; border-radius: 5px; border: 1px solid #eaeaea;">
-                    <p style="padding: 10px; margin:0px; font-size:23px; font-weight:bold; font-family:Calibri; color:#333333;">Twitter:</p>
+                <td>
+                    <h2>Twitter:</h2>
                     <a class="twitter-timeline" data-chrome="noheader nofooter noborders transparent" data-tweet-limit="3" href="https://twitter.com/visualvm"></a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
                 </td>
             </tr>
         </table>
     </center>
-    
-    <!--div style="height:30px;"></div-->
 
 </div>
