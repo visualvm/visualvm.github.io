@@ -1,0 +1,114 @@
+/* 
+--------------------------------------------------------------------------------
+--- index.html                                                               ---
+--------------------------------------------------------------------------------
+*/
+
+#logo_big {
+    padding-top: 30px;
+}
+
+#logo_big img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9;
+}
+
+#visualvm_caption {
+    
+}
+
+#visualvm_description {
+    padding-top: 20px;
+}
+
+#visualvm_download {
+    padding-top: 30px;
+}
+
+#visualvm_download .downloadb {
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    background-color: #3CB371;
+    padding: 12px 48px 12px 48px;
+    border: 1px solid green;
+    border-radius: 3px;
+    box-shadow: 0 0 2px gray;
+    display: inline-block;
+}
+
+#visualvm_download .downloadb:hover {
+    text-decoration: inherit;
+    background-color: green;
+    -webkit-transition: background-color 55ms linear;
+    -moz-transition: background-color 55ms linear;
+    -o-transition: background-color 55ms linear;
+    -ms-transition: background-color 55ms linear;
+    transition: background-color 55ms linear;
+}
+
+#visualvm_other_downloads {
+    padding-top: 4px;
+    font-size: 11px;
+}
+
+#visualvm_other_downloads a {
+    font-weight: normal;
+    color: gray;
+}
+
+#visualvm_other_downloads a:hover {
+    color: black;
+}
+
+#visualvm_screenshot {
+    padding-top: 30px;
+}
+
+#visualvm_screenshot img {
+    vertical-align: middle;
+    max-width: 100%;
+    height: auto;
+    width: auto\9;
+}
+
+#visualvm_news {
+    width: 100%;
+    max-width: 850px;
+    border-spacing: 30px 10px;
+}
+
+#visualvm_news td {
+    width: 50%;
+    text-align: left;
+    vertical-align: top;
+}
+
+#visualvm_news td h2 {
+    padding: 10px;
+}
+
+.newsline {
+    padding: 5px 12px 10px 12px;
+}
+
+.newsline:hover {
+    background-color: #f4f9fb;
+}
+
+.newsline_caption {
+    font-size: 14px;
+    margin: 0px;
+    padding-top: 5px;
+}
+
+.newsline_caption span {
+    color: #5a5a5a;
+}
+
+.newsline_content {
+    margin: 0px;
+    padding-top: 5px;
+}

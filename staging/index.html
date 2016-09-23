@@ -1,12 +1,13 @@
 ---
 layout: visualvm_base_layout
-title: Test Page
+title: Home
+css: /css/index.css
 ---
 
-<div class="home">
+<div class="content_main">
     
     <center id="logo_big">
-        <img src="../images/visualvm_logo_big.png" />
+        <img src="{{ '/images/visualvm_logo_big.png' | prepend: site.baseurl }}" />
     </center>
     
     <center id="visualvm_caption">
@@ -19,23 +20,27 @@ title: Test Page
     </center>
     
     <center id="visualvm_download">
-        <a class="downloadb" href="#">Download 1.3.9</a>
+        <a class="downloadb" href="download.html">Download 1.3.9</a>
     </center>
     
     <center id="visualvm_other_downloads">
-        <a href="#">IDE Integrations</a> | 
-        <a href="#">Plugins</a> | 
-        <a href="#">Previous Versions</a>
+        <a href="idesupport.html">IDE Integrations</a> | 
+        <a href="http://visualvm.java.net/pluginscenters.html">Plugins</a> | 
+        <a href="http://visualvm.java.net/releases.html">Previous Releases</a>
     </center>
     
     <center id="visualvm_screenshot">
-        <img src="../images/visualvm_screenshot.png" />
+        <img src="{{ '/images/visualvm_screenshot.png' | prepend: site.baseurl }}" />
     </center>
     
-    <center id="visualvm_news">
-        <table>
+</div>
+
+<div class="content_more">
+    
+    <center>
+        <table id="visualvm_news">
             <tr>
-                <td>
+                <td class="whiterounded">
                     <h2>News:</h2>
                     {% assign allnews = (site.pages | where: "layout" , "visualvm_news_layout" | reverse) %}
                     {% for news in allnews limit:3 %}
@@ -49,9 +54,10 @@ title: Test Page
                         </div>
                     {% endfor %}
                 </td>
-                <td>
+                <td class="whiterounded">
                     <h2>Twitter:</h2>
-                    <a class="twitter-timeline" data-chrome="noheader nofooter noborders transparent" data-tweet-limit="3" href="https://twitter.com/visualvm"></a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    <a class="twitter-timeline" data-chrome="noheader nofooter noborders transparent" data-tweet-limit="3" href="https://twitter.com/visualvm"></a>
+                    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
                 </td>
             </tr>
         </table>

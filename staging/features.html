@@ -1,0 +1,136 @@
+---
+layout: visualvm_base_layout
+title: Features
+---
+
+<div class="content_main">
+    <div class="centered_content">
+        <h1>Features</h1>
+
+        <p class="description_first">
+            VisualVM monitors and troubleshoots applications running on Java 1.4+ from many vendors using various technologies including jvmstat, JMX, Serviceability Agent (SA) and Attach API.
+        </p>
+        
+        <p class="description_last">
+            VisualVM perfectly fits all the requirements of application developers, system administrators, quality engineers and end users.
+        </p>
+        
+        <div>
+            <center class="imageitems">
+                <table>
+                    <tr>
+                        <td class="item_image">
+                            <img src="{{ '/images/features_1.png' | prepend: site.baseurl }}">
+                        </td>
+                        <td class="item_right_text">
+                            <h2>Display Local And Remote Java Processes</h2>
+                            <p>VisualVM automatically detects and lists locally and remotely running Java applications (jstatd must be running on the remote host). You can also define applications manually by JMX connection.</p>
+                        </td>
+                    <tr>
+                </table>
+                
+                <table class="lastimageitem">
+                    <tr>
+                        <td class="item_left_text">
+                            <h2>Display Process Configuration And Environment</h2>
+                            <p>For each process VisualVM shows basic runtime information: PID, main class, arguments passed to java process, JVM version, JDK home, JVM flags and arguments and System properties.</p>
+                        </td>
+                        <td class="item_image">
+                            <img src="{{ '/images/features_2.png' | prepend: site.baseurl }}">
+                        </td>
+                    <tr>
+                </table>
+                
+                <hr class="textsect">
+                
+                <table>
+                    <tr>
+                        <td class="item_image">
+                            <img src="{{ '/images/features_3.png' | prepend: site.baseurl }}">
+                        </td>
+                        <td class="item_right_text">
+                            <h2>Monitor Process Performance And Memory</h2>
+                            <p>VisualVM monitors application CPU usage, GC activity, heap and metaspace / permanent generation memory, number of loaded classes and running threads.</p>
+                        </td>
+                    <tr>
+                </table>
+                
+                <table>
+                    <tr>
+                        <td class="item_left_text">
+                            <h2>Visualize Process Threads</h2>
+                            <p>All threads running in a Java process are displayed in a timeline together with aggregated Running, Sleeping, Wait, Park and Monitor times.
+                        </td>
+                        <td class="item_image">
+                            <img src="{{ '/images/features_4.png' | prepend: site.baseurl }}">
+                        </td>
+                    <tr>
+                </table>
+                
+                <table class="lastimageitem">
+                    <tr>
+                        <td class="item_image">
+                            <img src="{{ '/images/features_5.png' | prepend: site.baseurl }}">
+                        </td>
+                        <td class="item_right_text">
+                            <h2>Profile Performance And Memory Usage</h2>
+                            <p>VisualVM provides basic profiling capabilities for analyzing application performance and memory management. Both sampling and instrumentation profilers are available.</p>
+                        </td>
+                    <tr>
+                </table>
+                
+                <hr class="textsect">
+                
+                <table>
+                    <tr>
+                        <td class="item_left_text">
+                            <h2>Take And Display Thread Dumps</h2>
+                            <p>VisualVM takes and displays thread dumps for an immediate insight of what is going on in the target process. Simultaneous thread dumps of multiple processes help to discover distributed deadlocks.</p>
+                        </td>
+                        <td class="item_image">
+                            <img src="{{ '/images/features_6.png' | prepend: site.baseurl }}">
+                        </td>
+                    <tr>
+                </table>
+                
+                <table>
+                    <tr>
+                        <td class="item_image">
+                            <img src="{{ '/images/features_7.png' | prepend: site.baseurl }}">
+                        </td>
+                        <td class="item_right_text">
+                            <h2>Take And Browse Heap Dumps</h2>
+                            <p>VisualVM creates and views .hprof memory snapshots created on demand or on OutOfMemoryError to help with uncovering inefficient heap usage and debugging memory leaks.</p>
+                        </td>
+                    <tr>
+                </table>
+                
+                <table>
+                    <tr>
+                        <td class="item_left_text">
+                            <h2>Analyze Core Dumps</h2>
+                            <p>VisualVM is able to read basic information about the crashed Java process and its environment from a core dump as well as extract and open the contained thread and heap dumps.</p>
+                        </td>
+                        <td class="item_image">
+                            <img src="{{ '/images/features_8.png' | prepend: site.baseurl }}">
+                        </td>
+                    <tr>
+                </table>
+                
+                <table class="lastimageitem">
+                    <tr>
+                        <td class="item_image">
+                            <img src="{{ '/images/features_9.png' | prepend: site.baseurl }}">
+                        </td>
+                        <td class="item_right_text">
+                            <h2>Analyze Applications Offline</h2>
+                            <p>VisualVM is able to save application configuration and runtime environment together with all taken thread dumps, heap dumps and profiler snaphots into a single application snapshot which can be later processed offline.</p>
+                        </td>
+                    <tr>
+                </table>
+            </center>
+        
+        </div>
+        
+    </div>
+</div>

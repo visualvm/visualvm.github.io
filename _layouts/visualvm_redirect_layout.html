@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta http-equiv="refresh" content="0; url={{ page.redirect }}">
+
+    <title>VisualVM: {{ page.title }}</title>
+
+    <link rel="canonical" href="{{ page.redirect }}"/>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:regular,bold">
+    <link rel="stylesheet" type="text/css" href="{{ '/css/visualvm_base.css' | prepend: site.baseurl }}">
+
+  </head>
+
+  <body>
+      
+    {% include visualvm_base_header.html %}
+    
+    <div class="content_wrapper">
+        <div class="content_main">
+            <div class="centered_content" style="padding-top: 200px; padding-bottom: 500px;">
+
+                <p>Redirecting to <a href="{{ page.redirect }}">{{ page.redirect }}</a> until the content is migrated to GitHub.</p>
+                <script>location='{{ page.redirect }}'</script>
+
+            </div>
+        </div>
+    </div>
+
+    {% include visualvm_base_footer.html %}
+
+  </body>
+
+</html>

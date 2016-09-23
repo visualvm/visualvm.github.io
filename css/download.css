@@ -1,0 +1,68 @@
+/* 
+--------------------------------------------------------------------------------
+--- download.html                                                               ---
+--------------------------------------------------------------------------------
+*/
+
+#downloads tr td {
+    vertical-align: top;
+}
+
+#downloads tr td div {
+    padding: 20px;
+    padding-left: 25px;
+    padding-right: 135px;
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+
+#downloads tr td h3 {
+    padding-bottom: 12px;
+    margin: 0px;
+}
+
+#downloads tr td p {
+    padding-bottom: 2px;
+    margin: 0px;
+}
+
+#downloads tr td a {
+    font-size: 13px;
+}
+
+#downloads tr td a b {
+    font-size: 17px;
+}
+
+#downloads tr td span {
+    font-size: 12px;
+}
+
+.download_main {
+    padding-bottom: 5px !important;
+}
+
+#downloads2 {
+    width: 100%;
+    padding-top: 20px;
+}
+
+#downloads2 tr td {
+    text-align: left;
+    vertical-align: top;
+    font-size: 13px;
+    padding-left: 24px;
+}
+
+#downloads2 tr td h3 {
+    margin: 0px;
+}
+
+.downloads_systems, .downloads_java {
+    white-space: nowrap;
+    padding-right: 30px;
+}
+
+.downloads_news {
+    width: 100%;
+}

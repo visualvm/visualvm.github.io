@@ -1,0 +1,187 @@
+---
+layout: visualvm_base_layout
+title: Troubleshooting Guide
+---
+
+<div class="content_main">
+    <div class="centered_content">
+        <h1>Troubleshooting Guide</h1>
+
+        <p class="description_first description_last2">
+            This document describes the most common problems related to using VisualVM and information on how to fix or workaround the problems.
+            If you are experiencing any problem not described in this document, please ask for assistance on a <a href="mailto:visualvm.feedback@gmail.com">mailing list</a> or <a href="https://github.com/visualvm/visualvm.src/issues/new">file a bug report</a>.
+        </p>
+
+        <a name="starting"></a>
+        <h2>Problems With Starting VisualVM</h2>
+
+        <a name="doesntstart"></a>
+        <h3>VisualVM does not start</h3>
+        <p><b>Description:&nbsp;</b>VisualVM doesn't start at all without any visible reason.</p>
+        <p><b>Resolution:&nbsp;&nbsp;</b>There are several reasons which could prevent VisualVM from starting:</p>
+        <ul>
+            <li><i>The download is broken</i> - make sure you've got the correct bits (archive managers typically notify you when the archive is broken)</li>
+            <li><i>VisualVM waits for license confirmation</i> - make sure you haven't overlooked the License Agreement dialog</li>
+            <li><i>Incorrect JDK is used for running VisualVM</i> - if you haven't defined a JDK to run VisualVM manually, make sure that the
+            default Java on your system is Oracle/Sun JDK 7+ (or JDK 6+ for VisualVM 1.3.6 and previous versions)</li>
+            <li><i>Incorrectly set JDK for running VisualVM</i> - if you have defined a JDK to run VisualVM manually, make sure the path to the JDK is correct and doesn't end with a slash</li>
+            <li><i>Incorrectly set VisualVM user directory</i> - if you have defined VisualVM user directory manually, make sure it is outside of VisualVM installation directory</li>
+        </ul>
+        <br>
+        
+        <a name="startoomegc"></a>
+        <h3>VisualVM fails to start throwing an OOME</h3>
+        <p><b>Description:&nbsp;</b>VisualVM fails to start, logging a <code>java.lang.OutOfMemoryError: GC overhead limit exceeded</code> exception into its logfile.</p>
+        <p><b>Resolution:&nbsp;&nbsp;</b>This problem occurs on Windows systems when the temporary directory (<code>"java.io.tmpdir"</code>) contains a big number of files.
+        Please cleanup the temporary directory before starting VisualVM.</p><br>
+
+        <a name="compatwin"></a>
+        <h3>VisualVM has stopped working (Native Error Dialog During Startup)</h3>
+        <p><b>Description:&nbsp;</b>'VisualVM has stopped working' dialog is shown during VisualVM startup by the operating system, VisualVM process terminates.</p>
+        <p><b>Resolution:&nbsp;&nbsp;</b>This problem occurs on Windows systems when the VisualVM process is started in Compatibility mode for Windows 95/98/ME. Please make sure
+        the Compatibility mode is disabled for VisualVM launcher, or use Compatibility mode for the newest possible OS version if required.
+        Note: using the Compatibility mode for running VisualVM or the monitored Java applications is strongly not recommended, virtualized environments incompatibilities
+        may crash the Java processes.</p><br>
+
+        <a name="d3dwin64"></a>
+        <h3>Java(TM) Platform SE binary has stopped working (Native Error Dialog During Startup)</h3>
+        <p><b>Description:&nbsp;</b>'Java(TM) Platform SE binary has stopped working' dialog is shown during VisualVM startup by the operating system, VisualVM process terminates.</p>
+        <p><b>Resolution:&nbsp;&nbsp;</b>This is a known JDK bug in the d3d rendering pipeline affecting Windows 64bit systems. To disable d3d acceleration
+        use <code>visualvm.exe -J-Dsun.java2d.d3d=false</code> to start VisualVM. Alternatively you may update the <code>&lt;visualvm_installdir&gt;\etc\visualvm.conf</code>
+        file to include the <code>-J-Dsun.java2d.d3d=false</code> switch in the <code>default_options</code> section. See the <a href="http://bugs.sun.com/view_bug.do?bug_id=6772139">JDK bug #6772139</a>
+        for more details.</p><br>
+
+        <a name="jrehost"></a>
+        <h3>Error Starting VisualVM (Error Dialog During Startup)</h3>
+        <p><b>Description:&nbsp;</b>'Error Starting VisualVM' dialog is shown during VisualVM startup with a message about an unsupported version of Java.</p>
+        <p><b>Resolution:&nbsp;&nbsp;</b>VisualVM runs only on JDK 7+ (or JDK 6+ for VisualVM 1.3.6 and previous versions) - not the JRE! When started on JRE or incorrect JDK version, VisualVM shows this dialog and terminates. To define which JDK will be used for running VisualVM, follow the steps in
+        the Starting VisualVM section of the <a href="https://visualvm.java.net/gettingstarted.html#starting_visualvm">Getting Started with VisualVM</a> document.</p><br>
+
+        <a name="cleandir"></a>
+        <h3>Warning - could not install some modules (Error Dialog During Startup)</h3>
+        <p><b>Description:&nbsp;</b>'Warning - could not install some modules' dialog is shown during VisualVM startup showing a list of affected modules.</p>
+        <p><b>Resolution:&nbsp;&nbsp;</b>This typically happens if you unzip new VisualVM version over an already existing VisualVM installation.
+        Make sure you are unzipping the VisualVM to a new directory.</p>
+        
+        <hr class="textsect">
+
+        <a name="using"></a>
+        <h2>Problems With Using VisualVM</h2>
+
+        <a name="jvmstat6u12"></a>
+        <h3>No Running Applications Detected, Exception Thrown After Startup</h3>
+        <p><b>Description:&nbsp;</b>No running applications are shown in Applications tree, an exception is thrown after VisualVM startup (<code>java.lang.NullPointerException at JvmJvmstatModelProvider.createModelFor(JvmJvmstatModelProvider)</code>).</p>
+        <p><b>Resolution:&nbsp;&nbsp;</b>This happens for VisualVM 1.1 and previous releases and for Java VisualVM 6u11 and previous releases when there's at least one Java application
+        running on JDK 6 Update 12 on the system (incl. the VisualVM itself). To fix this problem, download and install the latest VisualVM-Extensions plugin from the Plugin Center using
+        Tools -> Plugins. Details can be found in <a href="https://blogs.oracle.com/nbprofiler/entry/visualvm_fixed_to_correctly_recognize">this blog post</a>.</p><br>
+
+        <a name="jpswin"></a>
+        <h3>Local Applications Cannot Be Detected (Error Dialog On Startup)</h3>
+        <p><b>Description:&nbsp;</b>An error dialog saying that local applications cannot be detected is shown immediately after VisualVM startup.</p>
+        <p><b>Resolution:&nbsp;&nbsp;</b>This can happen on Windows systems, it's caused by misconfigured <code>jvmstat</code> technology used to detect
+            the running applications. There are two possible causes:</p>
+        <ul>
+            <li><i>Insufficient permissions for <code>%TMP%\hsperfdata_username</code> folder</i> - make sure you're able to create a file in the directory and eventually update the permissions for full folder access. Alternatively you can just re-create the folder which should automatically set the correct access rights.
+                See see this <a href="http://forum.java.sun.com/thread.jspa?threadID=5133218&tstart=0">forums.sun.com thread</a> for more details.</li>
+            <li><i>Having <code>%TMP%\hsperfdata_username</code> folder on a FAT disk</i> - by default <code>jvmstat</code> doesn't work on FAT disks due to security restrictions. You can bypass the security check by
+                setting the <code>-XX:+PerfBypassFileSystemCheck</code> flag for both VisualVM and the monitored application. See the <a href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=5042659">JDK bug #5042659</a>
+                for more details.</li>
+        </ul>
+        <br>
+
+        <a name="jpswin2"></a>
+        <h3>Local Applications Cannot Be Monitored (Error Dialog On Startup)</h3>
+        <p><b>Description:&nbsp;</b>An error dialog saying that local applications cannot be monitored is shown immediately after VisualVM startup. Locally running Java applications are displayed as &lt;Unknown Application&gt; (pid ###).</p>
+        <p><b>Resolution:&nbsp;&nbsp;</b>This can happen on Windows systems if the username contains capitalized letters. In this case, username is <code>UserName</code> but
+            the jvmstat directory created by JDK is <code>%TMP%\hsperfdata_username</code>. To workaround the problem, exit all Java applications, delete the <code>%TMP%\hsperfdata_username</code>
+            directory and create new <code>%TMP%\hsperfdata_UserName</code> directory.</p><br>
+
+        <a name="jstatdremote"></a>
+        <h3>No Running Remote Applications Detected</h3>
+        <p><b>Description:&nbsp;</b>There are no running applications shown for remote host in the Applications window on the left side.</p>
+        <p><b>Resolution:&nbsp;&nbsp;</b>Make sure that the <code>jstatd</code> utility is running on the remote host you want to monitor.
+            This is a requirement for VisualVM to be able to discover and access remote Java applications. More information about <code>jstatd</code> can be found
+        in the <a href="https://visualvm.java.net/applications_remote.html">Working with Remote Applications</a> document.</p>
+        <p><b>Known limitation:&nbsp;</b>In this VisualVM release the <code>jstatd</code>'s default <code>port</code> and <code>rminame</code> must
+        be used when starting the <code>jstatd</code> utility, i.e. the use of the <code>-p</code> and <code>-n</code> options is not supported.</p><br>
+
+        <a name="gtk12border"></a>
+        <h3>Cannot Add Or Edit Hosts On Linux</h3>
+        <p><b>Description:&nbsp;</b>Adding a remote host and/or invoking Properties on an existing host throws <code>java.lang.NullPointerException</code> on Linux/Solaris, new host cannot be added.</p>
+        <p><b>Resolution:&nbsp;&nbsp;</b>This happens when running the VisualVM 1.2 or newer on JDK 7 or OpenJDK 6 with GTK LaF. It is caused by a JDK bug introduced in JDK 7 b10. Details are available in
+            <a href="http://java.net/jira/browse/VISUALVM-372">VisualVM bug #372</a>. A quick workaround is to change the look'n'feel using
+            <code>visualvm --laf Nimbus</code> or <code>visualvm --laf Metal</code> or use Oracle JDK 7 to run VisualVM.</p><br>
+
+        <a name="6u17win"></a>
+        <h3>HeapWalker Throws Exceptions When Switching Views</h3>
+        <p><b>Description:&nbsp;</b>Switching views (Overview/Classes/Instances/OQL Console) in the HeapWalker throws <code>java.lang.IncompatibleClassChangeError</code>, UI is not repainted.</p>
+        <p><b>Resolution:&nbsp;&nbsp;</b>This happens when running the VisualVM on JDK 6 Update 17 and newer using the Windows LaF. Details and hotfix are available in
+            <a href="http://java.net/jira/browse/VISUALVM-333">VisualVM bug #333</a>. A quick workaround is to change the look'n'feel using
+            <code>visualvm.exe --laf Nimbus</code> or <code>visualvm.exe --laf Metal</code> or use JDK 6 Update 16 (or previous) to run VisualVM.</p><br>
+
+        <a name="xshare"></a>
+        <h3>Profiler Tab Shows Warning About Class Sharing, Profiling Does Not Work</h3>
+        <p><b>Description:&nbsp;</b>"Class sharing is enabled for this JVM" warning is shown in red box in Profiler tab, profiling CPU or Memory crashes local applications running on JDK 6 Update 6 and earlier.</p>
+        <p><b>Resolution:&nbsp;&nbsp;</b>There is a known problem with dynamic attach which is used for profiling, it may
+            cause target JVM to crash when class sharing is enabled. To start an application without class sharing, provide <code>-Xshare:off</code> argument
+            to the <code>java</code> command starting the application. More information can be found in <a href="http://bugs.sun.com/view_bug.do?bug_id=6497639">JDK bug #6497639</a>
+            and <a href="http://bugs.sun.com/view_bug.do?bug_id=6598065">JDK bug #6598065</a>.</p><br>
+
+        <a name="xverify"></a>
+        <h3>CPU Profiling Fails With "Redefinition failed with error 62"</h3
+        <p><b>Description:&nbsp;</b>CPU profiling in the Profiler tab or using the Startup Profiler plugin fails, VisualVM displays message "Redefinition failed with error 62".</p>
+        <p><b>Resolution:&nbsp;&nbsp;</b>Restart the application with the VM argument -Xverify:none to disable classfile verification. You must restart the application to disable classfile verification. You cannot disable verification if the application is running.</p><br>
+
+        <a name="calibration"></a>
+        <h3>Profiler Measures Incorrect Performance Results</h3>
+        <p><b>Description:&nbsp;</b>Performance profiling results are incorrect - zero or negative times etc.</p>
+        <p><b>Resolution:&nbsp;&nbsp;</b>During first VisualVM startup calibration is performed to measure profiling overhead on local system. The calibration
+        data are then used to measure accurate profiling results. When the system performance changes, calibration data are no more valid and profiling results become biased.
+        To recalibrate the profiler, you have to manually delete the calibration data file <code>&lt;system userdir&gt/.nbprofiler/machinedata.jdk1X</code>
+        and restart VisualVM - calibration will be performed again on VisualVM startup.</p>
+        
+        <hr class="textsect">
+
+        <a name="plugins"></a>
+        <h2>Problems With VisualVM Plugins</h2>
+
+        <a name="pluginsaccess"></a>
+        <h3>Cannot Download VisualVM Plugins</h3>
+        <p><b>Description:&nbsp;</b>The Available Plugins tab of the Plugins dialog is disabled, no plugins can be downloaded.</p>
+        <p><b>Resolution:&nbsp;&nbsp;</b>This problem occurs when VisualVM is unable to connect to the online Plugins Center. There are several reasons which could prevent VisualVM
+            from accessing the Plugins Center: broken internet connection, incorrect proxy setup, proxy blocking the required port, missing certificate for
+            dev.java.net etc. Make sure your internet connection is up and you can access the Plugins Center descriptor file at the address defined in the Settings tab of the Plugins dialog.
+            If the connection still cannot be established, you can download the plugins using a different machine and install them manually, see the <a href="pluginscenters.html">Plugins Centers</a> page for details.
+        </p><br/>
+
+        <a name="pluginsloading"></a>
+        <h3>Timeout While Installing a Plugin</h3>
+        <p><b>Description:&nbsp;</b>Plugin Installer dialog shows 'The Plugin Installer found problem timeout of loading &lt;module name&gt;' message.</p>
+        <p><b>Resolution:&nbsp;&nbsp;</b>This can sometimes happen when installing a plugin from the Plugins Center. The plugin could not be enabled in the
+            actual VisualVM session, please restart the VisualVM to start using the plugin.
+        </p><br/>
+
+        <a name="pluginsvalidation"></a>
+        <h3>Validation Warning While Installing a Plugin</h3>
+        <p><b>Description:&nbsp;</b>Validation Warning dialog with Validation failed message is shown when installing a plugin from VisualVM Plugin Center.</p>
+        <p><b>Resolution:&nbsp;&nbsp;</b>This occurs when installing any plugin from VisualVM Plugin Center. In fact the plugins are valid and trusted, you can
+        simply skip the dialog and continue with plugin installation. The problem is caused by a missing key in VisualVM tool to recognize plugin certificate validity.
+        </p><br/>
+
+        <a name="gfstatsdisabled"></a>
+        <h3>Cannot Get The List Of Web Applications From GlassFish</h3>
+        <p><b>Description:&nbsp;</b>Opening the "Model" subnode of the GlassFish application hangs with "Please Wait" displayed</p>
+        <p><b>Resolution:&nbsp;&nbsp;</b>This happens when monitoring of web applications is not allowed on the target server. In order to enable monitoring
+            you need to go to <i>Application Server/Monitor/Runtime/Configure Monitoring</i> from the GlassFish administration console and set
+            <i>Web Container</i> to <i>High</i>. You can also try and use this <a href="http://localhost:4848/configuration/monitoringService.jsf?configName=server-config" target="_new">link</a>
+            to open the configuration from here.
+        </p><br/>
+
+        <a name="gfnoservlets"></a>
+        <h3>No Servlets Displayed In The Runtime Area Of GlassFish Web Application Tab</h3>
+        <p><b>Description:&nbsp;</b>There are no servlets displayed in the runtime are of GlassFish web application tab (see <a href="https://visualvm.java.net/images/troubleshoot/visualvm_gf_noservlets.png" target="_new">here</a>)</p>
+        <p><b>Resolution:&nbsp;&nbsp;</b>Only servlets with some statistics available are displayed. In order to generate statistics put some load on the web application.</p>
+        <br/>
+            
+    </div>
+</div>
