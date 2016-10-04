@@ -1,0 +1,6 @@
+# robots.txt for https://visualvm.github.io
+
+User-agent: *
+Disallow: /news/*
+Disallow: /staging/*
+Disallow: /uc/*
