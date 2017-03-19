@@ -27,9 +27,9 @@ css: /css/download.css
                     <td>
                         <div style="padding: 20px; padding-left: 30px; font-size: 13px;">
                             <h3>More:</h3>
-                            <p><a href="idesupport.html">IDE Integrations</a></p>
-                            <p><a href="http://visualvm.java.net/pluginscenters.html">Plugins</a></p>
-                            <p><a href="http://visualvm.java.net/releases.html">Previous Releases</a></p>
+                            <p><a href="{{ '/idesupport.html' | prepend: site.baseurl }}">IDE Integrations</a></p>
+                            <p><a href="http://visualvm.java.net/pluginscenters.html">Plugins Offline</a></p>
+                            <p><a href="{{ '/releases.html' | prepend: site.baseurl }}">Previous Releases</a></p>
                         </div>
                     </td>
                 </tr>
@@ -74,11 +74,11 @@ css: /css/download.css
         
         <br>
         
-        <p>See the <a href="relnotes.html">Release Notes</a> for details on system requirements, new features, API changes and fixed bugs.</p>
+        <p>See the <a href="{{ '/relnotes.html' | prepend: site.baseurl }}">Release Notes</a> for details on system requirements, new features, API changes and fixed bugs.</p>
         
         <p>Follow the <a href="http://visualvm.java.net/gettingstarted.html">Getting Started</a> guide to learn how to use VisualVM. To get more details, see 
-        the <a href="features.html">Features</a> and <a href="plugins.html">Plugins</a> sections and read the VisualVM <a href="http://visualvm.java.net/docindex.html">Documentation</a>.
-        See the <a href="troubleshooting.html">Troubleshooting Guide</a> if experiencing any problems with starting or using the tool.</p>
+        the <a href="{{ '/features.html' | prepend: site.baseurl }}">Features</a> and <a href="{{ '/plugins.html' | prepend: site.baseurl }}">Plugins</a> sections and read the VisualVM <a href="http://visualvm.java.net/docindex.html">Documentation</a>.
+        See the <a href="{{ '/troubleshooting.html' | prepend: site.baseurl }}">Troubleshooting Guide</a> if experiencing any problems with starting or using the tool.</p>
         
     </div>
 </div>
@@ -111,9 +111,9 @@ css: /css/download.css
             
             <li><b>VisualVM startup terminates by Warning - could not install some modules message:</b> this can happen if you unzip the VisualVM archive over an older VisualVM version, make sure you are unzipping the VisualVM to a new directory</li>
 
-            <li><b>Local Applications Cannot Be Detected dialog is shown after VisualVM startup:</b> this can happen on Windows systems, see the <a href="troubleshooting.html#jpswin">Troubleshooting Guide</a> for more details and steps to fix the problem</li>
+            <li><b>Local Applications Cannot Be Detected dialog is shown after VisualVM startup:</b> this can happen on Windows systems, see the <a href="{{ '/troubleshooting.html#jpswin' | prepend: site.baseurl }}">Troubleshooting Guide</a> for more details and steps to fix the problem</li>
         </ul>
         
-        <p><b>Still having problems?</b> See the <a href="troubleshooting.html">Troubleshooting Guide</a>, ask for assistance on a <a id="link_mailto_feedback" href="mailto:visualvm.feedback@gmail.com" onclick="ga('send', 'event', 'Mailto FEEDBACK');">mailing list</a> or <a href="https://github.com/visualvm/visualvm.src/issues/new">file a bug</a>.</p>
+        <p><b>Still having problems?</b> See the <a href="{{ '/troubleshooting.html' | prepend: site.baseurl }}">Troubleshooting Guide</a>, ask for assistance on a <a id="link_mailto_feedback" href="mailto:visualvm.feedback@gmail.com" onclick="ga('send', 'event', 'Mailto FEEDBACK');">mailing list</a> or <a href="https://github.com/visualvm/visualvm.src/issues/new">file a bug</a>.</p>
     </div>
 </div>

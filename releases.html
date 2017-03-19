@@ -1,0 +1,70 @@
+---
+layout: visualvm_base_layout
+title: Releases
+css: /css/releases.css
+---
+
+<div class="content_main">
+    <div class="centered_content">
+        <h1>Releases</h1>
+
+        <p class="description_first description_last2">
+            This document summarizes all versions of the VisualVM tool released at GitHub and Java.net and the corresponding Java VisualVM released as a JDK tool. The table shows which VisualVM release is the basis for Java VisualVM in respective JDK update.
+        </p>
+
+        <center>
+            <table id="releases">
+                <tr style="">
+                    <th>
+                        VisualVM
+                    </th>
+                    <th>
+                        Java&nbsp;VisualVM
+                    </th>
+                </tr>
+
+                {% assign visualvmidx = 1 %}
+                {% assign jvisualvms = (site.pages | where: "layout" , "jvisualvm_release_layout" | reverse) %}
+                {% assign visualvms = (site.pages | where: "layout" , "visualvm_release_layout" | reverse) %}
+                {% for visualvm in visualvms %}
+                <tr>
+                    <td>
+                        <p class="release_name">
+                            {{ visualvm.title }}
+                        </p>
+                        <p class="release_details">
+                            Released: {{ visualvm.date | date: '%B %d, %Y' }}, <a href="{{ visualvm.download }}">download</a>{% if visualvm.download_ml %} (<a href="{{ visualvm.download_ml }}">ml</a>){% endif %}, <a href="{{ visualvm.relnotes }}">Release Notes</a>
+                        </p>
+                    </td>
+
+                    <td>
+                        {% assign jvvms = (jvisualvms | where: "visualvm" , visualvm.title) %}
+                        {% assign count = jvvms | size %}
+                        {% if count == 0 %}
+                            <p class="release_name" style="font-weight: normal;">
+                                {% if visualvmidx == 1 %}
+                                    not released yet
+                                {% else %}
+                                    not released
+                                {% endif %}
+                            </p>
+                        {% else %}
+                            {% for jvisualvm in jvvms %}
+                                <p class="release_name">
+                                    {{ jvisualvm.title }}
+                                </p>
+                                <p class="release_details">
+                                    Released: {{ jvisualvm.date | date: '%B %d, %Y' }}, <a href="{{ jvisualvm.relnotes }}">Release Notes</a>
+                                </p>
+                            {% endfor %}
+                        {% endif %}
+                    </td>
+                </tr>
+                {% assign visualvmidx = visualvmidx | plus:1 %}
+                {% endfor %}
+
+            </table>
+        </center>
+
+    </div>
+</div>

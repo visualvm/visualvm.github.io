@@ -1,0 +1,41 @@
+/* 
+--------------------------------------------------------------------------------
+--- releases.html                                                            ---
+--------------------------------------------------------------------------------
+*/
+
+#releases {
+    border: 1px solid gray;
+    border-collapse: collapse;
+    width: 95%;
+}
+
+#releases th {
+    width: 50%;
+    border: 1px solid gray;
+    padding: 4px;
+    background-color: #dddddd;
+}
+
+#releases td {
+    vertical-align: top;
+    border: 1px solid gray;
+    margin: 4px;
+    padding: 4px;
+    padding-left: 10px !important;
+}
+
+.release_name {
+    font-weight: bold;
+    font-size: 14px;
+    margin: 0px;
+    padding: 0px;
+    padding-top: 8px;
+}
+
+.release_details {
+    font-size: 13px;
+    margin: 0px;
+    padding: 0px;
+    padding-bottom: 8px;
+}
