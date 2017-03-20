@@ -1,0 +1,149 @@
+<html>
+<head>
+    
+    <title>VisualVM 1.0.1 Release Notes</title>
+    
+    <style>            
+            
+        #contents_main p {
+            margin: 0px;
+            padding: 8px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            clear: both;
+        }
+        
+        #contents_main hr {
+            border: 1px dashed #cccccc;
+            border-collapse: collapse;
+            clear: both;
+        }
+
+        #contents_main p img {
+            float: left;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            padding: 2px;
+            border: 1px solid #cccccc;
+        }
+        
+        ol li, ul li {
+            padding-bottom: 3px;
+        }
+
+    </style>
+    
+</head>
+
+<body>
+
+<div id="contents_div">
+    
+    <div id="contents_contents">
+        <div id="contents_main">
+            
+            <h1>VisualVM 1.0.1 Release Notes</h1>
+            
+            <p>
+                VisualVM is a visual tool integrating several commandline JDK tools and lightweight profiling capabilities. Designed for both production and development time use, it further enhances the capability of monitoring and performance analysis for the Java SE platform.
+            </p>
+            
+            <p style="margin-bottom: 15px;">
+                VisualVM 1.0.1 is a bugfix release based on VisualVM 1.0. See the <a href="#changes">Changes In 1.0.1</a> section for list of changes and bugfixes since the VisualVM 1.0.
+                See the <a href="releases.html">Releases Overview</a> page for detailed overview of all VisualVM and Java VisualVM releases.
+            </p>
+            
+            <a name="system_requirements"></a>
+            <h3>System Requirements</h3>
+            <div>                
+                <p style="margin-top: 5px;">
+                    <b>Supported OS:</b><br>
+                    <ul>
+                        <li>Microsoft Windows (XP, Vista, Server): 32bit &amp; 64bit
+                        </li>
+
+                        <li>Linux: Intel platform, 32bit &amp; 64bit
+                        </li>
+
+                        <li>Sun Solaris: Intel &amp; Sparc platform, 32bit &amp; 64bit
+                        </li>
+                        
+                        <li>Mac OS X: Intel platform, 64bit
+                        </li>
+                    </ul>
+                </p>
+                
+                <p style="margin-bottom: 10px;">
+                    <b>Required software:</b> Sun or Apple JDK 6+
+                </p>
+            </div>
+            
+            <a name="changes"></a>
+            <h3>Changes In 1.0.1</h3>
+            <div>                
+                <p style="margin-top: 5px;">
+                    <b>Features and enhancements:</b><br>
+                    <ul>
+                        <li>Profiler supports OpenJDK
+                        </li>
+                        
+                        <li>Profiler is silently disabled on unsupported platforms, the rest of the tool can run unaffected
+                        </li>
+
+                        <li>Minor improvements of warning messages in the tool and plugins to better describe reported problems
+                        </li>
+                        
+                        <li>New plugins available on the Plugin center: JvmCapabilities, KillApplication, SysTray
+                        </li>
+                    </ul>
+                </p>
+                
+                <p style="margin-bottom: 10px;">
+                    <b>Fixed bugs:</b> <a href="https://visualvm.dev.java.net/issues/buglist.cgi?Submit+query=Submit+query&issue_type=DEFECT&component=visualvm&resolution=FIXED&target_milestone=1.0.1&email1=&emailtype1=exact&emailassigned_to1=1&email2=&emailtype2=exact&emailreporter2=1&issueidtype=include&issue_id=&changedin=&votes=&chfield=creation_ts&chfieldfrom=&chfieldto=Now&chfieldvalue=&short_desc=&short_desc_type=fulltext&long_desc=&long_desc_type=fulltext&issue_file_loc=&issue_file_loc_type=fulltext&status_whiteboard=&status_whiteboard_type=fulltext&field0-0-0=noop&type0-0-0=noop&value0-0-0=&cmdtype=doit&order=Reuse+same+sort+as+last+time">IssueTracker query</a>.
+                </p>
+            </div>
+            
+            <a name="known_problems"></a>
+            <h3>Known Problems</h3>
+            <div>                
+                <ul>
+                    <li><a href="http://java.net/jira/browse/VISUALVM-120">Issue 120</a>: JMX application datasource cannot be reused on application restart
+                    </li>
+                    
+                    <li><a href="http://java.net/jira/browse/VISUALVM-72">Issue 72</a>: Running application sometimes not recognized
+                    </li>
+                </ul>
+                
+                <p style="margin-bottom: 15px;">To view all known problems please use this <a href="https://visualvm.dev.java.net/issues/buglist.cgi?Submit+query=Submit+query&issue_type=DEFECT&component=visualvm&subcomponent=code&issue_status=NEW&issue_status=STARTED&issue_status=REOPENED&email1=&emailtype1=exact&emailassigned_to1=1&email2=&emailtype2=exact&emailreporter2=1&issueidtype=include&issue_id=&changedin=&votes=&chfieldfrom=&chfieldto=Now&chfieldvalue=&short_desc=&short_desc_type=fulltext&long_desc=&long_desc_type=fulltext&issue_file_loc=&issue_file_loc_type=fulltext&status_whiteboard=&status_whiteboard_type=fulltext&field0-0-0=noop&type0-0-0=noop&value0-0-0=&cmdtype=doit&newqueryname=&order=Reuse+same+sort+as+last+time">Issue Tracker query</a>.
+                </p>
+            </div>
+            
+        </div>
+    </div>
+    
+    <div id="contents_hints">
+        
+        <h3 class="first">On This Page</h3>
+        <div>
+            <a href="#system_requirements">System Requirements</a>
+            <a href="#changes">Changes In 1.0.1</a>
+            <a href="#known_problems">Known Problems</a>
+        </div>
+        
+        <h3>Quick Links</h3>
+        <div>
+            <a href="features.html">Features</a>
+            <a href="download.html">Download</a>
+            <a href="docindex.html">Documentation</a>
+            <a href="plugins.html">Plugins</a>
+            <a href="releases.html">Releases Overview</a>
+        </div>
+        
+    </div>
+    
+    <div id="contents_clear"></div>
+
+</div>
+
+</body>
+</html>
