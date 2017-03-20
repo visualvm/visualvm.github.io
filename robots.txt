@@ -5,3 +5,4 @@ Disallow: /archive/*
 Disallow: /news/*
 Disallow: /staging/*
 Disallow: /uc/*
+Disallow: /visualvm_releases/*
