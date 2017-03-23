@@ -1,23 +1,35 @@
 /* 
 --------------------------------------------------------------------------------
---- releases.html                                                            ---
+--- releases.html, pluginscenters.html                                       ---
 --------------------------------------------------------------------------------
 */
 
-#releases {
-    border: 1px solid gray;
-    border-collapse: collapse;
-    width: 95%;
+.columns {
+    width: 100%;
 }
 
-#releases th {
+.columns td {
+    vertical-align: top;
+}
+
+.divider {
+    width: 15px;
+}
+
+.releases {
+    border: 1px solid gray;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.releases th {
     width: 50%;
     border: 1px solid gray;
     padding: 4px;
     background-color: #dddddd;
 }
 
-#releases td {
+.releases td {
     vertical-align: top;
     border: 1px solid gray;
     margin: 4px;

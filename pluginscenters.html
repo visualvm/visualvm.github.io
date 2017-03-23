@@ -1,0 +1,156 @@
+---
+layout: visualvm_base_layout
+title: Plugins Centers
+css: /css/releases.css
+---
+
+<div class="content_main">
+    <div class="centered_content">
+        <h1>Plugins Centers</h1>
+
+        <p class="description_first">
+            This document provides links to manual downloads of plugins for all VisualVM and Java VisualVM releases. Click the Plugin Center URL and download the desired plugins. Then use Tools | Plugins | Downloaded to install the plugins.
+        </p>
+        <p class="description_last2">
+            Note that the preferred way to get plugins is using Tools | Plugins | Available Plugins. Manual download and installation should only be used in offline environments or when experiencing network problems.
+        </p>
+
+        <center>
+            <table class="columns">
+                <tr>
+                    <td>
+                
+                        <table class="releases">
+                            <tr>
+                                <th>
+                                    VisualVM
+                                </th>
+                            </tr>
+
+                            {% assign visualvms = (site.pages | where: "layout" , "visualvm_release_layout" | reverse) %}
+                            {% for visualvm in visualvms %}
+                                <tr>
+                                    <td>
+                                        <p class="release_name">
+                                            {{ visualvm.title }}
+                                        </p>
+                                        <p class="release_details">
+                                            <a href="{{ '/updates.html' | prepend: visualvm.plugins_visualvm }}">{{ '/updates.xml.gz' | prepend: visualvm.plugins_visualvm }}</a>
+                                        </p>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+
+                        </table>
+                        
+                    </td>
+                    
+                    <td class="divider">
+                    </td>
+                        
+                    <td>
+
+                        <table class="releases">
+                            <tr>
+                                <th>
+                                    Java&nbsp;VisualVM
+                                </th>
+                            </tr>
+
+                            {% assign jvisualvms = (site.pages | where: "layout" , "jvisualvm_release_layout" | reverse) %}
+                            {% assign visualvms = (site.pages | where: "layout" , "visualvm_release_layout" | reverse) %}
+                            {% for visualvm in visualvms %}
+                            
+                                {% assign jvvms = (jvisualvms | where: "visualvm" , visualvm.title) %}
+                                {% if jvvms.size > 0 %}
+                                    {% assign jdk6_first = "" %}
+                                    {% assign jdk6_last = "" %}
+                                    {% assign jdk7_first = "" %}
+                                    {% assign jdk7_last = "" %}
+                                    {% assign jdk8_first = "" %}
+                                    {% assign jdk8_last = "" %}
+
+                                    {% for jvisualvm in jvvms %}
+                                        {% if jvisualvm.title contains "JDK 8" %}
+                                            {% if jdk8_last.size == 0 %}
+                                                {% assign jdk8_last = jvisualvm.title %}
+                                            {% else %}
+                                                {% assign jdk8_first = jvisualvm.title %}
+                                            {% endif %}
+                                        {% elsif jvisualvm.title contains "JDK 7" %}
+                                            {% if jdk7_last.size == 0 %}
+                                                {% assign jdk7_last = jvisualvm.title %}
+                                            {% else %}
+                                                {% assign jdk7_first = jvisualvm.title %}
+                                            {% endif %}
+                                        {% elsif jvisualvm.title contains "JDK 6" %}
+                                            {% if jdk6_last.size == 0 %}
+                                                {% assign jdk6_last = jvisualvm.title %}
+                                            {% else %}
+                                                {% assign jdk6_first = jvisualvm.title %}
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endfor %}
+
+                                    <tr>
+                                        <td>
+                                            <p class="release_name">
+                                            {% if jdk8_first.size > 0 %}
+                                                {% if jdk8_last.size == 0 %}
+                                                    jdk8_first
+                                                {% else %}
+                                                    {% if jdk8_first.size == 5 %}
+                                                        {% assign jdk8_last = jdk8_last | split: "JDK 8 " %}
+                                                    {% else %}
+                                                        {% assign jdk8_last = jdk8_last | split: "JDK 8 Update " %}
+                                                    {% endif %}
+                                                    {{ jdk8_first }} - {{ jdk8_last[1] }}
+                                                {% endif %}
+                                                </br>
+                                            {% endif %}
+                                            {% if jdk7_first.size > 0 %}
+                                                {% if jdk7_last.size == 0 %}
+                                                    jdk7_first
+                                                {% else %}
+                                                    {% if jdk7_first.size == 5 %}
+                                                        {% assign jdk7_last = jdk7_last | split: "JDK 7 " %}
+                                                    {% else %}
+                                                        {% assign jdk7_last = jdk7_last | split: "JDK 7 Update " %}
+                                                    {% endif %}
+                                                    {{ jdk7_first }} - {{ jdk7_last[1] }}
+                                                {% endif %}
+                                                </br>
+                                            {% endif %}
+                                            {% if jdk6_first.size > 0 %}
+                                                {% if jdk6_last.size == 0 %}
+                                                    jdk6_first
+                                                {% else %}
+                                                    {% if jdk6_first.size == 5 %}
+                                                        {% assign jdk6_last = jdk6_last | split: "JDK 6 " %}
+                                                    {% else %}
+                                                        {% assign jdk6_last = jdk6_last | split: "JDK 6 Update " %}
+                                                    {% endif %}
+                                                    {{ jdk6_first }} - {{ jdk6_last[1] }}
+                                                {% endif %}
+                                                </br>
+                                            {% endif %}
+                                            </p>
+                                            <p class="release_details">
+                                                <a href="{{ '/updates.html' | prepend: visualvm.plugins_jvisualvm }}">{{ '/updates.xml.gz' | prepend: visualvm.plugins_jvisualvm }}</a>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                            
+                            {% endfor %}
+
+                        </table>
+                        
+                    </td>
+                </tr>
+                
+            </table>
+        </center>
+
+    </div>
+</div>

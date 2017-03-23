@@ -13,8 +13,8 @@ css: /css/releases.css
         </p>
 
         <center>
-            <table id="releases">
-                <tr style="">
+            <table class="releases">
+                <tr>
                     <th>
                         VisualVM
                     </th>
@@ -39,8 +39,14 @@ css: /css/releases.css
 
                     <td>
                         {% assign jvvms = (jvisualvms | where: "visualvm" , visualvm.title) %}
-                        {% assign count = jvvms | size %}
-                        {% if count == 0 %}
+                        {% for jvisualvm in jvvms %}
+                            <p class="release_name">
+                                {{ jvisualvm.title }}
+                            </p>
+                            <p class="release_details">
+                                Released: {{ jvisualvm.date | date: '%B %d, %Y' }}, <a href="{{ jvisualvm.relnotes }}">Release Notes</a>
+                            </p>
+                        {% else %}
                             <p class="release_name" style="font-weight: normal;">
                                 {% if visualvmidx == 1 %}
                                     not released yet
@@ -48,16 +54,7 @@ css: /css/releases.css
                                     not released
                                 {% endif %}
                             </p>
-                        {% else %}
-                            {% for jvisualvm in jvvms %}
-                                <p class="release_name">
-                                    {{ jvisualvm.title }}
-                                </p>
-                                <p class="release_details">
-                                    Released: {{ jvisualvm.date | date: '%B %d, %Y' }}, <a href="{{ jvisualvm.relnotes }}">Release Notes</a>
-                                </p>
-                            {% endfor %}
-                        {% endif %}
+                        {% endfor %}
                     </td>
                 </tr>
                 {% assign visualvmidx = visualvmidx | plus:1 %}
