@@ -66,6 +66,12 @@ h3 {
     font-size: 16px;
 }
 
+h4 {
+    padding: 0px;
+    padding-top: 10px;
+    margin: 0px;
+}
+
 code {
     font-family: "Courier New", Courier, monospace;
     font-size: 16px;
@@ -133,6 +139,11 @@ code {
 
 .description_first {
     padding-top: 10px;
+}
+
+.description_first2 {
+    padding-top: 0px;
+    margin-top: 5px;
 }
 
 .description_mid {
