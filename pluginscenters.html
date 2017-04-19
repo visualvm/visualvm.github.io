@@ -95,9 +95,9 @@ css: /css/releases.css
                                     <tr>
                                         <td>
                                             <p class="release_name">
-                                            {% if jdk8_first.size > 0 %}
-                                                {% if jdk8_last.size == 0 %}
-                                                    jdk8_first
+                                            {% if jdk8_last.size > 0 %}
+                                                {% if jdk8_first.size == 0 %}
+                                                    {{ jdk8_last }}
                                                 {% else %}
                                                     {% if jdk8_first.size == 5 %}
                                                         {% assign jdk8_last = jdk8_last | split: "JDK 8 " %}
@@ -108,9 +108,9 @@ css: /css/releases.css
                                                 {% endif %}
                                                 </br>
                                             {% endif %}
-                                            {% if jdk7_first.size > 0 %}
-                                                {% if jdk7_last.size == 0 %}
-                                                    jdk7_first
+                                            {% if jdk7_last.size > 0 %}
+                                                {% if jdk7_first.size == 0 %}
+                                                    {{ jdk7_last }}
                                                 {% else %}
                                                     {% if jdk7_first.size == 5 %}
                                                         {% assign jdk7_last = jdk7_last | split: "JDK 7 " %}
@@ -121,9 +121,9 @@ css: /css/releases.css
                                                 {% endif %}
                                                 </br>
                                             {% endif %}
-                                            {% if jdk6_first.size > 0 %}
-                                                {% if jdk6_last.size == 0 %}
-                                                    jdk6_first
+                                            {% if jdk6_last.size > 0 %}
+                                                {% if jdk6_first.size == 0 %}
+                                                    {{ jdk6_last }}
                                                 {% else %}
                                                     {% if jdk6_first.size == 5 %}
                                                         {% assign jdk6_last = jdk6_last | split: "JDK 6 " %}
