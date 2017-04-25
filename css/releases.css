@@ -17,21 +17,35 @@
 }
 
 .releases {
-    border: 1px solid gray;
+    
     border-collapse: collapse;
     width: 100%;
 }
 
+.releases td, table th {
+    border: 1px solid #cccccc;
+}
+.releases tr:first-child th {
+    border-top: 0;
+}
+.releases tr:last-child td {
+    border-bottom: 0;
+}
+.releases tr td:first-child, .releases tr th:first-child {
+    border-left: 0;
+}
+.releases tr td:last-child, .releases tr th:last-child {
+    border-right: 0;
+}
+
 .releases th {
     width: 50%;
-    border: 1px solid gray;
     padding: 4px;
     background-color: #dddddd;
 }
 
 .releases td {
     vertical-align: top;
-    border: 1px solid gray;
     margin: 4px;
     padding: 4px;
     padding-left: 10px !important;
