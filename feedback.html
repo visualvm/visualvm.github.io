@@ -1,22 +1,26 @@
 ---
-layout: visualvm_base_layout
+layout: visualvm_stretch_layout
 title: Feedback
 css: /css/feedback.css
 ---
 
-<div class="content_main">
-    <div class="centered_content">
+<div class="content_main stretch_container">
+    <div class="centered_content stretch_container">
+        
+        <div class="stretch_first"></div>
+        
         <h1>Feedback</h1>
 
         <p class="description_first description_last2">
             Feel free to share your feedback with the VisualVM developers and community using the Gitter chat. Should your feedback be private, please use the <a id="link_mailto_feedback" href="mailto:visualvm.feedback@gmail.com" onclick="ga('send', 'event', 'Mailto FEEDBACK');">visualvm.feedback@gmail.com</a> address to let us know!
         </p>
+
+        <div class="stretch_filler">
+            <iframe class="whiterounded" id="gitter_feedback" src="https://gitter.im/VisualVM/Feedback/~embed">Chat could not be displayed. Please use the link below:</iframe>
+        </div>
+        <center class="stretch_row"><small><a href="https://gitter.im/VisualVM/Feedback" target="_blank">Open the chat in Gitter</a></small></center>
         
-
-        <center>
-            <iframe id="gitter_feedback" class="whiterounded" src="https://gitter.im/VisualVM/Feedback/~embed"><a href="https://gitter.im/VisualVM/Feedback">VisualVM/Feedback chat room at Gitter</a></iframe>
-            <small><a href="https://gitter.im/VisualVM/Feedback" target="_blank">Open the chat in Gitter</a></small>
-        </center>
-
+        <div class="stretch_last"></div>
+        
     </div>
 </div>

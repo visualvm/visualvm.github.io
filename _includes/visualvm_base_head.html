@@ -8,6 +8,7 @@
   
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:regular,bold">
   <link rel="stylesheet" type="text/css" href="{{ '/css/visualvm_base.css' | prepend: site.baseurl }}">
+  {% if layout_css %}<link rel="stylesheet" type="text/css" href="{{ layout_css | prepend: site.baseurl }}">{% endif %}
   {% if page.css %}<link rel="stylesheet" type="text/css" href="{{ page.css | prepend: site.baseurl }}">{% endif %}
   
   <script>

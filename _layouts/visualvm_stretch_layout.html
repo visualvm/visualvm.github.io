@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+  {% assign layout_css = "/css/stretch.css" %}
+  {% include visualvm_base_head.html %}
+
+  <body class="stretch_container">
+      
+    <div class="stretch_row">
+        {% include visualvm_base_header.html %}
+    </div>
+
+    <div class="stretch_container">
+        {{ content }}
+    </div>
+
+    <div class="stretch_row">
+        {% include visualvm_base_footer.html %}
+    </div>
+
+  </body>
+
+</html>
