@@ -55,7 +55,7 @@ title: Troubleshooting Guide
         <h3>Error Starting VisualVM (Error Dialog During Startup)</h3>
         <p><b>Description:&nbsp;</b>'Error Starting VisualVM' dialog is shown during VisualVM startup with a message about an unsupported version of Java.</p>
         <p><b>Resolution:&nbsp;&nbsp;</b>VisualVM runs only on JDK 7+ (or JDK 6+ for VisualVM 1.3.6 and previous versions) - not the JRE! When started on JRE or incorrect JDK version, VisualVM shows this dialog and terminates. To define which JDK will be used for running VisualVM, follow the steps in
-        the Starting VisualVM section of the <a href="https://visualvm.java.net/gettingstarted.html#starting_visualvm">Getting Started with VisualVM</a> document.</p><br>
+        the Starting VisualVM section of the <a href="{{ '/gettingstarted.html' | prepend: site.baseurl }}">Getting Started with VisualVM</a> document.</p><br>
 
         <a name="cleandir"></a>
         <h3>Warning - could not install some modules (Error Dialog During Startup)</h3>
@@ -101,7 +101,7 @@ title: Troubleshooting Guide
         <p><b>Description:&nbsp;</b>There are no running applications shown for remote host in the Applications window on the left side.</p>
         <p><b>Resolution:&nbsp;&nbsp;</b>Make sure that the <code>jstatd</code> utility is running on the remote host you want to monitor.
             This is a requirement for VisualVM to be able to discover and access remote Java applications. More information about <code>jstatd</code> can be found
-        in the <a href="https://visualvm.java.net/applications_remote.html">Working with Remote Applications</a> document.</p>
+        in the <a target="_blank" href="{{ '/applications_remote.html' | prepend: site.baseurl }}">Working with Remote Applications</a> document.</p>
         <p><b>Known limitation:&nbsp;</b>In this VisualVM release the <code>jstatd</code>'s default <code>port</code> and <code>rminame</code> must
         be used when starting the <code>jstatd</code> utility, i.e. the use of the <code>-p</code> and <code>-n</code> options is not supported.</p><br>
 
@@ -179,7 +179,7 @@ title: Troubleshooting Guide
 
         <a name="gfnoservlets"></a>
         <h3>No Servlets Displayed In The Runtime Area Of GlassFish Web Application Tab</h3>
-        <p><b>Description:&nbsp;</b>There are no servlets displayed in the runtime are of GlassFish web application tab (see <a href="https://visualvm.java.net/images/troubleshoot/visualvm_gf_noservlets.png" target="_new">here</a>)</p>
+        <p><b>Description:&nbsp;</b>There are no servlets displayed in the runtime are of GlassFish web application tab (see <a target="_blank" href="https://raw.githubusercontent.com/visualvm/visualvm.java.net.backup/master/www/images/troubleshoot/visualvm_gf_noservlets.png">here</a>)</p>
         <p><b>Resolution:&nbsp;&nbsp;</b>Only servlets with some statistics available are displayed. In order to generate statistics put some load on the web application.</p>
         <br/>
             

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>VisualVM: {{ page.title }}</title>
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-1306237-6', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:regular,bold">
+    <link rel="stylesheet" type="text/css" href="{{ '/css/visualvm_base.css' | prepend: site.baseurl }}">
+    <link rel="stylesheet" type="text/css" href="{{ '/css/stretch.css' | prepend: site.baseurl }}">
+    <link rel="stylesheet" type="text/css" href="{{ '/css/feedback.css' | prepend: site.baseurl }}">
+
+  </head>
+
+  <body class="stretch_container">
+      
+    <div class="stretch_row">
+        {% include visualvm_base_header.html %}
+    </div>
+    
+    <div class="stretch_container">
+        <div class="content_main stretch_container">
+            <div class="centered_content stretch_container">
+
+                <div class="stretch_first"></div>
+
+                <h1>{{ page.title }}</h1>
+
+                <p class="description_first description_last2">
+                    This page displays snapshot of the {{ page.title }} page originally available at Java.net. Meanwhile we're working on an up to date GitHub-friendly {{ page.title }}.
+                </p>
+
+                <div class="stretch_filler">
+                    <iframe class="whiterounded" id="gitter_feedback" src="https://htmlpreview.github.io/?https://raw.githubusercontent.com/visualvm/visualvm.java.net.backup/master/www/{{ page.docfile }}">Documentation could not be displayed. Please use the link below:</iframe>
+                </div>
+                <center class="stretch_row"><small><a href="https://htmlpreview.github.io/?https://raw.githubusercontent.com/visualvm/visualvm.java.net.backup/master/www/{{ page.docfile }}" target="_blank">Open the {{ page.title }} page in separate view</a></small></center>
+
+                <div class="stretch_last"></div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="stretch_row">
+        {% include visualvm_base_footer.html %}
+    </div>
+
+  </body>
+
+</html>
