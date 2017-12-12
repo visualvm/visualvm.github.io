@@ -24,8 +24,8 @@ css: /css/releases.css
                 </tr>
 
                 {% assign visualvmidx = 1 %}
-                {% assign jvisualvms = (site.pages | where: "layout" , "jvisualvm_release_layout" | reverse) %}
-                {% assign visualvms = (site.pages | where: "layout" , "visualvm_release_layout" | reverse) %}
+                {% assign jvisualvms = site.pages | where: "layout" , "jvisualvm_release_layout" | reverse %}
+                {% assign visualvms = site.pages | where: "layout" , "visualvm_release_layout" | reverse %}
                 {% for visualvm in visualvms %}
                 <tr>
                     <td>
@@ -38,7 +38,7 @@ css: /css/releases.css
                     </td>
 
                     <td>
-                        {% assign jvvms = (jvisualvms | where: "visualvm" , visualvm.title) %}
+                        {% assign jvvms = jvisualvms | where: "visualvm" , visualvm.title %}
                         {% for jvisualvm in jvvms %}
                             <p class="release_name">
                                 {{ jvisualvm.title }}

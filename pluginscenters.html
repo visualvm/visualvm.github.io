@@ -27,7 +27,7 @@ css: /css/releases.css
                                 </th>
                             </tr>
 
-                            {% assign visualvms = (site.pages | where: "layout" , "visualvm_release_layout" | reverse) %}
+                            {% assign visualvms = site.pages | where: "layout" , "visualvm_release_layout" | reverse %}
                             {% for visualvm in visualvms %}
                                 <tr>
                                     <td>
@@ -57,11 +57,11 @@ css: /css/releases.css
                                 </th>
                             </tr>
 
-                            {% assign jvisualvms = (site.pages | where: "layout" , "jvisualvm_release_layout" | reverse) %}
-                            {% assign visualvms = (site.pages | where: "layout" , "visualvm_release_layout" | reverse) %}
+                            {% assign jvisualvms = site.pages | where: "layout" , "jvisualvm_release_layout" | reverse %}
+                            {% assign visualvms = site.pages | where: "layout" , "visualvm_release_layout" | reverse %}
                             {% for visualvm in visualvms %}
                             
-                                {% assign jvvms = (jvisualvms | where: "visualvm" , visualvm.title) %}
+                                {% assign jvvms = jvisualvms | where: "visualvm" , visualvm.title %}
                                 {% if jvvms.size > 0 %}
                                     {% assign jdk6_first = "" %}
                                     {% assign jdk6_last = "" %}

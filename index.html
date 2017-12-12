@@ -43,7 +43,7 @@ css: /css/index.css
                 <td class="whiterounded">
                     <h2>News:</h2>
                     {% assign count = 1 %}
-                    {% assign allnews = (site.pages | reverse) %}
+                    {% assign allnews = site.pages | reverse %}
                     {% for news in allnews %}
                         {% if news.layout == "visualvm_news_layout" %}
                             <div class="newsline">
