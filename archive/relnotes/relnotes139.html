@@ -1,0 +1,134 @@
+---
+layout: visualvm_base_layout
+title: Release Notes
+---
+
+<div class="content_main">
+    <div class="centered_content">
+        <h1>Release Notes</h1>
+        <p class="description_first description_last2">
+            VisualVM 1.3.9 has been released on October 4th, 2016. This document describes changes introduced by this release.
+        </p>
+
+        <a name="system_requirements"></a>
+        <h2>System Requirements</h2>
+        <div>
+            <h3>Supported OS:</h3>
+            <ul>
+                <li>Microsoft Windows (8, 7, Vista, Server): 32bit &amp; 64bit</li>
+
+                <li>Linux: Intel platform, 32bit &amp; 64bit</li>
+
+                <li>Linux ARM HFLT (Raspberry Pi), JDK 8+ only</li>
+
+                <li>Sun Solaris: Intel &amp; Sparc platform, 32bit &amp; 64bit</li>
+
+                <li>Mac OS X: Intel platform, 64bit</li>
+            </ul>
+
+
+            <h3>Required Software:</h3>
+            <ul>
+                <li>Oracle JDK 7+</li>
+
+                <li>OpenJDK 7+</li>
+
+                <li>Oracle JDK 9 build 138 (experimental support, may not work with newer builds)</li>
+            </ul>
+
+        </div>
+        
+        <hr class="textsect">
+
+        <a name="changes"></a>
+        <h2>Changes</h2>
+        <div>
+            <h3>Migration to GitHub:</h3>
+            <p>VisualVM project has been migrated to GitHub, including the sources, downloads and update centers. New project pages have been created at <a href="https://visualvm.github.io">https://visualvm.github.io</a>, the content will be incrementally transferred from the original pages at <a href="https://visualvm.java.net">https://visualvm.java.net</a>.</p>
+            
+            
+            <h3>Features and Enhancements:</h3>
+            <ul>
+                <li><a href="https://java.net/jira/browse/VISUALVM-603">Issue 603</a>: remember decisions about future host/connection resolving</li>
+
+                <li><a href="https://java.net/jira/browse/VISUALVM-618">Issue 618</a>: --openjmx cli option should take a connection name and allow setting skip ssl</li>
+
+                <li>Enabled VM Coredumps support on Microsoft Windows</li>
+                
+                <li>The <code>--openid</code> and <code>--openpid</code> parameters now accept index of process tab to open</li>
+                
+                <li>Start Page has been refreshed to contain up to date links to useful resources</li>
+
+                <li>Experimental support for running on JDK 9 and monitoring/profiling Java 9 processes</li>
+
+                <li>Built on NetBeans Platform & profiler 8.0.2</li>
+            </ul>
+
+
+            <h3>API Changes:</h3>
+            <ul>
+                <li>Compatible: <code>com.sun.tools.visualvm.charts.SimpleXYChartDescriptor.decimal(minValue, maxValue, initialYMargin, chartFactor, customFormat, hideableItems, valuesBuffer)</code> added</li>
+
+                <li>Compatible: <code>com.sun.tools.visualvm.core.options.GlobalPreferences.setDoNotShowAgain(key, value)</code> added</li>
+
+                <li>Compatible: <code>com.sun.tools.visualvm.core.options.GlobalPreferences.getDoNotShowAgain(key)</code> added</li>
+            </ul>
+
+
+            <h3>Fixed Bugs:</h3>
+            <ul>
+                <li><a href="https://java.net/jira/browse/VISUALVM-458">Issue 458</a>: libprofilerinterface.so exports popular symbol names</li>
+
+                <li><a href="https://java.net/jira/browse/VISUALVM-575">Issue 575</a>: Fix sampler memory snapshot type</li>
+
+                <li><a href="https://java.net/jira/browse/VISUALVM-594">Issue 594</a>: Cannot load heap dump - ArrayIndexOutOfBoundsException</li>
+
+                <li><a href="https://java.net/jira/browse/VISUALVM-601">Issue 601</a>: java.lang.ClassNotFoundException: com.fubar.MyClass$$Lambda$9</li>
+
+                <li><a href="https://java.net/jira/browse/VISUALVM-602">Issue 602</a>: SimpleXYChartDescriptor.decimal Should Be Able To Display > 2 decimal places</li>
+
+                <li><a href="https://java.net/jira/browse/VISUALVM-604">Issue 604</a>: Tracer dynamic does not work with JDK 8</li>
+
+                <li><a href="https://java.net/jira/browse/VISUALVM-605">Issue 605</a>: VisualVM fails to load local java applications when NetbeansBased applications are running</li>
+
+                <li><a href="https://java.net/jira/browse/VISUALVM-606">Issue 606</a>: Command line arg --openjmx doesn't ask for credentials in some cases</li>
+
+                <li><a href="https://java.net/jira/browse/VISUALVM-607">Issue 607</a>: Incorrect snapshot name</li>
+
+                <li><a href="https://java.net/jira/browse/VISUALVM-608">Issue 608</a>: ArrayIndexOutOfBoundsException</li>
+
+                <li><a href="https://java.net/jira/browse/VISUALVM-623">Issue 623</a>: Support Lambdas in Java 8</li>
+
+                <li><a href="https://java.net/jira/browse/VISUALVM-625">Issue 625</a>: Opening a thread dump may take several minutes</li>
+
+                <li><a href="https://java.net/jira/browse/VISUALVM-626">Issue 626</a>: ClassCastException: java.lang.String cannot be cast to [Ljava.lang.Object;</li>
+
+                <li><a href="https://java.net/jira/browse/VISUALVM-627">Issue 627</a>: Memory sampling does not work</li>
+
+                <li><a href="https://java.net/jira/browse/VISUALVM-636">Issue 636</a>: Thread dump cannot be closed</li>
+
+                <li><a href="https://netbeans.org/bugzilla/buglist.cgi?bug_status=RESOLVED&bug_status=VERIFIED&keywords=VISUALVM%2C%20&keywords_type=allwords&list_id=993709&query_format=advanced&resolution=FIXED&target_milestone=8.0.1&target_milestone=8.0.2">IssueTracker query</a> to list all changes in NetBeans profiler 8.0.1 and 8.0.2 affecting VisualVM</li>
+
+                <li><a href="https://netbeans.org/bugzilla/buglist.cgi?bug_id=268034%2C262629%2C267252%2C267213%2C262633%2C262617%2C255440%2C250344%2C256953%2C246898%2C256776%2C247403%2C246759%2C251066%2C255330%2C255361%2C255352%2C255766%2C252792&list_id=993714">IssueTracker query</a> to list all changes in NetBeans profiler after 8.0.2 affecting VisualVM</li>
+            </ul>
+            
+        </div>
+        
+        <hr class="textsect">
+
+        <a name="known_problems"></a>
+        <h2>Known Problems</h2>
+        <div>
+            <ul>
+                <li><a href="https://netbeans.org/bugzilla/show_bug.cgi?id=245522">NB Issue 245522</a>: Instrumented CPU profiling fails on JDK7u65 with -target >=1.7</li>
+
+                <li><a href="http://java.net/jira/browse/VISUALVM-148">Issue 148</a>: VisualVM hangs when lost remote connection</li>
+
+                <li><a href="http://java.net/jira/browse/VISUALVM-120">Issue 120</a>: JMX application datasource cannot be reused on application restart</li>
+            </ul>
+
+            <p>To view all known problems please use this <a href="http://java.net/jira/secure/IssueNavigator.jspa?reset=true&jqlQuery=project+%3D+VISUALVM+AND+issuetype+%3D+Bug+AND+status+%3D+Open">IssueTracker query</a>.</p>
+        </div>
+            
+    </div>
+</div>
