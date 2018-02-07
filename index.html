@@ -19,14 +19,34 @@ css: /css/index.css
         Designed for both development and production time use.
     </center>
     
-    <center id="visualvm_download">
-        <a class="downloadb" href="{{ '/download.html' | prepend: site.baseurl }}">Download 1.4</a>
-    </center>
-    
-    <center id="visualvm_other_downloads">
-        <a href="{{ '/idesupport.html' | prepend: site.baseurl }}">IDE Integrations</a> | 
-        <a href="{{ '/pluginscenters.html' | prepend: site.baseurl }}">Plugins</a> | 
-        <a href="{{ '/releases.html' | prepend: site.baseurl }}">Other Releases</a>
+    <center>
+        <table>
+            <tr>
+                <td>
+                    <center id="visualvm_download">
+                        <a class="downloadb" href="{{ '/download.html' | prepend: site.baseurl }}">Download 1.4</a>
+                    </center>
+
+                    <center id="visualvm_other_downloads">
+                        <a href="{{ '/idesupport.html' | prepend: site.baseurl }}">IDE Integrations</a> | 
+                        <a href="{{ '/pluginscenters.html' | prepend: site.baseurl }}">Plugins</a> | 
+                        <a href="{{ '/releases.html' | prepend: site.baseurl }}">Other Releases</a>
+                    </center>
+                </td>
+                
+                <td width="30px"></td>
+                
+                <td>
+                    <center id="visualvm_download">
+                        <a class="downloadbgraal" href="{{ '/graal.html' | prepend: site.baseurl }}">Graal VisualVM</a>
+                    </center>
+
+                    <center id="visualvm_other_downloads">
+                        <span style="color: gray;">Tool bundled with Oracle GraalVM</span>
+                    </center>
+                </td>
+            <tr>
+        </table>
     </center>
     
     <center id="visualvm_screenshot">

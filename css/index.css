@@ -49,6 +49,29 @@
     transition: background-color 55ms linear;
 }
 
+#visualvm_download .downloadbgraal {
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    background-color: #FF8888;
+    padding: 12px 42px 12px 42px;
+    border: 1px solid #B90000;
+    border-radius: 3px;
+    box-shadow: 0 0 2px gray;
+    display: inline-block;
+}
+
+#visualvm_download .downloadbgraal:hover {
+    text-decoration: inherit;
+    background-color: #B90000;
+    -webkit-transition: background-color 55ms linear;
+    -moz-transition: background-color 55ms linear;
+    -o-transition: background-color 55ms linear;
+    -ms-transition: background-color 55ms linear;
+    transition: background-color 55ms linear;
+}
+
 #visualvm_other_downloads {
     padding-top: 4px;
     font-size: 11px;
