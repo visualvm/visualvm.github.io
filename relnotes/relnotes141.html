@@ -7,7 +7,7 @@ title: Release Notes
     <div class="centered_content">
         <h1>Release Notes</h1>
         <p class="description_first description_last2">
-            VisualVM 1.4.2 has been released on September 27th, 2018. This document describes changes introduced by this release.
+            VisualVM 1.4.1 has been released on April 25th, 2018. This document describes changes introduced by this release.
         </p>
 
         <a name="system_requirements"></a>
@@ -41,9 +41,11 @@ title: Release Notes
         <div>
             <h3>Features and Enhancements:</h3>
             <ul>
-                <li>Support for dark OS themes</li>
+                <li>Heap Viewer allows to compare heap dumps</li>
                 
-                <li>Full support for running on JDK 11 and monitoring/profiling Java 11 processes</li>
+                <li>Load Snapshot dialog uses All Supported Files filter by default</li>
+                
+                <li>Full support for running on JDK 10 and monitoring/profiling Java 10 processes</li>
             </ul>
 
             <!--h3>API Changes:</h3>
@@ -53,13 +55,23 @@ title: Release Notes
 
             <h3>Fixed Bugs:</h3>
             <ul>
-                <li><a href="https://github.com/oracle/visualvm/issues/86">GH-86</a>: Metaspace not recognized</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/51">GH-51</a>: StackOverflowError at Startup Profiler</li>
                 
-                <li><a href="https://github.com/oracle/visualvm/issues/96">GH-96</a>: Thread state is WAIT instead of PARK when monitoring Java 9+ application</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/52">GH-52</a>: A11Y - Keyboard navigation using Tab does not work</li>
 
-                <li><a href="https://github.com/oracle/visualvm/issues/102">GH-102</a>: Unreadable text in GNOME default dark theme</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/53">GH-53</a>: Configurable OQL results limit</li>
 
-                <li><a href="https://github.com/oracle/visualvm/issues/103">GH-103</a>: Incorrect main class for application started from JDK 9+ module</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/54">GH-54</a>: A11Y - Filter & Find actions not accessible using keyboard shortcuts</li>
+                
+                <li><a href="https://github.com/oracle/visualvm/issues/55">GH-55</a>: Make thread view collapsable in heapViewer</li>
+                
+                <li><a href="https://github.com/oracle/visualvm/issues/57">GH-57</a>: Why has the "compare to another heap dump" feature disappeared</li>
+                
+                <li><a href="https://github.com/oracle/visualvm/issues/59">GH-59</a>: Provide All Files file filter in File | Load</li>
+
+                <li><a href="https://github.com/oracle/visualvm/issues/62">GH-62</a>: OQL engine not available</li>
+                
+                <li><a href="https://github.com/oracle/visualvm/issues/73">GH-73</a>: VisualVM 1.4 refuses to launch under JDK 10</li>
             </ul>
             
         </div>
