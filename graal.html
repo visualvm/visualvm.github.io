@@ -8,24 +8,33 @@ title: Graal VisualVM
         <h1>Graal VisualVM</h1>
 
         <p class="description_first">
-            Starting from Oracle JDK 9, Java VisualVM has moved to the <a href="http://www.oracle.com/technetwork/oracle-labs/program-languages/overview/index.html">GraalVM</a>, an innovative, high-performance polyglot VM developed at Oracle Labs. Similar to Java VisualVM, Graal VisualVM is a stable tool built on top of the VisualVM and tested with the concrete GraalVM release.
+            Starting from Oracle JDK 9, Java VisualVM has moved to the <a href="https://www.graalvm.org">GraalVM</a>, an innovative, high-performance polyglot VM developed at Oracle Labs. Similar to Java VisualVM, Graal VisualVM is a stable tool built on top of the VisualVM and tested with the concrete GraalVM release.
         </p>
         
         <p>
-            Graal VisualVM adds a special support for the GraalVM features, like recognizing live GraalVM processes, and analyzing applications at the guest language level (Heap Viewer). Currently JavaScript, Python, Ruby and R languages are supported.
+            Graal VisualVM adds a special support for the GraalVM features, like recognizing live GraalVM processes, and analyzing applications at the guest language level (Graal Sampler, Heap Viewer). Currently JavaScript, Python, Ruby and R languages are supported. Graal VisualVM is also able to perform basic monitoring of native-image processes.
         </p>
         
         <p>
-            GraalVM with Graal VisualVM can be downloaded from the <a href="http://www.oracle.com/technetwork/oracle-labs/program-languages/downloads/index.html">Oracle Technology Network</a>. Similar to Java VisualVM, Graal VisualVM can be started using <code>&lt;graalvm_home&gt;/bin/jvisualvm</code>.
+            Graal VisualVM is bundled with both GraalVM CE and GraalVM EE, which can be downloaded <a href="https://www.graalvm.org/downloads">here</a>. Similar to Java VisualVM, Graal VisualVM can be started using <code>&lt;graalvm_home&gt;/bin/jvisualvm</code> or <code>&lt;graalvm_home&gt;\bin\jvisualvm.exe</code>.
         </p>
         
         <p>
-            <center><img style="max-width: 90%; height: auto; width: auto\9; margin-top: 20px;" src="{{ '/images/graal_screenshot.png' | prepend: site.baseurl }}"/></center>
-            <center><small><i>Graal VisualVM Heap Viewer displaying Ruby heap</i></small></center>
+            <center><img style="max-width: 90%; height: auto; width: auto\9; margin-top: 20px;" src="{{ '/images/graal_sampler.png' | prepend: site.baseurl }}"/></center>
+            <center><small><i>Graal VisualVM CPU Sampler attached to a Ruby process</i></small></center>
         </p>
         
-        <p class="description_first description_last">
-            The Polyglot engine of the GraalVM allows the execution and interoperability of language interpreters for additional programming languages, including JavaScript, Python, Ruby, R, and LLVM. <a href="http://www.oracle.com/technetwork/oracle-labs/program-languages/polyglot/index.html">Learn more.</a>
+        <p>
+            <center><img style="max-width: 90%; height: auto; width: auto\9; margin-top: 20px;" src="{{ '/images/graal_heapviewer.png' | prepend: site.baseurl }}"/></center>
+            <center><small><i>Graal VisualVM Heap Viewer displaying Ruby process heap overview</i></small></center>
+        </p>
+        
+        <p class="description_first">
+            GraalVM is a universal virtual machine for running applications written in JavaScript, Python, Ruby, R, JVM-based languages like Java, Scala, Kotlin, Clojure, and LLVM-based languages such as C and C++.
+        </p>
+        
+        <p class="description_last">
+            GraalVM removes the isolation between programming languages and enables interoperability in a shared runtime. It can run either standalone or in the context of OpenJDK, Node.js, Oracle Database, or MySQL. <a href="https://www.graalvm.org/docs/why-graal">Learn more.</a>
         </p>
         
     </div>
