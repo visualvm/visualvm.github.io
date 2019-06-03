@@ -9,11 +9,15 @@ css: /css/download.css
         <h1>Download</h1>
 
         <p class="description_first">
-            VisualVM comes in two distributions: VisualVM at GitHub and Java VisualVM as a JDK tool. VisualVM at GitHub is a bleeding-edge distribution with the latest features. To get a stable tool, use the <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/visualvm/">Java VisualVM</a> available in your <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Oracle JDK 8</a>.
+            There are two official VisualVM distributions: VisualVM at GitHub and Graal VisualVM bundled with the GraalVM.
+        </p>
+        
+        <p>
+            VisualVM at GitHub is a bleeding-edge tool running on and supporting any Java. Graal VisualVM is a stable tool running on GraalVM and supporting any Java. Learn more about <a href="{{ '/graal.html' | prepend: site.baseurl }}">Graal VisualVM</a>.
         </p>
         
         <p class="description_last">
-            NEW: Starting from Oracle JDK 9, Java VisualVM has moved to the <a href="https://www.graalvm.org">GraalVM</a>, an innovative, high-performance polyglot VM developed at Oracle Labs. See the <a href="{{ '/graal.html' | prepend: site.baseurl }}">Graal VisualVM</a> page for details.
+            VisualVM has also been distributed in Oracle JDK 6~8 as <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/visualvm/">Java VisualVM</a>. It has been discontinued in Oracle JDK 9.
         </p>
 
         <center>
@@ -22,18 +26,18 @@ css: /css/download.css
                     <td class="whiterounded">
                         <div style="background-image: url('{{ '/images/testlogo.png' | prepend: site.baseurl }}');">
                             <h3>Binaries:</h3>
-                            <p class="download_main" style="padding-top: 10px;"><a id="link_download_main" href="https://github.com/visualvm/visualvm.src/releases/download/1.4.2/visualvm_142.zip" onclick="ga('send', 'event', 'Download MAIN 1.4.2');"><b>VisualVM 1.4.2</b></a> <span>(.zip, 14.9 MB)</span></p>
-                            <!--p><a id="link_download_ml" href="https://github.com/visualvm/visualvm.src/releases/download/1.4.2/visualvm_142-ml.zip" onclick="ga('send', 'event', 'Download ML 1.4.2');">Multi-language</a> <span>(.zip, xx.x MB, English / 日本語 / 简体中文)</span></p-->
-                            <p style="padding-bottom: 15px;"><a id="link_download_dmg" href="https://github.com/visualvm/visualvm.src/releases/download/1.4.2/VisualVM_142.dmg" onclick="ga('send', 'event', 'Download DMG 1.4.2');">Mac OS X Application Bundle</a> <span>(.dmg, 16.4 MB)</span></p>
+                            <p class="download_main" style="padding-top: 10px;"><a id="link_download_main" href="https://github.com/visualvm/visualvm.src/releases/download/1.4.3/visualvm_143.zip" onclick="ga('send', 'event', 'Download MAIN 1.4.3');"><b>VisualVM 1.4.3</b></a> <span>(.zip, 14.9 MB)</span></p>
+                            <!--p><a id="link_download_ml" href="https://github.com/visualvm/visualvm.src/releases/download/1.4.3/visualvm_143-ml.zip" onclick="ga('send', 'event', 'Download ML 1.4.3');">Multi-language</a> <span>(.zip, xx.x MB, English / 日本語 / 简体中文)</span></p-->
+                            <p style="padding-bottom: 15px;"><a id="link_download_dmg" href="https://github.com/visualvm/visualvm.src/releases/download/1.4.3/VisualVM_143.dmg" onclick="ga('send', 'event', 'Download DMG 1.4.3');">Mac OS X Application Bundle</a> <span>(.dmg, 16.4 MB)</span></p>
                         </div>
                     </td>
 
                     <td>
                         <div style="padding: 20px; padding-left: 30px; font-size: 13px;">
-                            <h3>More:</h3>
+                            <h3>Other Downloads:</h3>
                             <p><a href="{{ '/idesupport.html' | prepend: site.baseurl }}">IDE Integrations</a></p>
                             <p><a href="{{ '/pluginscenters.html' | prepend: site.baseurl }}">Plugins Offline</a></p>
-                            <p><a href="{{ '/releases.html' | prepend: site.baseurl }}">Other Releases</a></p>
+                            <p><a href="{{ '/releases.html' | prepend: site.baseurl }}">Previous Releases</a></p>
                         </div>
                     </td>
                 </tr>
@@ -62,8 +66,9 @@ css: /css/download.css
 
                                 <td class="downloads_news">
                                     <h3>What's New:</h3>
-                                    <p>Full support for Java 11<br>
-                                    Support for dark OS themes<br>
+                                    <p>
+                                        Full support for Java 12<br>
+                                        PID in custom 'visualvm.display.name'<br>
                                     </p>
                                 </td>
                             </tr>

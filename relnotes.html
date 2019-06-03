@@ -7,7 +7,7 @@ title: Release Notes
     <div class="centered_content">
         <h1>Release Notes</h1>
         <p class="description_first description_last2">
-            VisualVM 1.4.2 has been released on September 27th, 2018. This document describes changes introduced by this release.
+            VisualVM 1.4.3 has been released on June 3rd, 2019. This document describes changes introduced by this release.
         </p>
 
         <a name="system_requirements"></a>
@@ -41,25 +41,39 @@ title: Release Notes
         <div>
             <h3>Features and Enhancements:</h3>
             <ul>
-                <li>Support for dark OS themes</li>
+                <li>Full support for running on JDK 12 and monitoring/profiling Java 12 processes</li>
                 
-                <li>Full support for running on JDK 11 and monitoring/profiling Java 11 processes</li>
+                <li>Custom application display names configured using 'visualvm.display.name' can contain the PID</li>
+                
+                <li>Number of minor UI and functional improvements and fixes</li>
             </ul>
 
-            <!--h3>API Changes:</h3>
+            <h3>API Changes:</h3>
             <ul>
-                <li>Compatible: <code>com.sun.tools.visualvm.core.snapshot.Snapshot.computeSnapshotID()</code> added</li>
-            </ul-->
+                <li>Compatible: <code>com.sun.tools.visualvm.core.datasupport.Utils.encodePassword(char[])</code> added</li>
+                
+                <li>Compatible: <code>com.sun.tools.visualvm.core.datasupport.Utils.decodePassword(char[])</code> added</li>
+            </ul>
 
             <h3>Fixed Bugs:</h3>
             <ul>
-                <li><a href="https://github.com/oracle/visualvm/issues/86">GH-86</a>: Metaspace not recognized</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/89">GH-89</a>: Also display PID if application specifies a custom display name</li>
                 
-                <li><a href="https://github.com/oracle/visualvm/issues/96">GH-96</a>: Thread state is WAIT instead of PARK when monitoring Java 9+ application</li>
-
-                <li><a href="https://github.com/oracle/visualvm/issues/102">GH-102</a>: Unreadable text in GNOME default dark theme</li>
-
-                <li><a href="https://github.com/oracle/visualvm/issues/103">GH-103</a>: Incorrect main class for application started from JDK 9+ module</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/104">GH-104</a>: NullPointerException when launching a JUnit4 test with coverage</li>
+                
+                <li><a href="https://github.com/oracle/visualvm/issues/109">GH-109</a>: Page up, page down keys do not work properly in tree tables</li>
+                
+                <li><a href="https://github.com/oracle/visualvm/issues/110">GH-110</a>: java.lang.IllegalArgumentException: JViewport.setBorder() not supported</li>
+                
+                <li><a href="https://github.com/oracle/visualvm/issues/111">GH-111</a>: Heapdump cache files not deleted</li>
+                
+                <li><a href="https://github.com/oracle/visualvm/issues/120">GH-120</a>: Eclipse VisualVM launcher does not accept JDK 10</li>
+                
+                <li><a href="https://github.com/oracle/visualvm/issues/122">GH-122</a>: Left/right scrolling to switch tabs is annoying</li>
+                
+                <li><a href="https://github.com/oracle/visualvm/issues/123">GH-123</a>: NoClassDefFoundError: java/sql/Timestamp</li>
+                
+                <li><a href="https://github.com/oracle/visualvm/issues/130">GH-130</a>: VisualVM not launching with Java 12</li>
             </ul>
             
         </div>

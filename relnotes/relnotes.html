@@ -1,0 +1,84 @@
+---
+layout: visualvm_base_layout
+title: Release Notes
+---
+
+<div class="content_main">
+    <div class="centered_content">
+        <h1>Release Notes</h1>
+        <p class="description_first description_last2">
+            VisualVM 1.4.2 has been released on September 27th, 2018. This document describes changes introduced by this release.
+        </p>
+
+        <a name="system_requirements"></a>
+        <h2>System Requirements</h2>
+        <div>
+            <h3>Supported OS:</h3>
+            <ul>
+                <li>Microsoft Windows (10, 8, 7, Vista, Server): 32bit &amp; 64bit</li>
+
+                <li>Linux: Intel platform, 32bit &amp; 64bit</li>
+
+                <li>Linux ARM HFLT (Raspberry Pi), JDK 8+ only</li>
+
+                <li>Mac OS X: Intel platform, 64bit</li>
+            </ul>
+
+
+            <h3>Required Software:</h3>
+            <ul>
+                <li>Oracle JDK 8+</li>
+
+                <li>OpenJDK 8+</li>
+            </ul>
+
+        </div>
+        
+        <hr class="textsect">
+
+        <a name="changes"></a>
+        <h2>Changes</h2>
+        <div>
+            <h3>Features and Enhancements:</h3>
+            <ul>
+                <li>Support for dark OS themes</li>
+                
+                <li>Full support for running on JDK 11 and monitoring/profiling Java 11 processes</li>
+            </ul>
+
+            <!--h3>API Changes:</h3>
+            <ul>
+                <li>Compatible: <code>com.sun.tools.visualvm.core.snapshot.Snapshot.computeSnapshotID()</code> added</li>
+            </ul-->
+
+            <h3>Fixed Bugs:</h3>
+            <ul>
+                <li><a href="https://github.com/oracle/visualvm/issues/86">GH-86</a>: Metaspace not recognized</li>
+                
+                <li><a href="https://github.com/oracle/visualvm/issues/96">GH-96</a>: Thread state is WAIT instead of PARK when monitoring Java 9+ application</li>
+
+                <li><a href="https://github.com/oracle/visualvm/issues/102">GH-102</a>: Unreadable text in GNOME default dark theme</li>
+
+                <li><a href="https://github.com/oracle/visualvm/issues/103">GH-103</a>: Incorrect main class for application started from JDK 9+ module</li>
+            </ul>
+            
+        </div>
+        
+        <hr class="textsect">
+
+        <a name="known_problems"></a>
+        <h2>Known Problems</h2>
+        <div>
+            <ul>
+                <li><u>NetBeans Issue 245522</u>: Instrumented CPU profiling fails on JDK7u65 with -target >=1.7</li>
+
+                <li><u>Java.net Issue 148</u>: VisualVM hangs when lost remote connection</li>
+
+                <li><u>Java.net Issue 120</u>: JMX application datasource cannot be reused on application restart</li>
+            </ul>
+
+            <p>To view all known problems please see the <a href="https://github.com/oracle/visualvm/issues">VisualVM Issues</a> page.</p>
+        </div>
+            
+    </div>
+</div>
