@@ -7,7 +7,7 @@ title: Release Notes
     <div class="centered_content">
         <h1>Release Notes</h1>
         <p class="description_first description_last2">
-            VisualVM 1.4 has been released on December 12th, 2017. This document describes changes introduced by this release.
+            VisualVM 1.4.2 has been released on September 27th, 2018. This document describes changes introduced by this release.
         </p>
 
         <a name="system_requirements"></a>
@@ -41,37 +41,25 @@ title: Release Notes
         <div>
             <h3>Features and Enhancements:</h3>
             <ul>
-                <li>CPU Sampler and Profiler display live call trees, delta results, selected threads, and many other improvements</li>
+                <li>Support for dark OS themes</li>
                 
-                <li>Memory Profiler allows profiling of defined classes, displays delta results</li>
-                
-                <li>Introducing a lightweight JDBC profiler for monitoring SQL commands executed by a Java process</li>
-
-                <li>Heap Viewer is the new .hprof heap dumps viewer in VisualVM with a lot of improvements over the original HeapWalker</li>
-                
-                <li>Colored classes/methods in Sampler, Profiler and Heap Viewer views based on user-defined filters</li>
-
-                <li>Full support for running on JDK 9 and monitoring/profiling Java 9 processes</li>
-
-                <li>Built on NetBeans Platform & profiler 9.0-dev</li>
+                <li>Full support for running on JDK 11 and monitoring/profiling Java 11 processes</li>
             </ul>
 
-            <h3>API Changes:</h3>
+            <!--h3>API Changes:</h3>
             <ul>
                 <li>Compatible: <code>com.sun.tools.visualvm.core.snapshot.Snapshot.computeSnapshotID()</code> added</li>
-            </ul>
+            </ul-->
 
             <h3>Fixed Bugs:</h3>
             <ul>
-                <li><a href="https://github.com/oracle/visualvm/issues/3">GH-3</a>: MBeans plugin doesn't repaint window</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/86">GH-86</a>: Metaspace not recognized</li>
                 
-                <li><a href="https://github.com/oracle/visualvm/issues/7">GH-7</a>: NullPointerException when starting with eclipse Launcher</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/96">GH-96</a>: Thread state is WAIT instead of PARK when monitoring Java 9+ application</li>
 
-                <li><a href="https://github.com/oracle/visualvm/issues/14">GH-14</a>: Can not save snapshots of profiler or sampler when multiple users run VisualVM on the same Machine</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/102">GH-102</a>: Unreadable text in GNOME default dark theme</li>
 
-                <li><a href="https://github.com/oracle/visualvm/issues/31">GH-31</a>: "Peform GC"</li>
-
-                <li><a href="https://github.com/oracle/visualvm/issues/38">GH-38</a>: Profile and Profiler Snapshot actions always disabled</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/103">GH-103</a>: Incorrect main class for application started from JDK 9+ module</li>
             </ul>
             
         </div>
