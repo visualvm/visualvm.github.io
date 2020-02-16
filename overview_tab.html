@@ -1,0 +1,54 @@
+---
+layout: visualvm_stretch_layout
+title: Viewing Application Overview
+docfile: overview_tab.html
+sitemap: false
+---
+
+<div class="content_main stretch_container">
+    <div class="centered_content stretch_container">
+        
+        <div class="stretch_first"></div>
+        
+        <h1>Viewing Application Overview</h1>
+        <hr />
+        <p>VisualVM presents data for local and remote applications in a tab specific for that application.
+        When you open an application in VisualVM, each application opens in a new tab in the main window.
+        You can have multiple application tabs open.</p>
+        <p>The Overview tab is opened by default when viewing application data for 
+        <a href="applications_local.html">local applications</a> and <a href="applications_remote.html">remote applications</a>.</p>
+        
+        <img src="{{ '/images/overview.png' | prepend: site.baseurl }}" style="border:1px solid;" alt="screenshot of Overview tab" 
+        title="screenshot of Overview tab" />
+        
+
+        <h3>Overview</h3>
+        <p>The Overview tab displays the following general information about the application and the runtime environment.</p>
+        <ul>
+            <li><b>PID.</b> This is the process ID of the application. The process ID is also displayed next to the 
+            application node in the Applications window.</li>
+            <li><b>Host.</b> This is the location of the system that the application is running on.</li>
+            <li><b>Main class.</b> The class containing the <tt>main</tt> method.</li>
+            <li><b>Arguments.</b> Displays any options passed to the application on startup.</li>
+            <li><b>JVM.</b> This is the JDK version of the JVM software.</li>
+            <li><b>Java Home.</b> This is the location of the JDK software.</li>
+            <li><b>JVM flags.</b> This displays any  flags used by the JVM software when starting the JDK.</li>
+            <li><b>Heap dump on OOME.</b> This displays the status of the Heap Dump on OOME option.
+            When enabled, a heap dump is taken when the application encounters an OutOfMemory exception.
+            You can enabled or disable the option in the application popup menu.</li>
+        </ul>
+        
+        <h3>Saved Data</h3>
+        <p>This sub-tab displays application information that VisualVM has stored about the application.</p>
+        
+        <h3>JVM Software Arguments.</h3> 
+        <p>This sub-tab displays information about arguments passed to the JVM software on application startup.</p>
+        
+        <h3>System Properties</h3>
+        <p>This sub-tab displays information about the system that the JVM software is running on.</p>
+
+        <hr/>
+        <p><a href="{{ '/documentation.html' | prepend: site.baseurl }}">Return to the VisualVM Documentation index</a></p>
+
+    <div class="stretch_last"></div>
+</div>

@@ -1,0 +1,92 @@
+---
+layout: visualvm_stretch_layout
+title: Connecting to  JMX Agents Explicitly
+docfile: jmx_connections.html
+sitemap: false
+---
+
+<div class="content_main stretch_container">
+    <div class="centered_content stretch_container">
+        
+        <div class="stretch_first"></div>
+        
+        <h1>Connecting to  JMX Agents Explicitly </h1>
+        <hr />
+        <p>Java Management Extensions (JMX)  technology can be used to monitor and manage any Java technology-based applications (Java applications) that are running in either a local or a remote Java Virtual Machine (JVM). Java applications are automatically exposed for monitoring and management by JMX agents  if they are run on the Java platform, Standard Edition (Java SE platform) version 6. If the Java applications are  running on the Java 2 platform, Standard Edition (J2SE platform) 5.0, you can expose them manually for monitoring and management  by setting the  <span class="style1">com.sun.management.jmxremote.*</span> system properties  when the applications are launched. Setting these system properties, or running your applications on version 6 of the Java SE platform, enables the platform's <em>out-of-the-box</em> monitoring and management capability, automatically enabling the platform MBean server in the JVM software, and registering MBeans in it that expose the application for management by any appropriately configured JMX client application. VisualVM is one such JMX client application. </p>
+        <blockquote>
+        <p>	<strong>NOTE</strong>: For a very brief introduction to JMX technology, MBeans, the platform MBean server, and how to monitor and manage MBeans using VisualVM, see the <a href="mbeans_tab.html">VisualVM MBeans Tab</a> page. For an introduction to the Java SE platform's out-of-the-box monitoring and management capability, see <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/management/agent.html"><em>Monitoring and Management Using JMX Technology</em></a> in the <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/management/toc.html">Java SE Platform Monitoring and Management Guide</a>.</p>
+        </blockquote>
+        <h2>When Are Explicit JMX Connections Necessary? </h2>
+        <p>As stated above, VisualVM will automatically detect and connect to Java applications that are running on version 6 of the Java SE platform or that have been started with the correct system properties on version 5.0. However, because there are  cases in which VisualVM cannot automatically discover and connect to  
+        JMX agents that are running in a target Java application, a means of creating explicit JMX connections has also been added to VisualVM. </p>
+        <p>The circumstances in which VisualVM will not automatically discover  JMX agents, and thus the Java applications they expose, are the following:</p>
+        <ul>
+        <li>The target application is running on the J2SE 5.0 platform and the&nbsp; <span class="style1">-Dcom.sun.management.jmxremote*</span> properties have not&nbsp; been specified. </li>
+        <li>The target application is running on the same host as VisualVM but was started by a different user than the one who started VisualVM. VisualVM discovers running applications using the <a href="https://docs.oracle.com/javase/8/docs/technotes/tools/unix/jps.html" class="style1">jps</a> tool,  which can only discover Java applications started by&nbsp; the same user as the one who starts the VisualVM tool. </li>
+        <li>The target application is running on a remote host where <a href="https://docs.oracle.com/javase/8/docs/technotes/tools/unix/jstatd.html" class="style1">jstatd</a> is not running or is running but was started by a different user. The <span class="style1">jstatd</span> daemon provides an interface that allows remote monitoring applications to connect to Java applications on the host where it is running. </li>
+        </ul>
+        <h2>Making an Explicit JMX Connection  </h2>
+        <p>Before you can make an explicit JMX connection from VisualVM to a running application, this application must be started with the correct system properties. The system properties in question are the following:</p>
+        <ul>
+        <li><code>com.sun.management.jmxremote.port</code>, to specify the port number through which the application will be exposed </li>
+        <li><code>com.sun.management.jmxremote.ssl</code>, to specify whether secure sockets layer (SSL) encryption will be activated to secure the connection to the application </li>
+        <li><code>com.sun.management.jmxremote.authenticate</code>, to specify whether the connection will be password protected</li>
+        </ul>
+        <h3>Local JMX Connections</h3>
+        <p>This section shows an example of how to connect VisualVM to a local application via an explicit JMX connection.</p>
+        <ol>
+        <li>Start a Java  application on the J2SE platform version 5.0, setting the system properties to enable the Java SE platform's out-of-the-box monitoring and management capability, using the command shown below:
+            <pre>java -Dcom.sun.management.jmxremote.port=3333 \
+            -Dcom.sun.management.jmxremote.ssl=false \
+            -Dcom.sun.management.jmxremote.authenticate=false \
+            <em>YourJavaApp</em></pre>
+            In the command above,  <span class="style1"><em>YourJavaApp</em></span> is launched with the Java SE platform's out-of-the-box monitoring and management capability configured as follows:
+        
+            <ul>
+        <li>The Notepad application is exposed for monitoring and management via port 3333.</li>
+        <li>SSL encryption is deactivated.</li>
+        <li>Password authentication is deactivated.  </li>
+        </ul> 
+        </li>
+        <li>Start VisualVM on the same machine. </li>
+        <li>In VisualVM's Applications window, right click on the Local machine and select 'Add JMX Connection'. 
+            <p><img src="{{ '/images/add-jmx-local.png' | prepend: site.baseurl }}" alt="Adding a JMX connection to the local host."/></li>
+        <li>The   Add JMX Connection dialog box opens.
+            <p><img src="{{ '/images/add-jmx-connection-dialog.png' | prepend: site.baseurl }}" alt="The Add JMX Connection dialog." width="438" height="301" />
+        <p>The host name <span class="style1">localhost</span> is already filled in. You only need to add the port number on which the  application is exposed for monitoring and management.</li>
+        <li>Click OK. The JMX connection will appear in the application tree, with a special JMX connection icon. 
+            <p><img src="{{ '/images/jmx-icon.png' | prepend: site.baseurl }}" alt="A JMX connection to the local host machine." width="285" height="191" /></li>
+        <li>Right click on the JMX connection, and select Open. The JVM software exposed via the JMX connection can now be monitored and managed via VisualVM. 
+            <p><img src="{{ '/images/jmx-connection-rhpanel.png' | prepend: site.baseurl }}" alt="Monitoring an application via a JMX connection." width="607" height="485" /></li>
+        </ol>
+        <h3>Remote JMX Connections</h3>
+        <p>You can also make explicit JMX connections to applications running on remote hosts, as explained below:</p>
+        <ol>
+        <li>Right click anywhere in the blank area under the application tree and select Add JMX Connection.
+
+            <p><img src="{{ '/images/add-jmx-remote.png' | prepend: site.baseurl }}" alt="Adding a JMX connection to a remote application." width="285" height="247" />      </li>
+        <li>Provide the machine name and port number for a running JMX agent, that has been started with the appropriate system properties to allow remote management.
+        Here the JMX agent has been exposed on port 2222 of the machine <span class="style1">curcuma</span>.
+        <p><img src="{{ '/images/add-jmx-remote2.png' | prepend: site.baseurl }}" alt="Adding a remote JMX connection." width="439" height="300" /> 
+        <p>If you know that the JMX agent has been protected with a username and password, enter them in the Add JMX Connection dialog and specify whether you want the credentials to be saved so <br />
+            that when VisualVM restarts it will silently reconnect to the JMX agent without prompting the user for the security credentials again.    </li>
+        <li>If the JMX connection is secured and you did not provide a username and password in the Add JMX Connection dialog, you will be prompted to provide a username and password.
+            <p><img src="{{ '/images/security-credentials.png' | prepend: site.baseurl }}" alt="JMX connector security credentials." width="405" height="167" /> </li>
+        <li>If you know the correct username and password, the JMX connection will be established, and the JMX connection will appear in the application tree, with a special JMX connection icon.
+        <p><img src="{{ '/images/remote-jmx-icon.png' | prepend: site.baseurl }}" alt="Remote JMX connection shown in application tree." width="285" height="224" /> </li>
+        <li>Right click on the remote JMX connection and select Open. You can now monitor and manage  remote applications via the JMX connection, and manipulate any MBeans that are registered in the MBean server exposed by this connection (note that the VisualVM-MBeans plugin must be installed if you want to access to the MBeans tab.)<br />
+        <p><img src="{{ '/images/remote-jmx-mbeans.png' | prepend: site.baseurl }}" alt="MBeans in a remote MBean server." width="604" height="482" /> </li>
+        </ol>
+        <h2>Further Reading About JMX Technology </h2>
+        <p>For more information about JMX technology and monitoring and management of the Java SE platform, see the following documents.</p>
+        <ul>
+        <li><a href="https://docs.oracle.com/javase/tutorial/jmx/index.html">JMX technology trail in the Java Tutorials</a></li>
+        <li><a target="_blank" href="https://docs.oracle.com/javase/8/docs/technotes/guides/jmx/index.html">JMX technology documentation for the Java SE platform</a></li>
+        <li><a target="_blank" href="https://docs.oracle.com/javase/8/docs/technotes/guides/management/">Monitoring and Management documentation for the Java SE Platform</a></li>
+        </ul>
+        <p>&nbsp;</p>
+        <hr/>
+        <p><a href="{{ '/documentation.html' | prepend: site.baseurl }}">Return to the VisualVM Documentation index</a></p>
+
+    <div class="stretch_last"></div>
+</div>

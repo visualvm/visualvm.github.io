@@ -1,6 +1,178 @@
 ---
-layout: visualvm_docviewer_layout
+layout: visualvm_stretch_layout
 title: Getting Started
 docfile: gettingstarted.html
 sitemap: false
 ---
+
+<div class="content_main stretch_container">
+    <div class="centered_content stretch_container">
+        
+        <div class="stretch_first"></div>
+        
+        <h1>Getting Started with VisualVM</h1>
+        <p>
+            <small>Note: this page is also available in <a href="ja/gettingstarted.html">Japanese <img src="{{ '/images/japanese.png' | prepend: site.baseurl }}" style="border: 0px; vertical-align: bottom;"/></a>,
+            <a href="zh_CN/gettingstarted.html">Simplified Chinese <img src="{{ '/images/simplified_chinese.png' | prepend: site.baseurl }}" style="border: 0px; vertical-align: bottom;"/></a> and
+            <a href="ko_KR/gettingstarted.html">Korean <img src="{{ '/images/korean.png' | prepend: site.baseurl }}"/></a>.</small>
+        </p>
+
+        <p>VisualVM provides detailed information about Java applications while they are running on the Java Virutal Machine (JVM). 
+        VisualVM's graphical user interface enables you to quickly and easily see information about multiple Java applications.</p>
+        
+        <p>This getting started guide should help you quickly get up and running with the VisualVM.
+        This guide will demonstrate how to install VisualVM and add functionality to the tool by installing a plugin from the VisualVM update center.
+        This guide will show you how to launch VisualVM and view some of the information you can get about an application running on local and remote JVMs.</p>
+        
+        <br>
+
+        <h3>VisualVM In Action</h3>
+        <p>See the VisualVM features in this short screencast:</p>
+        <p><iframe width="420" height="315" src="//www.youtube-nocookie.com/embed/z8n7Bg7-A4I" frameborder="0" allowfullscreen></iframe></p>
+
+        <br>
+        
+        <h3>Installing VisualVM</h3>
+        <ul>
+            <li>Download the VisualVM installer from the <a href="https://visualvm.github.io/">VisualVM project page</a>.</li>
+            <li>Extract the VisualVM installer to an empty directory on your local system.</li>
+        </ul>
+        
+        <a name="starting_visualvm"></a>
+        <h3>Starting VisualVM</h3>
+        <p>To start VisualVM on Windows, run the <code>visualvm.exe</code> program that is in the
+            <code>\bin</code> folder under the VisualVM install folder.  
+            On Unix or Linux use the visualvm shell script that is in the <code>/bin</code>
+            folder under the VisualVM install folder. You may specify the JDK which runs VisualVM
+            and/or user directory using command line parameters or by modifying <code>etc\visualvm.conf</code>
+            file. Example command for starting VisualVM with custom JDK and userdir on Windows is:
+        </p>
+        <p>
+          <pre>
+  visualvm.exe --jdkhome "C:\Software\Java\jdk1.6.0" --userdir "C:\Temp\visualvm_userdir"
+          </pre>
+        </p>
+
+        <h3>Using the Applications Window</h3>
+        <p>The main window of VisualVM opens when you launch the application.
+        By default, the Applications window is displayed in the left pane of the main window.
+        The Applications window enables you to quickly see the Java applications running on a local and remote JVMs.</p>
+        <img src="{{ '/images/vvm-anagram-applications.png' | prepend: site.baseurl }}" style="border:1px solid;" alt="screenshot of Applications window" 
+        title="screenshot of Applications window">
+        <p>The Applications window is the primary entry point for viewing further details about a particular application.
+        Right-clicking an application node opens the popup menu where you can choose to open the main application tab or take thread or heap dumps.</p>
+
+        <p>For more details about how to use the Applications window to view and save data about applications, see the following pages:</p>
+        <ul>
+            <li><a href="applications_window.html">Using the Applications Window</a></li>
+        </ul>
+
+        <h3>Browsing a Heap Dump</h3>
+        <p>VisualVM has a visualizer that enables you to easily browse heap dumps.
+        You can load an existing heap dump or take a snapshot of the heap for local running applications.</p>
+        
+        <p>To take a heap dump of a local application you can do either of the following:</p>
+        <ul>
+            <li>Right-click an application's node in the Applications window and choose Heap Dump.</li>
+            <li>Double-click the application node in the Applications window to open the application tab and click
+            Heap Dump in the Monitor tab.</li>
+        </ul>
+        <p>To open a saved heap dump, choose File &gt; Load from the main menu and locate the saved heap dump.</p>
+        
+        <p>To browse an open heap dump:</p>
+        <ol>
+            <li>Click Classes in the Heap Dump toolbar to view a list of the live classes and corresponding instances.</li>
+            <li>Double-click a class name to open the Instances view to view a list of the instances.</li>
+            <li>Select an instance from the list to view the references to that instance.</li>
+        </ol>
+        <img src="{{ '/images/vvm-anagram-heapdump.png' | prepend: site.baseurl }}" style="border:1px solid;" alt="screenshot of Instances tab of heap dump" 
+        title="screenshot of Instances tab of heap dump">
+        
+        <p>When you take a heap dump, VisualVM opens the heap dump in a new tab and creates a node for the heap dump under the application node
+        in the Applications window.
+        To save the generated heap dump, right-click the heap dump node and choose Save As.
+        If you do not explicitly save the generated heap dump, the dump will be deleted when the application closes.</p>
+
+        <p>For more information, see the following document:</p>
+        <ul>
+            <li><a href="heapdump.html">Browsing a Heap Dump</a></li>
+        </ul>
+
+        <h3>Profiling an Application</h3>
+        <p>VisualVM includes a profiler that enables you to profile applications running on a local JVM.
+        You access the profiling controls in the Profiler tab of the application tab.
+        The profiler enables you to analyze memory usage and CPU performance of local applications.<br/>
+        <b>Note.</b> To profile an application running on JDK 6, you need to turn off class sharing for the application otherwise the application may crash.
+        To turn off class sharing, start the application with <tt>-Xshare:off</tt> argument.</p>
+        
+        <ol>
+            <li>Launch a local Java application. (Start the application with the <tt>-Xshare:off</tt> argument.)</li>
+            <li>Under the Local node in the Applications window, right-click the application node and choose Open to open the application tab.</li>
+            <li>Click the Profiler tab in the application tab.</li>
+            <li>Click Memory or CPU in the Profiler tab.
+            <p>When you choose a profiling task, VisualVM displays the profiling data in the Profiler tab.</p>
+            </li>
+        </ol>
+        <img src="{{ '/images/vvm-anagram-profiler.png' | prepend: site.baseurl }}" style="border:1px solid;" alt="screenshot of profier tab with profiling results" 
+        title="Screenshot showing the profiling results when analyzing memory allocation">
+
+      
+        <p>For more information about profiling using VisualVM, see the following document:</p>
+        <ul>
+            <li><a href="profiler.html">Profiling an Application</a></li>
+        </ul>
+      
+        <h3>Connecting to a Remote Host</h3>
+        <p>VisualVM enables you to easily monitor applications running on remote hosts and view general data about the remote system. 
+        To view information about applications on remote hosts, you must first connect to the remote host.
+        Connected remote hosts are listed below the Remote node in the Applications window.
+        Expand the remote host node to view the applications running on the remote host.</p>
+        <p>To retrieve data from a remote application, the <tt>jstatd</tt> utility needs to be running on the remote JVM.
+        For more information on how to start <tt>jstatd</tt>, see <a href="https://docs.oracle.com/javase/8/docs/technotes/tools/unix/jstatd.html">jstatd - Virtual Machine jstat Daemon</a>.
+        You cannot profile applications running on a remote host.</p>
+        <ol>
+            <li>Right-click Remote in the Applications window and choose Add Remote Host.</li>
+            <li>In the Add Remote Host dialog box, type the host name or IP address of the remote machine.</li>
+            <li>(Optional) Type a display name for the remote host. This name is displayed in the Applications window.
+            If no display name is entered, the host name is used to identify the remote host in the Applications window.</li>
+            <li>Click OK.</li>
+        </ol>
+        <p>When you click OK, a node for the remote host appears under the Remote node. 
+        Expand the remote host node to see the Java applications that are running on the remote host.</p>
+        <p>You can double-click on the name of the remote applications to open the application tab in VisualVM.</p>
+        <img src="{{ '/images/vvm-applications-remote.png' | prepend: site.baseurl }}" style="border:1px solid;" alt="screenshot of Applications window with remote hosts" 
+        title="Screenshot of Applications window with remote hosts">
+
+        <p>For more information, see the following document:</p>
+        <ul>
+            <li><a href="applications_remote.html">Working with Remote Applications</a></li>
+        </ul>
+
+        <h3>Installing VisualVM Plugins</h3>
+        <p>You can add functionality to VisualVM by installing plugins available from the VisualVM update center.
+        For example, installing the VisualVM-MBeans plugin adds an MBeans tab to the application tab 
+        that enables you to <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/management/jconsole.html#gdeap">monitor and manage MBeans</a> 
+        from within VisualVM.</p>
+        <p><b>To install a VisualVM plugin:</b></p>
+        <ol>
+            <li>Choose Tools &gt; Plugins from the main menu.</li>
+            <li>In the Available Plugins tab, select the Install checkbox for the plugin. Click Install.</li>
+            <li>Step through and complete the plugin installer.<br/>
+        </ol>        
+        <img src="{{ '/images/vvm-plugins-window.png' | prepend: site.baseurl }}" alt="screenshot of Plugins window" 
+        title="Screenshot of Plugins window">
+        <p class="small">Screenshot of Plugin manager with the VisualVM-MBeans plugin selected.</p>
+
+        <h2>Additional VisualVM Documentation</h2>
+        <p>This document introduces some of the features of VisualVM.
+        VisualVM is designed to be an intuitive visual interface that enables you to 
+        easily explore information about Java applications running on local and remote JVMs. 
+        For more detailed information about working with VisualVM features, see the following documents:</p>
+        <ul>
+            <li><a href="{{ '/documentation.html' | prepend: site.baseurl }}">VisualVM Documentation and Resources</a>.</li>
+        </ul>
+        
+    </div>
+
+    <div class="stretch_last"></div>
+</div>

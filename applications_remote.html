@@ -1,6 +1,68 @@
 ---
-layout: visualvm_docviewer_layout
+layout: visualvm_stretch_layout
 title: Working with Remote Applications
 docfile: applications_remote.html
 sitemap: false
 ---
+
+<div class="content_main stretch_container">
+    <div class="centered_content stretch_container">
+        
+        <div class="stretch_first"></div>
+        
+        <h1>Working with Remote Applications</h1>
+        <hr />
+        <p>VisualVM is able to access and display data about applications running on remote hosts.
+        After connecting to a remote host, VisualVM can display general data about the application's runtime environment
+        and can monitor memory heap and thread activity.</p>
+        <p><b>Note.</b> VisualVM can retrieve monitoring information on remote applications but it cannot 
+        profile remote applications. </p>
+
+        <h3>Connecting to a Remote Host</h3>
+        <p>Connected remote hosts are displayed as nodes under the Remote node in the Applications window.
+        When you are connected to a remote host, VisualVM displays applications running on the host as sub-nodes,
+        and automatically updates the status of the remote applications, removing the applications when they
+        stop and adding applications when they start.</p>
+        
+        <p>To add a remote host, right-click the Remote node in the Applications window, choose Add Remote Host and type the host name or IP address in the Add Remote Host dialog box.
+        (You can also specify a display name that will be used to refer to the host when listed under the Remote node.)</p> 
+        <img src="{{ '/images/add-remote1.png' | prepend: site.baseurl }}" style="border:1px solid;" alt="Add Remote Host dialog box" 
+        title="Add Remote Host dialog box" />
+        <p><b>Note:</b> To retrieve and display information on applications running on the remote host, the <tt>jstatd</tt> utility
+        needs to be running on the remote host.
+        To start the <tt>jstatd</tt> utility, type jstatd on the command line.
+        The <tt>jstatd</tt> utility is included as part of Java Development Kit (JDK) version 6.
+        For more on <tt>jstatd</tt>, see the following document:</p> 
+        <ul><li><a href="https://docs.oracle.com/javase/8/docs/technotes/tools/share/jstatd.html">jstatd - Virtual Machine jstat Daemon</a></li></ul>
+       
+        <p>When VisualVM is connected to a remote host, a node for the remote host appears under the Remote node
+        in the Applications window. 
+        You can expand the remote host node to view the applications running on the remote host.</p>
+        <img src="{{ '/images/remote-applications-glassfish.png' | prepend: site.baseurl }}" style="border:1px solid;" alt="Remote node in Applications window" 
+        title="Remote node in Applications window showing application running on remote host" />
+            
+            
+        <h3>Viewing Application Data</h3>
+        <p>VisualVM displays data about each running remote application in a dedicated tab in the main window.
+        To open the application tab, right-click the application node in the Applications window and choose Open.
+        (Alternatively, you can double-click the application node.)
+        When you click Open, the Overview tab of the application tab opens in the main window.</p>
+        
+        <img src="{{ '/images/remote-overview.png' | prepend: site.baseurl }}" style="border:1px solid;" alt="Overview tab of remote application" 
+        title="Overview tab of remote application" />
+       
+        <p>You can use the sub-tabs in the application tab to view details about the application.<br/>
+        For more see the following documents:</p>
+        <ul>
+            <li><a href="overview_tab.html">Viewing Application Overview</a></li>
+            <li><a href="monitor_tab.html">Monitoring an Application</a></li>
+            <li><a href="threads.html">Monitoring Application Threads</a></li>
+            <li><a href="jmx_connections.html">Connecting to JMX Agents Explicitly</a></li>
+        </ul>
+        
+
+        <hr/>
+        <p><a href="{{ '/documentation.html' | prepend: site.baseurl }}">Return to the VisualVM Documentation index</a></p>
+
+    <div class="stretch_last"></div>
+</div>

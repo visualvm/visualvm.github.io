@@ -1,0 +1,48 @@
+---
+layout: visualvm_stretch_layout
+title: Working with Core Dumps in VisualVM
+docfile: coredumps.html
+sitemap: false
+---
+
+<div class="content_main stretch_container">
+    <div class="centered_content stretch_container">
+        
+        <div class="stretch_first"></div>
+        
+        <h1>Working with Core Dumps</h1>
+        <p>When you start VisualVM, the Applications window is visible in the left of the VisualVM window.
+        The Applications window enables you to quickly view running local and remote applications. 
+        The Applications also displays core dumps and profiling snapshots saved to your local system.</p>
+        
+        <p>The Core Dump node is visible in the Applications window if VisualVM is running on Solaris or Linux.
+        Generally, VisualVM can only open a core dump if the core dump was taken on the same machine.
+        A core dump contains informaton on the Java Development Kit (JDK) and kernel of the machine where the core dump was taken.
+        To open the core dump in VisualVM, this information must match the JDK software and kernel of the local system.        </p>
+        
+        <p>A core dump is a binary file capturing the entire heap contents at the moment the dump is captured.
+        When you load a core dump in VisualVM, a node for the core dump appears below the Core Dump node.</p>
+        
+        <img src="{{ '/images/coredump-app-window.png' | prepend: site.baseurl }}" style="border:1px solid;" alt="screenshot of Applications window showing Core Dump node" 
+        title="Applications window showing expanded Core Dump node" />
+        
+        <p>To view an overview of the core dump, right-click the core dump node and choose Open.
+        (Alternatively, double-click the node.)</p>
+        <img src="{{ '/images/coredump-overview.png' | prepend: site.baseurl }}" style="border:1px solid;" alt="screenshot of Overview tab of core dump" 
+        title="Overview tab of core dump" />
+        
+        
+        
+        <p>You can right-click the core dump node and choose Heap Dump or Thread Dump
+        to view the heap dump and thread dump from the core dump.</p>
+        <img src="{{ '/images/coredump-threaddump.png' | prepend: site.baseurl }}" style="border:1px solid;" alt="screenshot of Overview tab of core dump" 
+        title="threaddump tab of core dump" />
+        
+        <p>You can then save the thread dump and heap dump to your local system.
+        </p>
+        
+        <hr/>
+        <p><a href="{{ '/documentation.html' | prepend: site.baseurl }}">Return to the VisualVM Documentation index</a></p>
+
+    <div class="stretch_last"></div>
+</div>

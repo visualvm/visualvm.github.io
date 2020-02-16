@@ -48,7 +48,7 @@ title: Troubleshooting Guide
         <p><b>Description:&nbsp;</b>'Java(TM) Platform SE binary has stopped working' dialog is shown during VisualVM startup by the operating system, VisualVM process terminates.</p>
         <p><b>Resolution:&nbsp;&nbsp;</b>This is a known JDK bug in the d3d rendering pipeline affecting Windows 64bit systems. To disable d3d acceleration
         use <code>visualvm.exe -J-Dsun.java2d.d3d=false</code> to start VisualVM. Alternatively you may update the <code>&lt;visualvm_installdir&gt;\etc\visualvm.conf</code>
-        file to include the <code>-J-Dsun.java2d.d3d=false</code> switch in the <code>default_options</code> section. See the <a href="http://bugs.sun.com/view_bug.do?bug_id=6772139">JDK bug #6772139</a>
+        file to include the <code>-J-Dsun.java2d.d3d=false</code> switch in the <code>default_options</code> section. See the <a href="https://bugs.openjdk.java.net/browse/JDK-6772139">JDK bug #6772139</a>
         for more details.</p><br>
 
         <a name="jrehost"></a>
@@ -84,7 +84,7 @@ title: Troubleshooting Guide
             <li><i>Insufficient permissions for <code>%TMP%\hsperfdata_username</code> folder</i> - make sure you're able to create a file in the directory and eventually update the permissions for full folder access. Alternatively you can just re-create the folder which should automatically set the correct access rights.
                 See see this <a href="http://forum.java.sun.com/thread.jspa?threadID=5133218&tstart=0">forums.sun.com thread</a> for more details.</li>
             <li><i>Having <code>%TMP%\hsperfdata_username</code> folder on a FAT disk</i> - by default <code>jvmstat</code> doesn't work on FAT disks due to security restrictions. You can bypass the security check by
-                setting the <code>-XX:+PerfBypassFileSystemCheck</code> flag for both VisualVM and the monitored application. See the <a href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=5042659">JDK bug #5042659</a>
+                setting the <code>-XX:+PerfBypassFileSystemCheck</code> flag for both VisualVM and the monitored application. See the <a href="https://bugs.openjdk.java.net/browse/JDK-5042659">JDK bug #5042659</a>
                 for more details.</li>
         </ul>
         <br>
@@ -109,14 +109,14 @@ title: Troubleshooting Guide
         <h3>Cannot Add Or Edit Hosts On Linux</h3>
         <p><b>Description:&nbsp;</b>Adding a remote host and/or invoking Properties on an existing host throws <code>java.lang.NullPointerException</code> on Linux/Solaris, new host cannot be added.</p>
         <p><b>Resolution:&nbsp;&nbsp;</b>This happens when running the VisualVM 1.2 or newer on JDK 7 or OpenJDK 6 with GTK LaF. It is caused by a JDK bug introduced in JDK 7 b10. Details are available in
-            <a href="http://java.net/jira/browse/VISUALVM-372">VisualVM bug #372</a>. A quick workaround is to change the look'n'feel using
+            <a href="https://web.archive.org/web/20160812075919/https://java.net/jira/browse/VISUALVM-372">VisualVM bug #372</a>. A quick workaround is to change the look'n'feel using
             <code>visualvm --laf Nimbus</code> or <code>visualvm --laf Metal</code> or use Oracle JDK 7 to run VisualVM.</p><br>
 
         <a name="6u17win"></a>
         <h3>HeapWalker Throws Exceptions When Switching Views</h3>
         <p><b>Description:&nbsp;</b>Switching views (Overview/Classes/Instances/OQL Console) in the HeapWalker throws <code>java.lang.IncompatibleClassChangeError</code>, UI is not repainted.</p>
         <p><b>Resolution:&nbsp;&nbsp;</b>This happens when running the VisualVM on JDK 6 Update 17 and newer using the Windows LaF. Details and hotfix are available in
-            <a href="http://java.net/jira/browse/VISUALVM-333">VisualVM bug #333</a>. A quick workaround is to change the look'n'feel using
+            <a href="https://web.archive.org/web/20160812075205/https://java.net/jira/browse/VISUALVM-333">VisualVM bug #333</a>. A quick workaround is to change the look'n'feel using
             <code>visualvm.exe --laf Nimbus</code> or <code>visualvm.exe --laf Metal</code> or use JDK 6 Update 16 (or previous) to run VisualVM.</p><br>
 
         <a name="xshare"></a>
@@ -124,7 +124,7 @@ title: Troubleshooting Guide
         <p><b>Description:&nbsp;</b>"Class sharing is enabled for this JVM" warning is shown in red box in Profiler tab, profiling CPU or Memory crashes local applications running on JDK 6 Update 6 and earlier.</p>
         <p><b>Resolution:&nbsp;&nbsp;</b>There is a known problem with dynamic attach which is used for profiling, it may
             cause target JVM to crash when class sharing is enabled. To start an application without class sharing, provide <code>-Xshare:off</code> argument
-            to the <code>java</code> command starting the application. More information can be found in <a href="http://bugs.sun.com/view_bug.do?bug_id=6497639">JDK bug #6497639</a>
+            to the <code>java</code> command starting the application. More information can be found in <a href="https://bugs.openjdk.java.net/browse/JDK-6497639">JDK bug #6497639</a>
             and <a href="http://bugs.sun.com/view_bug.do?bug_id=6598065">JDK bug #6598065</a>.</p><br>
 
         <a name="xverify"></a>
@@ -151,7 +151,7 @@ title: Troubleshooting Guide
         <p><b>Resolution:&nbsp;&nbsp;</b>This problem occurs when VisualVM is unable to connect to the online Plugins Center. There are several reasons which could prevent VisualVM
             from accessing the Plugins Center: broken internet connection, incorrect proxy setup, proxy blocking the required port, missing certificate for
             dev.java.net etc. Make sure your internet connection is up and you can access the Plugins Center descriptor file at the address defined in the Settings tab of the Plugins dialog.
-            If the connection still cannot be established, you can download the plugins using a different machine and install them manually, see the <a href="pluginscenters.html">Plugins Centers</a> page for details.
+            If the connection still cannot be established, you can download the plugins using a different machine and install them manually, see the <a href="{{ '/pluginscenters.html' | prepend: site.baseurl }}">Plugins Centers</a> page for details.
         </p><br/>
 
         <a name="pluginsloading"></a>
@@ -179,7 +179,7 @@ title: Troubleshooting Guide
 
         <a name="gfnoservlets"></a>
         <h3>No Servlets Displayed In The Runtime Area Of GlassFish Web Application Tab</h3>
-        <p><b>Description:&nbsp;</b>There are no servlets displayed in the runtime are of GlassFish web application tab (see <a target="_blank" href="https://raw.githubusercontent.com/visualvm/visualvm.java.net.backup/master/www/images/troubleshoot/visualvm_gf_noservlets.png">here</a>)</p>
+        <p><b>Description:&nbsp;</b>There are no servlets displayed in the runtime are of GlassFish web application tab (see <a target="_blank" href="{{ '/images/visualvm_gf_noservlets.png' | prepend: site.baseurl }}">here</a>)</p>
         <p><b>Resolution:&nbsp;&nbsp;</b>Only servlets with some statistics available are displayed. In order to generate statistics put some load on the web application.</p>
         <br/>
             

@@ -1,0 +1,46 @@
+---
+layout: visualvm_stretch_layout
+title: JConsole  Plug-in  Wrapper Tab
+docfile: jconsole_plugin_wrapper_tab.html
+sitemap: false
+---
+
+<div class="content_main stretch_container">
+    <div class="centered_content stretch_container">
+        
+        <div class="stretch_first"></div>
+        
+        <h1>JConsole  Plug-in  Wrapper Tab</h1>
+        <hr />
+        <p> An optional VisualVM plug-in exists that allows you to add any custom tabs that you might have created for the Java platform, Standard Edition (Java SE)  monitoring and management console, JConsole, to VisualVM. Any plug-ins that you built for JConsole can easily be added to VisualVM using the optional JConsole  plug-in wrapper tab. </p>
+        <blockquote>
+        <p><strong>	Note</strong>: For details of how to create custom tab plug-ins for JConsole, see <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/management/jconsole.html#gdeje">Creating Custom Tabs</a> in the Java SE platform <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/management/toc.html">Monitoring and Management Guide</a>. However, if you are using VisualVM without ever having created custom tabs for JConsole, you should create your custom plug-ins directly for VisualVM. See <a href="{{ '/api-quickstart.html' | prepend: site.baseurl }}">Getting Started Extending VisualVM</a> and <a href="api-faq.html">VisualVM API FAQs</a> for more information about creating VisualVM plug-ins.
+        </p>
+        </blockquote>
+        <h2>Adding the JConsole  Plug-In Wrapper Tab </h2>
+        <p>To add the JConsole  plug-in wrapper tab to VisualVM, take  the following steps:</p>
+        <ol>
+        <li>Select 'Tools' then 'Plugins' in the VisualVM drop-down menus. You will see the following window.
+            <p><img src="{{ '/images/adding-jconsole-plugins-tab.png' | prepend: site.baseurl }}" alt="Adding the JConsole plug-ins wrapper tab" width="843" height="557" /></p>
+        </li>
+        <li>Check 'VisualVM-JConsole' and click 'Install'. </li>
+        <li>Step through the on-screen  instructions.</li>
+        <li>Now, if you highlight a running Java application, right-click, and  then select 'Open', you will see the JConsole Plugins tab in VisualVM's  right-hand window. However, no JConsole plug-ins are displayed in the tab yet, as shown below.
+        <p> <img src="{{ '/images/jconsole-plugins-tab.png' | prepend: site.baseurl }}" alt="JConsole plug-in wrapper tab." width="880" height="489" /></p></li>
+
+        <li>You can now import your custom JConsole plug-ins via the Tools | Options menu.</li>
+        <li>Click on 'JConsole Plugins'. </li>
+        <li>Click on 'Add JAR/Folder' and navigate to your JConsole plug-in's Java archive (JAR) file. An example JConsole plug-in called JTop is provided with the Java SE 6 platform. The JTop application is a JDK demonstration that shows the CPU usage of all  threads running in the application. This demo is useful for identifying threads that  have high CPU consumption, and it has been updated to be used as  a JConsole plug-in as well as a standalone GUI. The  JAR file for the JTop plug-in is found <em>at <span class="style1">JDK_HOME</span></em><span class="style1">/demo/management/JTop/JTop.jar</span>, where <em><span class="style1">JDK_HOME</span></em> is the location where the JDK software is installed.
+        <p><img src="{{ '/images/select-jconsole-plugin.png' | prepend: site.baseurl }}" alt="Selecting the JConsole plug-in." width="731" height="467" />    </li>
+        <li>In the JConsole Plugins Options panel, you can also set the polling period. This option defines the regularity with which the JConsole Plugins tab will update the information presented by the different JConsole plug-ins that have been imported into the tab. 
+        <li>Close the Options panel by clicking OK. 
+        <li>In VisualVM's right-hand panel, close the tab of the process being monitored.
+        <li>Restart the monitoring of the process by right-clicking on the process in the left-hand panel and selecting Open. A JTop tab should now be visible in the JConsole Plugins tab.
+        <p><img src="{{ '/images/jtop-plugin.png' | prepend: site.baseurl }}" alt="The JConsole plugin tab, showing the JTop plug-in."/>
+        <p>The JTop tab has been added, showing the CPU usage of the various threads running.  
+        </ol>
+        <hr/>
+        <p><a href="{{ '/documentation.html' | prepend: site.baseurl }}">Return to the VisualVM Documentation index</a></p>
+
+    <div class="stretch_last"></div>
+</div>

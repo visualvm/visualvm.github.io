@@ -9,18 +9,80 @@ css: /css/feedback.css
         
         <div class="stretch_first"></div>
         
-        <h1>Documentation</h1>
-
-        <p class="description_first description_last2">
-            This page displays the VisualVM documentation originally available at Java.net - powered by <a href="https://htmlpreview.github.io">https://htmlpreview.github.io</a>. Meanwhile we're working on an up to date GitHub-friendly documentation.
+        <h1>VisualVM Documentation and Resources</h1>
+        <p style="margin-bottom: 15px;">
+            This page contains links to articles, documentation, blogs, presentations
+    and wiki pages with information for users and developers of VisualVM (<small><a href="http://ldg.pe.kr/framework_reference/visualvm/ko_KR/docindex.html">external mirror in Korean <img src="{{ '/images/korean.png' | prepend: site.baseurl }}" style="border: 0px; vertical-align: bottom;"/></a></small>).
         </p>
-
-        <div class="stretch_filler">
-            <iframe class="whiterounded" id="gitter_feedback" src="https://htmlpreview.github.io/?https://raw.githubusercontent.com/visualvm/visualvm.java.net.backup/master/www/docindex.html">Documentation could not be displayed. Please use the link below:</iframe>
-        </div>
-        <center class="stretch_row"><small><a href="https://htmlpreview.github.io/?https://raw.githubusercontent.com/visualvm/visualvm.java.net.backup/master/www/docindex.html" target="_blank">Open the Documentation in separate view</a></small></center>
         
-        <div class="stretch_last"></div>
-
+        <a name="getting_started"></a>
+        <h3>Getting Started Documentation</h3>
+        <div>      
+            <p style="margin-top: 5px;">The following document provide a quick introduction on how to start using VisualVM and extending VisualVM with plugins.
+            </p>
+            
+            <ul>
+                <li><a href="{{ '/gettingstarted.html' | prepend: site.baseurl }}">Getting Started with VisualVM</a> <small>(<a href="ja/gettingstarted.html">Japanese <img src="{{ '/images/japanese.png' | prepend: site.baseurl }}" style="border: 0px; vertical-align: bottom;"/></a>, <a href="zh_CN/gettingstarted.html">Simplified Chinese <img src="{{ '/images/simplified_chinese.png' | prepend: site.baseurl }}" style="border: 0px; vertical-align: bottom;"/></a>, <a href="ko_KR/gettingstarted.html">Korean <img src="{{ '/images/korean.png' | prepend: site.baseurl }}" style="border: 0px; vertical-align: bottom;"/></a>)</small></li>
+                <li><a href="api-quickstart.html">Getting Started Extending VisualVM</a></li>
+            </ul>
+        </div>
+        
+        <a name="visualvm_documentation"></a>
+        <h3>VisualVM Documentation</h3>
+        <div>      
+            <p style="margin-top: 5px;">The following documents provide information on how to work with VisualVM.
+            </p>
+            
+            <ul>
+            <li><a href="intro.html">Introduction to VisualVM</a> <small>(<a href="ja/intro.html">Japanese <img src="{{ '/images/japanese.png' | prepend: site.baseurl }}" style="border: 0px; vertical-align: bottom;"/></a>, <a href="zh_CN/intro.html">Simplified Chinese <img src="{{ '/images/simplified_chinese.png' | prepend: site.baseurl }}" style="border: 0px; vertical-align: bottom;"/></a>, <a href="ko_KR/intro.html">Korean <img src="{{ '/images/korean.png' | prepend: site.baseurl }}" style="border: 0px; vertical-align: bottom;"/></a>)</small>
+            <ul>
+            <li><a href="applications_window.html">Using the Applications Window</a></li>
+            <li><a href="applications_local.html">Working with Local Applications</a>
+                <ul>
+                    <li><a href="overview_tab.html">Viewing Application Overview</a></li>
+                    <li><a href="monitor_tab.html">Monitoring an Application</a></li>
+                    <li><a href="threads.html">Monitoring Application Threads</a></li>
+                    <li><a href="profiler.html">Profiling Applications</a></li>
+                    <li><a href="jmx_connections.html">Connecting to JMX Agents Explicitly</a></li>
+                </ul>
+            
+            </li>
+            <li><a href="applications_remote.html">Working with Remote Applications</a>
+                <ul>
+                    <li><a href="overview_tab.html">Viewing Application Overview</a></li>
+                    <li><a href="monitor_tab.html">Monitoring an Application</a></li>
+                    <li><a href="threads.html">Monitoring Application Threads</a></li>
+                    <li><a href="jmx_connections.html">Connecting to JMX Agents Explicitly</a></li>
+                </ul>
+            </li>
+            <li><a href="coredumps.html">Working with Coredumps</a></li>
+            <li><a href="snapshots.html">Working with Snapshots</a></li>
+            <li><a href="heapdump.html">Browsing a Heap Dump</a></li>
+            <li><a href="oqlhelp.html">Analyzing a Heap Dump Using OQL</a></li>
+            <li><a href="jmx_connections.html">Connecting to JMX Agents Explicitly</a></li>
+            <li><a href="mbeans_tab.html">Working with MBeans</a></li>
+            <li><a href="jconsole_plugin_wrapper_tab.html">JConsole Plug-In Wrapper Tab</a></li>
+          </ul>
+        </li>
+        <li><a href="troubleshooting.html">Troubleshooting Guide</a></li>
+        <li><a href="build.html">Build Guide</a></li>
+        </ul>
+        </div>
+        
+        <a name="developing_plugins"></a>
+        <h3>Developing Plugins for VisualVM</h3>
+        <div>                
+            <p style="margin-top: 5px;">The following documents provide information for developers insterested in developing plugins to extend VisualVM.
+            </p>
+            
+            <ul>
+                <li><a href="api-quickstart.html">Getting Started Extending VisualVM</a></li>
+                <li><a href="api-faq.html">VisualVM API FAQs</a></li>
+                <li><a href="nonav/apidocs/137/index.html">API Documentation</a></li>
+            </ul>
+        </div>
+        
     </div>
+
+    <div class="stretch_last"></div>
 </div>

@@ -1,0 +1,379 @@
+---
+layout: visualvm_stretch_layout
+title: VisualVM Developer FAQ
+docfile: api-faq.html
+sitemap: false
+---
+
+<div class="content_main stretch_container">
+    <div class="centered_content stretch_container">
+        
+        <div class="stretch_first"></div>
+        
+        <h1>VisualVM Developer FAQ</h1>
+        
+        <p>This is the developer-oriented FAQ for VisualVM. Developer in this context means 
+        "person writing plugins for VisualVM". 
+        
+        <h2>Getting Started</h2>
+        
+        <h3><a name="what-status"></a>What's the current status of the VisualVM APIs?</h3>
+        
+        <p>Under development. You are free to create plugins but you must realize that
+        there will definitely be non-compatible changes in the coming months. However,
+        all such changes will be clearly documented at the time of the related release.
+        
+        <h3><a name="how-to-start"></a>How do I get started extending VisualVM?</h3>
+        
+        <p>Read <a href="{{ '/api-quickstart.html' | prepend: site.baseurl }}">Getting Started Extending VisualVM</a>,
+        which gives you some background information about VisualVM extensions, shows you how to
+        set up your environment, walks you through a "Hello World" scenario, and gives you
+        an overview of all the VisualVM public packages.
+        
+        <h3><a name="where-javadoc"></a>Where is the VisualVM Javadoc?</h3>
+        
+        <p>See <a href="{{ site.baseurl }}">https://{{ site.baseurl }}</a>.
+        
+        <h3><a name="only-netbeans"></a>Do I have to use NetBeans IDE to extend Visual VM?</h3>
+        
+        <p>No. However, NetBeans IDE provides wizards and templates for VisualVM plugin development,
+        while other IDEs do not (currently) have this kind of support.
+        
+        <h2>Lifecycle</h2>
+        
+        <h3><a name="what-is-lifecycle"></a>What is the lifecyle of a VisualVM plugin?</h3>
+        
+        <p>A plugin's life begins when it is installed into VisualVM. It can be installed
+        through the VisualVM Plugin Manager (accessed from the Tools menu) or when you run
+        it from NetBeans IDE.
+        
+        <p>The entry points implemented in a plugin must be initialized in a
+        class that extends <tt>org.openide.modules.ModuleInstall</tt>. They must also
+        be uninstalled through that class. Initialization occurs in the
+        <tt>ModuleInstall.restored</tt> method and uninstallation through the
+        <tt>ModuleInstall.uninstalled</tt> method. 
+        
+        <p>Every example of VisualVM extension points includes
+        an example of the entry points initialization and uninstallation,
+        such as in the
+        <a href="https://blogs.oracle.com/geertjan/entry/getting_started_extending_visualvm_part">Getting Started Extending VisualVM</a> document.
+        
+        
+        <h3><a name="what-about-layer"></a>What about the <tt>layer.xml</tt> file?</h3>
+        
+        <p>If you have created modules on top of the NetBeans Platform before,
+        you will be aware of a configuration file called <tt>layer.xml</tt>. This file is
+        used to initialize entry points into the NetBeans Platform. However, the APIs that
+        are specific to VisualVM
+        do not use this approach. Instead, they use the <tt>org.openide.modules.ModuleInstall</tt> class,
+        as described above.
+        
+        <p>However, since VisualVM is based on the NetBeans Platform, VisualVM is able to
+        reuse several
+        of the NetBeans Platform APIs. For example, VisualVM reuses the NetBeans APIs responsible for
+        providing the main menubar's menu items and 
+        the main toolbars and toolbar buttons. Therefore, you will need to use the
+        NetBeans Actions API when you want to add new menu items and toolbars
+        to VisualVM. The
+        NetBeans Actions API makes use of the <tt>layer.xml</tt> file and, therefore,
+        in this case you would make use of the <tt>layer.xml</tt> file after all. However,
+        if you're using NetBeans IDE, you would simply use the "New Action" wizard and then
+        the wizard would populate the <tt>layer.xml</tt> file for you. If you have questions
+        about the NetBeans Platform APIs, see the <a href="http://wiki.netbeans.org/NetBeansDeveloperFAQ"> NetBeans Developer FAQ</a>.
+        
+        <h2>Data Sources</h2>
+        
+        <h3><a name="what-is-datasource"></a>What is a <tt>DataSource</tt>?</h3>
+        
+        <p>A data source is the primary actor in the VisualVM APIs. Everything that happens
+        in VisualVM happens in relation to a data source. 
+        
+        <p>The most important data source from the user's perspective is the <tt>Application</tt>
+        data source. This data source represents the applications that are monitored and managed
+        in VisualVM. The other existing data sources exist to support the <tt>Application</tt>
+        data source.
+        
+        <p>In VisualVM, each node in the explorer view (on the left of the application) is
+        provided by a data source (and its supporting classes).
+        
+        <h3><a name="default-datasource"></a>What are the default <tt>DataSource</tt>s?</h3>
+        
+        <p>The following are the default data sources:
+        
+        <ul>
+            <li>AbstractApplication
+            <li>AbstractCoreDump
+            <li>AbstractDataSource
+            <li>AbstractHeapDump
+            <li>AbstractHost
+            <li>AbstractSnapshot
+            <li>AbstractThreadDump
+            <li>Application
+            <li>CoreDump
+            <li>DataSource
+            <li>DataSourceContainer
+            <li>DataSourceProvider
+            <li>DataSourceRepository
+            <li>DataSourceRoot
+            <li>DefaultDataSourceContainer
+            <li>DefaultDataSourceProvider
+            <li>HeapDump
+            <li>Host
+            <li>Snapshot
+            <li>ThreadDump
+        </ul>
+        
+        <h3><a name="why-create-datasource"></a>Why would I create a new <tt>DataSource</tt>?</h3>
+        
+        <p>Possibly, you want the user to be able to monitor, troubleshoot, or manage a source
+        of data that VisualVM does not provide support for out of the box. In fact, VisualVM is
+        simply a tool for displaying data, so you could create one or more of the following
+        data sources:
+        
+        <ul>
+            <li>Photo
+            <li>ShoppingList
+            <li>Task
+            <li>Reminder
+        </ul>
+        
+        <p>However, VisualVM is created specifically for monitoring, troubleshooting,
+        and management purposes. Therefore, you are more likely to want to create new
+        data sources that relate specifically to these purposes. In general, the need to
+        create a new data source is likely to arise in only a very small number of cases.
+        
+        <h3><a name="how-create-datasource"></a>How do I create a new <tt>DataSource</tt>?</h3>
+        
+        <p>A <tt>DataSource</tt> object is defined when you extend these classes:
+        
+        <ul>
+            <li>com.sun.tools.visualvm.core.datasource.AbstractDataSource
+            <li>com.sun.tools.visualvm.core.datasource.DefaultDataSourceProvider
+            <li>com.sun.tools.visualvm.core.model.dsdescr.DataSourceDescriptor
+            <li>com.sun.tools.visualvm.core.model.AbstractModelProvider
+        </ul>
+        
+        <p>A complete example can be found <a href="https://blogs.oracle.com/geertjan/entry/getting_started_extending_visualvm_part4">here</a>.
+        In addition, you can read the VisualVM sources, because all the predefined
+        data sources are defined there.
+        
+        <h2>Views</h2>
+        
+        <h3><a name="what-is-view"></a>What is a view?</h3>
+        
+        <p>A view in VisualVM consists of a tab and one or more subtabs, displayed
+        in the main application area when "Open" is chosen on a data source in the explorer
+        view.
+        <ul><li>A <b>tab</b> is, for example, "Overview", "Monitor", and "Threads".
+            <li>A <b>subtab</b> is, for example, "JVM Arguments" and "System Properties", within
+        the "Overview" tab.</ul>
+        
+        <h3><a name="how-create-tabs"></a>How do I create new views (tabs, pluggable tabs, subtabs)?</h3>
+        
+        <p>You create new <b>tabs</b> by extending these classes:
+        
+        <ul>
+            <li>com.sun.tools.visualvm.core.ui.DataSourceView
+            <li>com.sun.tools.visualvm.core.ui.DataSourceViewProvider
+        </ul>
+        
+        <p>A complete example for creating new tabs can be found <a href="https://blogs.oracle.com/geertjan/entry/getting_started_extending_visualvm">here</a>.
+        
+        <p>To make your tabs extendable, the following API must be extended:
+        <ul><li>com.sun.tools.visualvm.core.ui.PluggableViewSupport</ul>
+        
+        <p>A complete example for creating pluggable view can be found <a href="https://blogs.oracle.com/geertjan/entry/getting_started_extending_visualvm_part2">here</a>.
+        
+        <p>You create new <b>subtabs</b> by extending these classes:
+        
+        <ul>
+            <li>com.sun.tools.visualvm.core.ui.ViewPlugin
+            <li>com.sun.tools.visualvm.core.ui.ViewPlugin.ViewDescriptor
+        </ul>
+        
+        <p>A subtab can only be added to a tab if the tab is created to
+        be pluggable, that is, only if the tab makes use of <tt>com.sun.tools.visualvm.core.ui.PluggableViewSupport</tt>.
+        In the cases of the predefined tabs in VisualVM, you need to initialize
+        the support class that relates to the pluggable view that you want to extend:
+        
+        <ul>
+            <li>com.sun.tools.visualvm.core.dataview.monitor.MonitorViewSupport
+            <li>com.sun.tools.visualvm.core.dataview.overview.OverviewViewSupport
+            <li>com.sun.tools.visualvm.core.dataview.threads.ThreadsViewSupport
+            <li>com.sun.tools.visualvm.core.heapdump.HeapDumpSupport
+            <li>com.sun.tools.visualvm.core.threaddump.ThreadDumpSupport 
+        </ul>
+        
+        <p>A complete example for adding a subtab to the "Overview" tab can be found <a href="https://blogs.oracle.com/geertjan/entry/getting_started_extending_visualvm_part">here</a>.
+        
+        <h3><a name="how-layout-view"></a>What components can I use to design my view?</h3>
+        
+        <p>The VisualVM APIs provides a set of components that make
+        it easy for you to integrate your tools into VisualVM:
+        
+        <ul>
+            <li>com.sun.tools.visualvm.core.ui.components.DataViewComponent.MasterView
+            <li>com.sun.tools.visualvm.core.ui.components.DataViewComponent.MasterViewConfiguration
+            <li>com.sun.tools.visualvm.core.ui.components.DataViewComponent.DetailsView
+            <li>com.sun.tools.visualvm.core.ui.components.DataViewComponent.DetailsAreaConfiguration
+            <li>com.sun.tools.visualvm.core.ui.components.DataViewComponent.DisplayArea
+            <li>com.sun.tools.visualvm.core.ui.components.DataViewComponent.ScrollableContainer
+        </ul>   
+        
+        <p>A complete example that works with most of the VisualVM ui components can
+        be found in the
+        <a href="https://blogs.oracle.com/geertjan/entry/getting_started_extending_visualvm_part">Getting Started Extending VisualVM</a> document.
+        
+        <h2>Application Types</h2>
+        
+        <h3><a name="what-apptype"></a>What is an application type?</h3>
+        
+        <p>An application type is a model that you need to create when you
+        want VisualVM to cater to a new type of application. For example, the
+        GlassFish plugin creates a new application type for applications that
+        have <tt>com.sun.enterprise.server.PELaunch</tt> as their main class. Since that
+        is the main class of the GlassFish application server, the application type
+        is created whenever an instance of GlassFish is started. 
+        
+        <h3><a name="default-apptype"></a>What are the default application types?</h3>
+        
+        <p>The following are the predefined application types:
+        
+        <ul>
+            <li>DefaultApplicationType
+            <li>JavaPluginApplicationType
+            <li>JavaWebStartApplicationType
+            <li>MainClassApplicationType
+            <li>NetBeans3xApplicationType
+            <li>NetBeansApplicationType
+            <li>NetBeansBasedApplicationType
+            <li>VisualVMApplicationType
+        </ul>
+        
+        <h3><a name="why-create-apptype"></a>Why would I create my own application types?</h3>
+        
+        <p>You would create your own application type if you have an application that
+        you want VisualVM in a special way. By default, the <tt>DefaultApplicationType</tt>
+        will be used to handle your application. However, if your application is a deployment
+        server, you probably want to display nodes for deployed applications
+        as subnodes to the application node in the explorer view. In this case, you would need
+        to model a new type of application and then create it via a factory class. Most
+        typically, as done in the case of GlassFish, your factory class would create
+        your application type if a started application has a main class that matches
+        the main class defined in the application type implementation.
+        
+        <h3><a name="how-create-apptype"></a>How do I create my own application types?</h3>
+        
+        <p>You create new application types by extending these classes:
+        
+        <ul>
+            <li>com.sun.tools.visualvm.core.model.apptype.ApplicationType
+            <li>com.sun.tools.visualvm.core.model.apptype.ApplicationTypeFactory
+        </ul>
+        
+        <p>A complete example for creating a new application type can be found <a href="https://blogs.oracle.com/geertjan/entry/getting_started_extending_visualvm_part">here</a>.
+        
+        
+        <h3><a name="how-create-subnodes"></a>How do I add subnodes to my application type?</h3>
+        
+        <p>to be done
+        
+        <h3><a name="how-add-menu-items"></a>How do I add contextual menu items to my application type?</h3>
+        
+        <p>You create new contextual menu items by extending these classes:
+        
+        <ul>
+            <li>com.sun.tools.visualvm.core.explorer.ExplorerActionsProvider
+            <li>javax.swing.AbstractAction
+        </ul>
+        
+        <p><b>Note:</b> If a <tt>DataSourceViewProvider</tt> returns true from the <tt>supportsViewFor()</tt> method, 
+        an "Open" menu item is automatically created for you, as explained <a href="https://blogs.oracle.com/geertjan/entry/getting_started_extending_visualvm_part4">here</a>. 
+        
+        <p>A complete example for creating new menu items can be found <a href="https://blogs.oracle.com/geertjan/entry/getting_started_extending_visualvm_part">here</a>.
+        
+        <h3><a name="how-add-menu-items-sub"></a>How do I add contextual menu items to my application type's subnodes?</h3>
+        
+        <p>to be done
+        
+        <h2>Hosts</h2>
+        
+        <h3><a name="what-is-host"></a>What is a host?</h3>
+        
+        <p>The <tt>Host</tt> class provides the common interface 
+        for data sources that represent a localhost or remote host. It is a data source,
+        just like <tt>Application</tt> is a data source. However, it is not as important
+        to the end user as the <tt>Application</tt> data source. By default, VisualVM
+        provides a tab per host, showing host-specific information, such as CPU and
+        memory statistics, as well as the host IP and operating syste,.
+        
+        <h3><a name="how-extend-host"></a>How do I add additional views for the Host data source?</h3>
+        
+        <p>You create new tabs for the Host data source by extending these classes:
+        
+        <ul>
+            <li>com.sun.tools.visualvm.core.ui.DataSourceView
+            <li>com.sun.tools.visualvm.core.ui.DataSourceViewProvider&lt;Host&gt;
+        </ul>
+        
+        <p>A complete example for creating new tabs 
+        for the Host data source can be found <a href="https://blogs.oracle.com/geertjan/entry/getting_started_extending_visualvm_part3">here</a>.
+        
+        
+        <h3><a name="how-extend-host-overview"></a>How do I extend the Host "Overview" tab?</h3>
+        
+        <p>You create new tabs for the Host data source by extending these classes:
+        
+        <ul>
+            <li>com.sun.tools.visualvm.core.ui.ViewPlugin.ViewDescriptor
+            <li>com.sun.tools.visualvm.core.ui.ViewPlugin&lt;Host&gt;
+        </ul>
+        
+        <p>A complete example for creating new tabs 
+        for the Host data source can be found <a href="https://blogs.oracle.com/geertjan/entry/getting_started_extending_visualvm_part3">here</a>.
+        
+        
+        <h2>Enabling/Disabling Functionality</h2>
+        
+        <h3><a name="ensure-jmx"></a>How do I ensure that the application has JMX enabled?</h3>
+        
+        <p>Possibly, you only want a view to be shown if JMX is enabled.
+        For this reason, you have two classes at your disposal:
+        
+        <ul>
+            <li>com.sun.tools.visualvm.core.model.jmx.JmxModel
+            <li>com.sun.tools.visualvm.core.model.jmx.JmxModelFactory
+        </ul>
+        
+        <p>Use your <tt>DataSourceViewProvider.supportsViewFor</tt> like this for these purposes:
+        
+<p><pre>public boolean supportsViewFor(Application application) {
+    JmxModel jmx = JmxModelFactory.getJmxModelFor(application);
+    MBeanServerConnection mbsc = jmx.getMBeanServerConnection();
+    return mbsc != null;
+}</pre>
+
+<p>If <tt>false</tt> is returned, JMX is not enabled and the view will not be shown.
+        
+        
+        <h3><a name="ensure-jvm"></a>How do I ensure that an appropriate JVM is being used?</h3>
+        
+        <p>to be done
+        
+        <h2>Distribution</h2>
+        
+        <h3>How do I distribute my VisualVM plugins?</h3>
+        
+        <p>If you use NetBeans IDE to create your VisualVM plugin, you can
+        right-click the project and choose "Create NBM". This gives you an NBM
+        file, which is a ZIP file that VisualVM understands. That NBM file can
+        be installed into VisualVM via the Plugin Manager. You can distribute your
+        NBM file via e-mail or by putting it on a server and telling your users
+        where to get it. You can also create something called an "update center", which
+        is an XML file defining your NBM file's location and description, which your
+        users can register in their Plugin Manager and which they can then use to
+        access your VisualVM plugins.
+        <p><p>
+
+    <div class="stretch_last"></div>
+</div>

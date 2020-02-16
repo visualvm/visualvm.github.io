@@ -1,0 +1,116 @@
+---
+layout: visualvm_stretch_layout
+title: Introduction to VisualVM
+docfile: intro.html
+sitemap: false
+---
+
+<div class="content_main stretch_container">
+    <div class="centered_content stretch_container">
+        
+        <div class="stretch_first"></div>
+        
+        <h1>Introduction to VisualVM</h1>
+        <hr />
+
+        <p>
+            <small>Note: this page is also available in <a href="ja/intro.html">Japanese <img src="{{ '/images/japanese.png' | prepend: site.baseurl }}" style="border: 0px; vertical-align: bottom;"/></a>,
+            <a href="zh_CN/intro.html">Simplified Chinese <img src="{{ '/images/simplified_chinese.png' | prepend: site.baseurl }}" style="border: 0px; vertical-align: bottom;"/></a> and
+            <a href="ko_KR/intro.html">Korean <img src="{{ '/images/korean.png' | prepend: site.baseurl }}" style="border: 0px; vertical-align: bottom;"/></a>.</small>
+        </p>
+
+        <p>VisualVM is a tool that provides a visual interface for viewing detailed information about Java technology-based applications 
+        (Java applications) while they are running on a Java Virtual Machine (JVM).
+        VisualVM organizes data about the JVM software  that is retrieved by the Java Development Kit (JDK) tools and presents the information in a way that
+        enables you to quickly view data on multiple Java applications.
+        You can view data on local applications and applications that are running on remote hosts.
+        You can also capture data about JVM  software instances and save the data to your local system, and view the data later or share the
+        data with others.</p>
+        <p>In order to benefit from all Java VisualVM's features, you should run the Java Platform, Standard Edition (Java SE) version 6. </p>
+        <h3>Starting VisualVM</h3>
+        <p>After you download and extract the VisualVM zip archive to your local system, navigate to the <tt>bin</tt> directory of the expanded archive
+        and double-click the VisualVM executable or type the following at the command (shell) prompt:
+        
+        <p><tt>visualvm</tt></p>
+        <p>The first time that you launch VisualVM you are prompted to accept a license agreement.</p>
+        
+        <h3>VisualVM Userdir</h3>
+        <p>On Windows, the default location for the VisualVM <tt>userdir</tt> is the following: </p>
+        <p><tt>C:\Documents and Settings\<i>&lt;USER&gt;</i>\Application Data\.visualvm\FCS</tt></p>
+        <p>To find the location of your VisualVM <tt>userdir</tt>, choose Help &gt; About from the main menu and click Details in the About VisualVM window.</p>
+        
+
+        <h2>VisualVM Windows</h2>
+        <p>When you start VisualVM, the main VisualVM window opens.
+        The main VisualVM window is divided into two windows.
+        </p>
+        <img src="{{ '/images/vvm-start.png' | prepend: site.baseurl }}" style="border:1px solid;" alt="screenshot of VisualVM window with Start screen" 
+        title="screenshot of VisualVM window with Start screen" width="600" height="430" />
+        <p>When you first start VisualVM, the Applications window is visible in the left side of the window and the Start Page is 
+        visible in the right side in the main window. 
+        The Start Page contains links to VisualVM documentation web pages and additional resources.<br />
+        <b>Note:</b> The Start Page opens by default each time you start VisualVM. 
+        You can open the Start Page at any time by choosing Help &gt; Start Page from the main menu. You can also hide the Start page by unchecking the &quot;Show On Startup&quot; check-box. </p>
+   
+        <h3>Applications Window</h3>
+        <p>The Applications window opens in the left side of the main VisualVM window when you launch the application.
+        The Applications window is the main point of entry for exploring the details of running applications.
+        The Applications window uses a tree structure to enable you to quickly view the applications running on the local machine and any connected remote machines.
+        You can also access core dumps (Solaris/Linux) and saved snapshots from the Applications window.</p>
+
+        <p>Right-clicking a node in the Applications window opens a popup menu that enables you to perform actions related to that node, including
+        opening application tabs, taking heap and thread dumps and opening snapshots in the main window.</p>
+        
+
+        <p>For more details about how to use the Applications window to view and save data, see the following pages:</p>
+        <ul>
+            <li><a href="applications_window.html">Using the Applications Window</a></li>
+            <li><a href="applications_local.html">Working with Local Applications</a></li>
+            <li><a href="applications_remote.html">Working with Remote Applications</a></li>
+            <li><a href="coredumps.html">Working with VM Coredumps</a></li>
+            <li><a href="snapshots.html">Working with Snapshots</a></li>
+        </ul>
+
+        <h3>Main Window</h3>
+        <p>Detailed information about applications is displayed in the main window.
+        When you view data about an application, each application is represented by a tab in the main window 
+        that enables you to easily view and navigate the data.
+        Saved thread dumps and heap dumps are also opened in the main window.</p>
+        
+        <p>For information about the application data that can be displayed in the main window, see the following pages:</p>
+        <ul>
+            <li><a href="overview_tab.html">Application Overview Tab</a></li>
+            <li><a href="monitor_tab.html">Monitoring an Application in the Monitor Tab</a></li>
+            <li><a href="threads.html">Monitoring Threads in the Threads Tab</a></li>
+            <li><a href="heapdump.html">Browsing a Heap Dump</a></li>
+            <li><a href="profiler.html">Profiling an Application in the Profiler Tab</a> (local applications only)</li>
+            <li><a href="mbeans_tab.html">MBeans Tab</a> (requires MBeans plugin)</li>
+        </ul>
+
+
+        <h2>VisualVM Plugins</h2>
+        <p>You can add functionality to VisualVM by using the Plugins manager to install plugins from the VisualVM Plugins Center.
+        You can also extend the functionality of VisualVM by developing your own plugins that can then be added to an update center.</p>
+
+        <p>For example, installing the VisualVM-MBeans plugin adds an <a href="mbeans_tab.html">MBeans tab</a> to the application tab 
+        that enables you to monitor and manage MBeans from within VisualVM.</p>
+        <p><b>To install a VisualVM plugin:</b></p>
+        <ol>
+            <li>Choose Tools &gt; Plugins from the main menu.</li>
+            <li>In the Available Plugins tab, select the Install checkbox for the plugin. Click Install.</li>
+            <li>Step through and complete the plugin installer.<br/>
+        </ol>        
+        <img src="{{ '/images/vvm-plugins-window.png' | prepend: site.baseurl }}" alt="screenshot of Plugins window" 
+        title="Screenshot of Plugins window">
+        
+        
+
+        <p>For more information about creating VisualVM plugins, see the following documents:</p>        
+        <ul>
+            <li><a href="{{ '/api-quickstart.html' | prepend: site.baseurl }}">Getting Started Extending VisualVM</a></li>
+        </ul>
+        <hr/>
+        <p><a href="{{ '/documentation.html' | prepend: site.baseurl }}">Return to the VisualVM Documentation index</a></p>
+
+    <div class="stretch_last"></div>
+</div>
