@@ -5,7 +5,7 @@
 */
 
 #logo_big {
-    padding-top: 30px;
+    padding-top: 20px;
 }
 
 #logo_big img {
@@ -23,16 +23,16 @@
 }
 
 #visualvm_download {
-    padding-top: 30px;
+    padding-top: 40px;
 }
 
 #visualvm_download .downloadb {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     text-decoration: none;
     color: white;
     background-color: #3CB371;
-    padding: 12px 45px 12px 45px;
+    padding: 11px 27px 11px 27px;
     border: 1px solid green;
     border-radius: 3px;
     box-shadow: 0 0 2px gray;
@@ -50,12 +50,12 @@
 }
 
 #visualvm_download .downloadbgraal {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     text-decoration: none;
     color: white;
     background-color: #FF8888;
-    padding: 12px 42px 12px 42px;
+    padding: 11px 18px 11px 18px;
     border: 1px solid #B90000;
     border-radius: 3px;
     box-shadow: 0 0 2px gray;
@@ -74,7 +74,7 @@
 
 #visualvm_other_downloads {
     padding-top: 4px;
-    font-size: 11px;
+    font-size: 12px;
 }
 
 #visualvm_other_downloads a {
@@ -87,7 +87,7 @@
 }
 
 #visualvm_screenshot {
-    padding-top: 30px;
+    padding-top: 28px;
 }
 
 #visualvm_screenshot img {

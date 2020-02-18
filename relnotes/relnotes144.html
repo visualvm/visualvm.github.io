@@ -1,13 +1,13 @@
 ---
 layout: visualvm_base_layout
-title: 1.4.2 Release Notes
+title: 1.4.4 Release Notes
 ---
 
 <div class="content_main">
     <div class="centered_content">
         <h1>Release Notes</h1>
         <p class="description_first description_last2">
-            VisualVM 1.4.2 has been released on September 27th, 2018. This document describes changes introduced by this release.
+            VisualVM 1.4.4 has been released on September 26th, 2019. This document describes changes introduced by this release.
         </p>
 
         <a name="system_requirements"></a>
@@ -41,25 +41,20 @@ title: 1.4.2 Release Notes
         <div>
             <h3>Features and Enhancements:</h3>
             <ul>
-                <li>Support for dark OS themes</li>
+                <li>Full support for running on JDK 13 and monitoring/profiling Java 13 processes</li>
                 
-                <li>Full support for running on JDK 11 and monitoring/profiling Java 11 processes</li>
+                <li>Improvements in the charts library - improved rendering quality, performance and memory footprint</li>
             </ul>
-
-            <!--h3>API Changes:</h3>
-            <ul>
-                <li>Compatible: <code>com.sun.tools.visualvm.core.snapshot.Snapshot.computeSnapshotID()</code> added</li>
-            </ul-->
 
             <h3>Fixed Bugs:</h3>
             <ul>
-                <li><a href="https://github.com/oracle/visualvm/issues/86">GH-86</a>: Metaspace not recognized</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/61">GH-61</a>: Jumping charts</li>
                 
-                <li><a href="https://github.com/oracle/visualvm/issues/96">GH-96</a>: Thread state is WAIT instead of PARK when monitoring Java 9+ application</li>
-
-                <li><a href="https://github.com/oracle/visualvm/issues/102">GH-102</a>: Unreadable text in GNOME default dark theme</li>
-
-                <li><a href="https://github.com/oracle/visualvm/issues/103">GH-103</a>: Incorrect main class for application started from JDK 9+ module</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/143">GH-143</a>: Profiling not supported on IcedTea and AdoptOpenJDK builds</li>
+                
+                <li><a href="https://github.com/oracle/visualvm/issues/155">GH-155</a>: Calibration should not hang on unknown/unsupported JDKs</li>
+                
+                <li>Fixed JDK 5, JDK 6, JDK 7 calibration. Fixed calibration on Solaris 64bit OS.</li>
             </ul>
             
         </div>

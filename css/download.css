@@ -9,9 +9,10 @@
 }
 
 #downloads tr td div {
-    padding: 20px;
-    padding-left: 25px;
-    padding-right: 135px;
+    padding-top: 15px;
+    padding-bottom: 20px;
+    padding-left: 50px;
+    padding-right: 170px;
     background-repeat: no-repeat;
     background-position: right center;
 }
@@ -27,11 +28,15 @@
 }
 
 #downloads tr td a {
+    font-size: 15px;
+}
+
+#downloads tr td hr ~ p > a {
     font-size: 13px;
 }
 
 #downloads tr td a b {
-    font-size: 17px;
+    font-size: 19px;
 }
 
 #downloads tr td span {
@@ -40,6 +45,14 @@
 
 .download_main {
     padding-bottom: 5px !important;
+}
+
+.download_textsect {
+    border: 0;
+    height: 1px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background: #dbdbdb;
 }
 
 #downloads2 {

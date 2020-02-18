@@ -9,11 +9,8 @@ css: /css/download.css
         <h1>Download</h1>
 
         <p class="description_first">
-            There are two official VisualVM distributions: VisualVM at GitHub and Graal VisualVM bundled with the GraalVM.
-        </p>
-        
-        <p>
-            VisualVM at GitHub is a bleeding-edge tool running on and supporting any Java. Graal VisualVM is a stable tool running on GraalVM and supporting any Java. Learn more about <a href="{{ '/graal.html' | prepend: site.baseurl }}">Graal VisualVM</a>.
+            VisualVM is distributed as a standalone tool here and bundled with the <a href="https://www.graalvm.org">GraalVM</a>. Both are the same bits with the same features.
+            Standalone tool runs on any compatible JDK, bundled tool is configured to run using the host GraalVM.
         </p>
         
         <p class="description_last">
@@ -25,19 +22,12 @@ css: /css/download.css
                 <tr>
                     <td class="whiterounded">
                         <div style="background-image: url('{{ '/images/testlogo.png' | prepend: site.baseurl }}');">
-                            <h3>Binaries:</h3>
-                            <p class="download_main" style="padding-top: 10px;"><a id="link_download_main" href="https://github.com/visualvm/visualvm.src/releases/download/1.4.4/visualvm_144.zip" onclick="ga('send', 'event', 'Download MAIN 1.4.4');"><b>VisualVM 1.4.4</b></a> <span>(.zip, 14.9 MB)</span></p>
-                            <!--p><a id="link_download_ml" href="https://github.com/visualvm/visualvm.src/releases/download/1.4.3/visualvm_143-ml.zip" onclick="ga('send', 'event', 'Download ML 1.4.3');">Multi-language</a> <span>(.zip, xx.x MB, English / 日本語 / 简体中文)</span></p-->
-                            <p style="padding-bottom: 15px;"><a id="link_download_dmg" href="https://github.com/visualvm/visualvm.src/releases/download/1.4.4/VisualVM_144.dmg" onclick="ga('send', 'event', 'Download DMG 1.4.4');">macOS Application Bundle</a> <span>(.dmg, 16.5 MB)</span></p>
-                        </div>
-                    </td>
-
-                    <td>
-                        <div style="padding: 20px; padding-left: 30px; font-size: 13px;">
-                            <h3>Other Downloads:</h3>
-                            <p><a href="{{ '/idesupport.html' | prepend: site.baseurl }}">IDE Integrations</a></p>
-                            <p><a href="{{ '/pluginscenters.html' | prepend: site.baseurl }}">Plugins Offline</a></p>
-                            <p><a href="{{ '/releases.html' | prepend: site.baseurl }}">Previous Releases</a></p>
+                            <p class="download_main" style="padding-top: 10px;"><a id="link_download_main" href="https://github.com/visualvm/visualvm.src/releases/download/2.0/visualvm_20.zip" onclick="ga('send', 'event', 'Download MAIN 2.0');"><b>VisualVM 2.0</b></a> <span>(.zip, 16.5 MB)</span></p>
+                            <p style="padding-bottom: 15px;"><a id="link_download_dmg" href="https://github.com/visualvm/visualvm.src/releases/download/2.0/VisualVM_20.dmg" onclick="ga('send', 'event', 'Download DMG 2.0');">macOS Application Bundle</a> <span>(.dmg, 18.4 MB)</span></p>
+                            
+                            <hr class="download_textsect">
+                            
+                            <p style="padding-top: 5px;"><a href="{{ '/idesupport.html' | prepend: site.baseurl }}">IDE Integrations</a>&nbsp;|&nbsp;<a href="{{ '/pluginscenters.html' | prepend: site.baseurl }}">Plugins Offline</a>&nbsp;|&nbsp;<a href="{{ '/releases.html' | prepend: site.baseurl }}">Previous Releases</a></p>
                         </div>
                     </td>
                 </tr>
@@ -67,8 +57,9 @@ css: /css/download.css
                                 <td class="downloads_news">
                                     <h3>What's New:</h3>
                                     <p>
-                                        Full support for Java 13<br>
-                                        VisualVM charts improvements<br>
+                                        GraalVM support<br>
+                                        Dynamic JMX Connections<br>
+                                        JFR viewer<br>
                                     </p>
                                 </td>
                             </tr>
