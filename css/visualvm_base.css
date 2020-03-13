@@ -275,6 +275,16 @@ header #header_right {
     padding-right: 10px;
 }
 
+.header_alert {
+    border-top: solid 1px;
+    border-top-color: #a5c2d9;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #ffeee6;
+    font-size: 12px;
+    font-weight: bold;
+}
+
 
 footer {
     background-color: #e5e5e5;

@@ -1,6 +1,6 @@
 <header>
     
-  <div>
+    <div id="header_div">
       
         <table>
             <tr>
@@ -30,6 +30,9 @@
             </tr>
         </table>
 
-  </div>
-
+    </div>
+    
+    <script src="{{ '/js/versioncheck.js' | prepend: site.baseurl }}"></script>
+    <script>checkVersion("{{ site.baseurl }}")</script>
+    
 </header>
