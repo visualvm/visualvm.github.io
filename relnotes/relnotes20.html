@@ -1,0 +1,128 @@
+---
+layout: visualvm_base_layout
+title: 2.0 Release Notes
+---
+
+<div class="content_main">
+    <div class="centered_content">
+        <h1>Release Notes</h1>
+        <p class="description_first">
+            VisualVM 2.0 has been released on February 18th, 2020. This document describes changes introduced by this release.
+        </p>
+        
+        <p class="description_first">
+            This release introduces some significant changes. The code base has been merged with the Graal VisualVM, now there's
+            a single VisualVM supporting both Java in general and GraalVM polyglot features. The same bits are now distributed as a
+            standalone tool on GitHub and bundled with the GraalVM 20.0. Note that plugins for VisualVM 1.x won't work in
+            VisualVM 2.x. See the <a href="#features_enhancements">Features and Enhancements</a>
+            section for the list of changes.
+        </p>
+        
+        <p class="description_first description_last2">
+            Note for plugin developers: VisualVM 2.0 has been migrated to <code>org.graalvm.visualvm.*</code> packages. To make the VisualVM 1.x plugins
+            compatible with VisualVM 2.x, it should be enough to just switch to the new packages, update dependency versions and rebuild. While the 2.x
+            releases will continue to provide a public API, the focus will be mainly on features, performance improvements and code cleanup. Further minor
+            incompatible API changes are expected to occur in the 2.x series. See the <a href="#api_changes">API Changes</a> section for more.
+        </p>
+
+        <a name="system_requirements"></a>
+        <h2>System Requirements</h2>
+        <div>
+            <h3>Supported OS:</h3>
+            <ul>
+                <li>Microsoft Windows</li>
+
+                <li>Linux: Intel platform, ARM HFLT, AArch64</li>
+
+                <li>macOS</li>
+            </ul>
+
+
+            <h3>Required Software:</h3>
+            <ul>
+                <li>Oracle JDK 8~13</li>
+
+                <li>OpenJDK 8~13</li>
+                
+                <li>GraalVM 19~20</li>
+            </ul>
+
+        </div>
+        
+        <hr class="textsect">
+
+        <a name="changes"></a>
+        <h2>Changes</h2>
+        <div>
+            <a name="features_enhancements"></a>
+            <h3>Features and Enhancements:</h3>
+            <ul>
+                <li>Full GraalVM support, including the polyglot features (JavaScript/Python/Ruby/R heap viewer, JavaScript/Python/Ruby/R cpu and memory sampler, monitoring native-image where enabled)</li>
+                
+                <li>JDK Flight Recorder viewer for JFR snapshots created using Java 7+</li>
+                
+                <li>Dynamic JMX connections - connected automatically whenever the target starts, no need to restart VisualVM</li>
+                
+                <li>Opened applications and applications with snapshots are optionally kept in the Applications view even after terminated</li>
+                
+                <li>Heap viewer improvements - Summary view, merged Fields / References / GC Roots for a class, performance & memory improvements, R console when running on GraalVM with R installed</li>
+                
+                <li>Search in thread dumps and other textual components</li>
+                
+                <li>Load Recent container in the File menu to quickly access the most recently opened snapshots</li>
+                
+                <li>Support for running on and monitoring & profiling the AArch64 architecture</li>
+                
+                <li>The same bits available on GitHub and in GraalVM 20.0 (<a href="https://www.graalvm.org" onclick="ga('send', 'event', 'Link GRAALVM (relnotes 2.0)');">https://www.graalvm.org</a>)</li>
+                
+                <li>Built on Apache NetBeans Platform 11.1 (<a href="https://netbeans.apache.org">https://netbeans.apache.org</a>)</li>
+            </ul>
+            
+            
+            <a name="api_changes"></a>
+            <h3>API Changes:</h3>
+            <ul>
+                <li>Incompatible: the sources have been migrated to <code>org.graalvm.visualvm.*</code> packages</li>
+                
+                <li>Incompatible: the modules have been increased to Major Release Version 2 and Specification Version 2.0</li>
+                
+                <li>Incompatible: further partial incompatible API changes are expected to occur in the following 2.x releases</li>
+            </ul>
+
+            
+            <a name="fixed_bugs"></a>
+            <h3>Fixed Bugs:</h3>
+            <ul>
+                <li><a href="https://github.com/oracle/visualvm/issues/5">GH-5</a>: Save connections for later use</li>
+                
+                <li><a href="https://github.com/oracle/visualvm/issues/16">GH-16</a>: Option to change the colors of thread states</li>
+                
+                <li><a href="https://github.com/oracle/visualvm/issues/45">GH-45</a>: Make it possible to refresh connections.</li>
+                
+                <li><a href="https://github.com/oracle/visualvm/issues/88">GH-88</a>: Threads tab: Change color of Park or Monitor</li>
+                
+                <li><a href="https://github.com/oracle/visualvm/issues/107">GH-107</a>: NPE from HprofHeap.findReferencesFor</li>
+                
+                <li><a href="https://github.com/oracle/visualvm/issues/113">GH-113</a>: Results in heap viewer not updated on sorting change</li>
+                
+                <li><a href="https://github.com/oracle/visualvm/issues/119">GH-119</a>: Compare heap dump is missing green/red bar.</li>
+                
+                <li><a href="https://github.com/oracle/visualvm/issues/153">GH-153</a>: Feature request: Closing tabs with keyboard shortcut</li>
+                
+                <li><a href="https://github.com/oracle/visualvm/issues/172">GH-172</a>: Can't open core dump</li>
+            </ul>
+            
+        </div>
+        
+        <hr class="textsect">
+
+        <a name="known_problems"></a>
+        <h2>Known Problems</h2>
+        <div>
+            <p>To view all known problems please see the <a href="https://github.com/oracle/visualvm/issues">VisualVM Issues</a> page.</p>
+            
+            <p>To resolve the most common problems please follow the <a href="https://visualvm.github.io/troubleshooting.html">Troubleshooting Guide</a>.</p>
+        </div>
+            
+    </div>
+</div>
