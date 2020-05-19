@@ -1,13 +1,13 @@
 ---
 layout: visualvm_base_layout
-title: 2.0.2 Release Notes
+title: 2.0.1 Release Notes
 ---
 
 <div class="content_main">
     <div class="centered_content">
         <h1>Release Notes</h1>
         <p class="description_first description_last2">
-            VisualVM 2.0.2 has been released on May 19th, 2020. This document describes changes introduced by this release.
+            VisualVM 2.0.1 has been released on March 26th, 2020. This document describes changes introduced by this release.
         </p>
 
         <a name="system_requirements"></a>
@@ -42,23 +42,11 @@ title: 2.0.2 Release Notes
             <a name="features_enhancements"></a>
             <h3>Features and Enhancements:</h3>
             <ul>
-                <li>Graal Sampler renamed to Polyglot Sampler</li>
+                <li>Full support for running on JDK 14 and monitoring/profiling Java 14 processes</li>
                 
-                <li>Polyglot Sampler is now able to report compiled and interpreter time</li>
+                <li>JMX connections can be either tracked automatically or controlled manually using the Connect/Disconnect actions</li>
                 
-                <li>JFR viewer improvements
-                    <ul>
-                        <li>First/Middle/Last/Sample N events filter in Browser</li>
-                        
-                        <li>Displaying stack trace of the selected event in Browser</li>
-
-                        <li>Improved support for experimental events</li>
-
-                        <li>Updated icons</li>
-                    </ul>
-                </li>
-                
-                <li>Monitoring libgraal memory space for GraalVM processes</li>
+                <li>Heap Dump on OOME context menu action is now a checkbox</li>
             </ul>
             
             
@@ -72,7 +60,15 @@ title: 2.0.2 Release Notes
             <a name="fixed_bugs"></a>
             <h3>Fixed Bugs:</h3>
             <ul>
-                <li><a href="https://github.com/oracle/visualvm/issues/190">GH-190</a>: VisualVM unix like launcher typo preventing loading of extra clusters</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/6">GH-6</a>: [RFC] provide option to disable auto connect JMX when VisualVM start</li>
+                
+                <li><a href="https://github.com/oracle/visualvm/issues/175">GH-175</a>: Bug: valid profiler calibration input gets rejected as invalid</li>
+                
+                <li><a href="https://github.com/oracle/visualvm/issues/178">GH-178</a>: Fix Wording of the Perform Calibration Message</li>
+                
+                <li><a href="https://github.com/oracle/visualvm/issues/184">GH-184</a>: Cannot launch on OpenJDK 14</li>
+                
+                <li><a href="https://github.com/oracle/visualvm/issues/185">GH-185</a>: Wrong Icon in Ubuntu Panel</li>
             </ul>
             
         </div>
