@@ -1,13 +1,13 @@
 ---
 layout: visualvm_base_layout
-title: 2.0.3 Release Notes
+title: 2.0.2 Release Notes
 ---
 
 <div class="content_main">
     <div class="centered_content">
         <h1>Release Notes</h1>
         <p class="description_first description_last2">
-            VisualVM 2.0.3 has been released on July 16th, 2020. This document describes changes introduced by this release.
+            VisualVM 2.0.2 has been released on May 19th, 2020. This document describes changes introduced by this release.
         </p>
 
         <a name="system_requirements"></a>
@@ -42,9 +42,23 @@ title: 2.0.3 Release Notes
             <a name="features_enhancements"></a>
             <h3>Features and Enhancements:</h3>
             <ul>
-                <li>Improvements in Polyglot Heap Viewer for Ruby and R languages</li>
+                <li>Graal Sampler renamed to Polyglot Sampler</li>
                 
-                <li>Built on Apache NetBeans Platform 11.3 (<a href="https://netbeans.apache.org">https://netbeans.apache.org</a>)</li>
+                <li>Polyglot Sampler is now able to report compiled and interpreter time</li>
+                
+                <li>JFR viewer improvements
+                    <ul>
+                        <li>First/Middle/Last/Sample N events filter in Browser</li>
+                        
+                        <li>Displaying stack trace of the selected event in Browser</li>
+
+                        <li>Improved support for experimental events</li>
+
+                        <li>Updated icons</li>
+                    </ul>
+                </li>
+                
+                <li>Monitoring libgraal memory space for GraalVM processes</li>
             </ul>
             
             
@@ -58,12 +72,7 @@ title: 2.0.3 Release Notes
             <a name="fixed_bugs"></a>
             <h3>Fixed Bugs:</h3>
             <ul>
-                <li><a href="https://github.com/oracle/visualvm/issues/85">GH-85</a>: Java 10 - VisualVM 1.4.1 - Sampler -> CPU -> CPU Settings, doesn't filter.</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/196">GH-196</a>: NPE in Ruby heap viewer</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/197">GH-197</a>: HeapViewer Doesn't Notify on Loading Failure</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/199">GH-199</a>: VisualVM does not detect truffle processes (does not display Graal Sampler tab)</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/205">GH-205</a>: Make an option to use regular expression in Class Filter</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/210">GH-210</a>: IllegalArgumentException: Option 'js.nashorn-compat' is experimental and must be enabled with allowExperimentalOptions()</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/190">GH-190</a>: VisualVM unix like launcher typo preventing loading of extra clusters</li>
             </ul>
             
         </div>
