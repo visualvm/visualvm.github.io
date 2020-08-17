@@ -1,0 +1,147 @@
+---
+layout: visualvm_base_layout
+title: Sources Support
+---
+
+<div class="content_main">
+    <div class="centered_content">
+        <h1>Sources Support</h1>
+
+        <a name="overview"></a>
+        <p class="description_first">
+            VisualVM doesn't support navigating to the source code out of the box. This functionality can be enabled using the VisualVM-GoToSource plugin available for VisualVM 2.0.3 or newer.
+        </p>
+        
+        <p class="description_mid">
+            The VisualVM-GoToSource plugin adds the Go to Source action to context menus of various views like Sampler/Profiler and Heap Viewer. The plugin provides UI to define directories/archives containing the sources and select an external viewer to display the sources.
+        </p>
+
+        <p class="description_last2">
+            Opening Java classes and methods is fully supported by the plugin, with some exceptions for specific language constructs like lambdas or anonymous classes. There's an experimental support for displaying methods/functions of GraalVM guest languages in Polyglot Sampler | CPU.
+        </p>
+        
+        <a name="features"></a>
+        <h2>Features</h2>
+        <p>
+            Version 1.0 of the plugin introduces the following features:
+        </p>
+        <ul>
+            <li>Go to Source action in context menu of Java views: Sampler/Profiler live results & snapshots, Heap Viewer, JFR Sampler</li>
+            <li>Experimental: Go to Source action in context menu of Polyglot Sampler | CPU (tested for JavaScript, Ruby, R, Python)</li>
+            <li>User-provided source roots - directories and archives, customizable subfolders, customizable encoding</li>
+            <li>User-defined sources viewer - registered in the OS or custom command to launch an external editor/IDE</li>
+            <li>Command line parameters to configure the source roots and sources viewer externally</li>
+        </ul>
+        
+        <a name="limitations"></a>
+        <h2>Limitations</h2>        
+        <p>
+            Version 1.0 of the plugin has the following known limitations:
+        </p>
+        <ul>
+            <li>
+                Java:
+                <ul>
+                    <li>Go to Source action not available for stack traces / thread dumps</li>
+                    <li>Go to Source not working for lambdas</li>
+                    <li>Go to Source not working for anonymous classes used as parameters</li>
+                    <li>Go to Source not working for anonymous classes extending Enums (<code>ENUM_ITEM {}</code>)</li>
+                    <li>Go to Source not resolving methods by their signature (opens first occurrence by name)</li>
+                    <li>Go to Source not working for non-public toplevel classes (<code>java.awt.FocusManager</code> in <code>java.awt.Window</code>)</li>
+                    <li>Go to Source not working for elements with unicode codes in name (<code>class About</code> vs. <code>class A\u0062out</code>)</li>
+                </ul>
+            </li>
+            <li>
+                GraalVM guest languages:
+                <ul>
+                    <li>Go to Source not available in Polyglot Sampler | Memory and Heap Viewer - guest language view</li>
+                    <li>Go to Source only working for methods/functions displaying the source file and line number</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <a name="feedback"></a>
+        <h2>Feedback</h2>        
+        <p>
+            Please let us know what you do/don't like about the plugin! We'll appreciate any ideas, requests for features, bugreports etc.
+        </p>
+        <p>
+            To share your feedback, please <a href='https://github.com/oracle/visualvm/issues/new/choose'>file an issue</a> at GitHub or leave us a message using the <a href="{{ 'feedback.html' | prepend: site.baseurl }}">feedback</a> page.
+        </p>
+        
+        <hr class="textsect">
+
+        <a name="install"></a>
+        <h2>Installing the Plugin</h2>               
+        <ol>
+            <li>Make sure you are running VisualVM 2.0.3 or newer</li>
+            <li>In VisualVM main menu invoke Tools | Plugins, switch to Available Plugins tab and select the VisualVM-GoToSource plugin</li>
+            <li>Click the Install button, review and accept plugin license and wait for the plugin to be downloaded and installed</li>
+        </ol>
+
+        <p class="description_last2">
+            After a successful installation the plugin adds a new section "Sources" to the Tools | Options dialog.
+        </p>
+
+        <a name="config"></a>
+        <h2>Configuring the Plugin</h2>
+        <p>
+            The plugin must be configured to provide the desired functionality. Open Tools | Options and switch to the Sources section to define location of the source code and the tool to display the sources.
+        </p>
+        
+        <a name="config-roots"></a>
+        <h3>Configuring Source Roots</h3>
+        
+        <ol>
+            <li>Use the "+" button to add new source roots</li>
+            <li>Select single or multiple directories or archives (.zip, .jar) containing the sources</li>
+            <li>Specify sources location within the source roots:
+                <ul>
+                    <li><u>Selected root(s):</u> selected directories immediately contain the sources</li>
+                    <li><u>Subdirectories:</u> list of (common) subdirectories of the selected directories containing the sources</li>
+                    <li><u>Custom subpaths:</u> manually defined subpaths relative to the selected directories, separated by the path separator appropriate for the host OS</li>
+                    <li><u>Sources encoding</u> can be optionally customized for the defined source roots if needed</li>
+                </ul>
+            </li>
+        </ol>
+        
+        <a name="config-viewer"></a>
+        <h3>Configuring Source Viewer</h3>
+        
+        <ul>
+            <li><u>Registered Viewer</u> option opens sources using the tool registered in the host OS as the default viewer or editor for the source file type. Opening sources on a concrete line is not supported.</li>
+            <li><u>External Viewer</u> option invokes the provided command to open the source code. Preconfigured command templates are defined for the most popular IDEs and text editors. Useful parameters are available for creating custom commands.</li>
+        </ul>
+        
+        <a name="config-api"></a>
+        <h3>Command Line API</h3>
+        <p>
+            The following command line parameters are available to define the source roots and viewer externally:
+        </p>
+        
+        <ul>
+            <li>
+                <code>--source-roots</code> parameter defines the source roots to be searched for the sources by VisualVM. Individual source roots are separated by the path separator appropriate for the host OS.<br><br>
+                By default, source roots are treated as immediately containing the sources and using the UTF-8 encoding. Each source root entry can be customized to define subfolders containing the sources and/or a non-default encoding: <code>source_root[subpaths=subpath1:subpath2][encoding=encoding_name]</code><br><br>
+                <u>Example:</u><br>
+                Windows: <code>--source-roots="c:\sources\root1;c:\sources\root2[subpaths=src:test\src]"</code><br>
+                Linux/Mac: <code>--source-roots="/home/user/src/root1[encoding=UTF-16]:/home/user/src/root2"</code><br><br>
+            </li>
+            <li>
+                <code>--source-viewer</code> parameter defines the command to be executed when the Go To Source action is invoked in VisualVM.<br><br>
+                <u>Example:</u><br>
+                Windows: <code>--source-viewer="c:\NetBeans\bin\netbeans {file}:{line}"</code><br>
+                Linux/Mac: <code>--source-viewer="/usr/bin/gedit +{line} {file}"</code><br>
+            </li>
+        </ul>
+        
+        <p>
+            The <code>--source-roots</code> and <code>--source-viewer</code> parameters can be used either individually or both at the same time.
+        </p>
+        
+        <p>
+            To clear the settings defined using the command line API and restore the original user-defined configuration, either restart VisualVM or use the <code>--source-roots</code> and/or <code>--source-viewer</code> parameters with empty values. 
+        </p>
+        
+    </div>
+</div>
