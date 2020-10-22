@@ -124,23 +124,41 @@ title: Sources Support
                 <code>--source-roots</code> parameter defines the source roots to be searched for the sources by VisualVM. Individual source roots are separated by the path separator appropriate for the host OS.<br><br>
                 By default, source roots are treated as immediately containing the sources and using the UTF-8 encoding. Each source root entry can be customized to define subfolders containing the sources and/or a non-default encoding: <code>source_root[subpaths=subpath1:subpath2][encoding=encoding_name]</code><br><br>
                 <u>Example:</u><br>
-                Windows: <code>--source-roots="c:\sources\root1;c:\sources\root2[subpaths=src:test\src]"</code><br>
+                Windows: <code>--source-roots="C:\sources\root1;c:\sources\root2[subpaths=src:test\src]"</code><br>
                 Linux/Mac: <code>--source-roots="/home/user/src/root1[encoding=UTF-16]:/home/user/src/root2"</code><br><br>
             </li>
             <li>
                 <code>--source-viewer</code> parameter defines the command to be executed when the Go To Source action is invoked in VisualVM.<br><br>
                 <u>Example:</u><br>
-                Windows: <code>--source-viewer="c:\NetBeans\bin\netbeans {file}:{line}"</code><br>
+                Windows: <code>--source-viewer="C:\NetBeans\bin\netbeans {file}:{line}"</code><br>
                 Linux/Mac: <code>--source-viewer="/usr/bin/gedit +{line} {file}"</code><br>
+            </li>
+            <li>
+                <code>--source-config</code> parameter (preferred) allows to define the <code>--source-roots</code> and <code>--source-viewer</code> parameters in a single step using a configuration file. The file can be created using the <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Properties.html#store-java.io.Writer-java.lang.String-">Properties.store(Writer, String)</a> method. The Writer instance must be configured to use the UTF-8 encoding. The Properties instance contains "source-roots" and/or "source-viewer" String keys with String values similar to the respective parameter values.<br><br>
+                <u>Example:</u><br>
+                Windows: <code>--source-config="C:\Temp\source-config.properties"</code><br>
+                Linux/Mac: <code>--source-config="/tmp/source-config.properties"</code><br>
             </li>
         </ul>
         
         <p>
-            The <code>--source-roots</code> and <code>--source-viewer</code> parameters can be used either individually or both at the same time.
+            The <code>--source-roots</code> and <code>--source-viewer</code> parameters can be used either individually or both at the same time. The <code>--source-config</code> parameter must be used exclusively without the other two parameters.
         </p>
         
         <p>
-            To clear the settings defined using the command line API and restore the original user-defined configuration, either restart VisualVM or use the <code>--source-roots</code> and/or <code>--source-viewer</code> parameters with empty values. 
+            To clear the settings defined using the command line API and restore the original user-defined configuration, either restart VisualVM or use the <code>--source-roots</code> and/or <code>--source-viewer</code>, or the <code>--source-config</code> parameter with empty values. 
+        </p>
+        
+        <hr class="textsect">
+
+        <a name="history"></a>
+        <h2>Version History</h2>
+        
+        <p>
+            <b>Version 1.1</b> (Oct 15, 2020): Added the <code>--source-config</code> parameter.
+        </p>
+        <p>
+            <b>Version 1.0</b> (Aug 18, 2020): Initial release.
         </p>
         
     </div>
