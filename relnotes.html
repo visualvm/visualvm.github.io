@@ -1,13 +1,13 @@
 ---
 layout: visualvm_base_layout
-title: 2.0.4 Release Notes
+title: 2.0.5 Release Notes
 ---
 
 <div class="content_main">
     <div class="centered_content">
         <h1>Release Notes</h1>
         <p class="description_first description_last2">
-            VisualVM 2.0.4 has been released on August 18th, 2020. This document describes changes introduced by this release.
+            VisualVM 2.0.5 has been released on November 17th, 2020. This document describes changes introduced by this release.
         </p>
 
         <a name="system_requirements"></a>
@@ -25,9 +25,9 @@ title: 2.0.4 Release Notes
 
             <h3>Required Software:</h3>
             <ul>
-                <li>Oracle JDK 8~14</li>
+                <li>Oracle JDK 8~15</li>
 
-                <li>OpenJDK 8~14</li>
+                <li>OpenJDK 8~15</li>
                 
                 <li>GraalVM 19~20</li>
             </ul>
@@ -42,7 +42,13 @@ title: 2.0.4 Release Notes
             <a name="features_enhancements"></a>
             <h3>Features and Enhancements:</h3>
             <ul>
-                <li>New <a href="{{ '/sourcessupport.html' | prepend: site.baseurl }}">VisualVM-GoToSource plugin</a> to open source code from profiler/heap views in external editor/IDE</li>
+                <li>Full support for running on JDK 15 and monitoring/profiling Java 15 processes
+                    <ul>
+                        <li>Optional GraalJS JavaScript engine as a plugin</li>
+                    </ul>
+                </li>
+                <li>Drag and drop support for opening snapshots</li>
+                <li>Improved support for OpenJ9</li>
             </ul>
             
             
@@ -56,9 +62,19 @@ title: 2.0.4 Release Notes
             <a name="fixed_bugs"></a>
             <h3>Fixed Bugs:</h3>
             <ul>
-                <li><a href="https://github.com/oracle/visualvm/issues/213">GH-213</a>: Allow To Save Modified OQL/R Script When Closing The Heap Viewer</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/215">GH-215</a>: Missing local variables in thread dump</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/216">GH-216</a>: Failed to initialize view org.graalvm.visualvm.profiling.snapshot.diff.SnapshotDiffView</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/218">GH-218</a>: Polyglot Sampler not showing up</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/220">GH-220</a>: JDK 15 support</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/221">GH-221</a>: Add support for GC roots "JNI local"</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/222">GH-222</a>: NPE from JDK 15 jfr file</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/223">GH-223</a>: Invalid Regular Expression Dialog Keeps Opening</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/228">GH-228</a>: The --source-roots Parameter Should Optionally Be File-Based</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/231">GH-231</a>: Add support for drag and drop</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/234">GH-234</a>: OpenJ9: Duplicate PID in application name</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/235">GH-235</a>: Incorrect CPU usage reported on OpenJ9</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/242">GH-242</a>: Allow to use a sampling period of 1ms for the Polyglot Sampler</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/244">GH-244</a>: NPE when expanding some memory profile nodes</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/247">GH-247</a>: ClassCastException when profiling SQL</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/249">GH-249</a>: NPE from Polyglot Sampler agent</li>
             </ul>
             
         </div>
