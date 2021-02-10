@@ -903,12 +903,12 @@ From: https://www.unicode.org/copyright.html:
 
 
 ==================================================
-Additional license (js-20.1.0-license.txt) associated with the following files:
-modules/ext/graal-sdk-20.1.0.jar
-modules/ext/js-20.1.0.jar
-modules/ext/js-scriptengine-20.1.0.jar
-modules/ext/regex-20.1.0.jar
-modules/ext/truffle-api-20.1.0.jar
+Additional license (js-20.3.0-license.txt) associated with the following files:
+modules/ext/graal-sdk-20.3.0.jar
+modules/ext/js-20.3.0.jar
+modules/ext/js-scriptengine-20.3.0.jar
+modules/ext/regex-20.3.0.jar
+modules/ext/truffle-api-20.3.0.jar
 
 Copyright (c) 2018, 2020, Oracle and/or its affiliates. All rights reserved.
 
