@@ -9,21 +9,20 @@ title: Sources Support
 
         <a name="overview"></a>
         <p class="description_first">
-            VisualVM doesn't support navigating to the source code out of the box. This functionality can be enabled using the VisualVM-GoToSource plugin available for VisualVM 2.0.4 and newer.
+            Starting from VisualVM 2.1, navigating to the source code using the Go to Source action is supported in various views like Sampler/Profiler and Heap Viewer, using a defined external sources viewer and provided source roots.
+        </p>
+        <p class="description_mid">
+            Opening Java classes and methods is fully supported, with some exceptions for specific language constructs like lambdas or anonymous classes. There's an experimental support for displaying methods/functions of GraalVM guest languages in Polyglot Sampler | CPU.
         </p>
         
-        <p class="description_mid">
-            The VisualVM-GoToSource plugin adds the Go to Source action to context menus of various views like Sampler/Profiler and Heap Viewer. The plugin provides UI to define directories/archives containing the sources and select an external viewer to display the sources.
-        </p>
-
         <p class="description_last2">
-            Opening Java classes and methods is fully supported by the plugin, with some exceptions for specific language constructs like lambdas or anonymous classes. There's an experimental support for displaying methods/functions of GraalVM guest languages in Polyglot Sampler | CPU.
+            For the previous VisualVM releases down to VisualVM 2.0.4, the VisualVM-GoToSource plugin is available. It can be installed using Tools | Plugins, Available Plugins tab.
         </p>
         
         <a name="features"></a>
         <h2>Features</h2>
         <p>
-            Version 1.0 of the plugin introduces the following features:
+            The following features are available since VisualVM 2.1:
         </p>
         <ul>
             <li>Go to Source action in context menu of Java views: Sampler/Profiler live results & snapshots, Heap Viewer, JFR Sampler</li>
@@ -36,7 +35,7 @@ title: Sources Support
         <a name="limitations"></a>
         <h2>Limitations</h2>        
         <p>
-            Version 1.0 of the plugin has the following known limitations:
+            These are the known limitations of the current implementation:
         </p>
         <ul>
             <li>
@@ -60,33 +59,10 @@ title: Sources Support
             </li>
         </ul>
         
-        <a name="feedback"></a>
-        <h2>Feedback</h2>        
-        <p>
-            Please let us know what you do/don't like about the plugin! We'll appreciate any ideas, requests for features, bugreports etc.
-        </p>
-        <p>
-            To share your feedback, please <a href='https://github.com/oracle/visualvm/issues/new/choose'>file an issue</a> at GitHub or leave us a message using the <a href="{{ 'feedback.html' | prepend: site.baseurl }}">feedback</a> page.
-        </p>
-        
-        <hr class="textsect">
-
-        <a name="install"></a>
-        <h2>Installing the Plugin</h2>               
-        <ol>
-            <li>Make sure you are running VisualVM 2.0.4 or newer</li>
-            <li>In VisualVM main menu invoke Tools | Plugins, switch to Available Plugins tab and select the VisualVM-GoToSource plugin</li>
-            <li>Click the Install button, review and accept plugin license and wait for the plugin to be downloaded and installed</li>
-        </ol>
-
-        <p class="description_last2">
-            After a successful installation the plugin adds a new section "Sources" to the Tools | Options dialog (VisualVM | Preferences... on macOS).
-        </p>
-
         <a name="config"></a>
-        <h2>Configuring the Plugin</h2>
+        <h2>Configuration</h2>
         <p>
-            The plugin must be configured to provide the desired functionality. Open Tools | Options (VisualVM | Preferences... on macOS) and switch to the Sources section to define location of the source code and the tool to display the sources.
+            The sources support must be configured to provide the desired functionality. Open Tools | Options (VisualVM | Preferences... on macOS) and switch to the Sources section to define location of the source code and the tool to display the sources.
         </p>
         
         <a name="config-roots"></a>
@@ -99,7 +75,7 @@ title: Sources Support
                 <ul>
                     <li><u>Selected root(s):</u> selected directories immediately contain the sources</li>
                     <li><u>Subdirectories:</u> list of (common) subdirectories of the selected directories containing the sources</li>
-                    <li><u>Custom subpaths:</u> manually defined subpaths relative to the selected directories, separated by the path separator appropriate for the host OS</li>
+                    <li><u>Custom subpaths:</u> manually defined subpaths relative to the selected directories, separated by the path separator appropriate for the host OS - enter <code>*modules*</code> to search the selected directories for modular sources (JDK 9+)</li>
                     <li><u>Sources encoding</u> can be optionally customized for the defined source roots if needed</li>
                 </ul>
             </li>
@@ -149,16 +125,28 @@ title: Sources Support
             To clear the settings defined using the command line API and restore the original user-defined configuration, either restart VisualVM or use the <code>--source-roots</code> and/or <code>--source-viewer</code>, or the <code>--source-config</code> parameter with empty values. 
         </p>
         
+        <p>
+            <u>Note</u>: Parameter values cannot contain space, quote, and double quote. Use the following encoding for these characters:
+        </p>
+        <ul>
+            <li>space -> <code>%20</code></li>
+            <li>quote -> <code>%27</code></li>
+            <li>double quote -> <code>%22</code></li>
+        </ul>
+        
         <hr class="textsect">
 
         <a name="history"></a>
         <h2>Version History</h2>
         
         <p>
-            <b>Version 1.1</b> (Oct 15, 2020): Added the <code>--source-config</code> parameter.
+            <b>VisualVM 2.1</b> (Jul 20, 2021): Go to Source support in core tool, introduced <code>*modules*</code> flag, support for encoded parameters.
         </p>
         <p>
-            <b>Version 1.0</b> (Aug 18, 2020): Initial release.
+            <b>Plugin v. 1.1</b> (Oct 15, 2020): Added the <code>--source-config</code> parameter.
+        </p>
+        <p>
+            <b>Plugin v. 1.0</b> (Aug 18, 2020): Initial release.
         </p>
         
     </div>

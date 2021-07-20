@@ -1,13 +1,13 @@
 ---
 layout: visualvm_base_layout
-title: 2.0.7 Release Notes
+title: 2.1 Release Notes
 ---
 
 <div class="content_main">
     <div class="centered_content">
         <h1>Release Notes</h1>
         <p class="description_first description_last2">
-            VisualVM 2.0.7 has been released on April 20th, 2021. This document describes changes introduced by this release.
+            VisualVM 2.1 has been released on July 20th, 2021. This document describes changes introduced by this release.
         </p>
 
         <a name="system_requirements"></a>
@@ -25,12 +25,13 @@ title: 2.0.7 Release Notes
 
             <h3>Required Software:</h3>
             <ul>
-                <li>Oracle JDK 8~16</li>
+                <li>Oracle JDK 8~17*</li>
 
-                <li>OpenJDK 8~16</li>
+                <li>OpenJDK 8~17*</li>
                 
                 <li>GraalVM 19~21</li>
             </ul>
+            <small>* Tested to work with OpenJDK 17 Early-Access Build 31</small>
 
         </div>
         
@@ -42,45 +43,70 @@ title: 2.0.7 Release Notes
             <a name="features_enhancements"></a>
             <h3>Features and Enhancements:</h3>
             <ul>
-                <li><a href="https://github.com/oracle/visualvm/issues/260">GH-260</a>: Full support for running on JDK 16 and monitoring/profiling Java 16 processes</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/262">GH-262</a>: Add support for Apple M1</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/270">GH-270</a>: Import of plugins from previous VisualVM version</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/275">GH-275</a>: Add information about enabled modules</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/279">GH-279</a>: Add partial progress for retained sizes computation</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/254">GH-254</a>: Branding of updater splash</li>
-                <li>Stack trace for Python</li>
-                <li>HeapViewer - logical value added Instant, Attributes$Name, FDBigInteger, java.lang.module</li>
-                <li>HeapViewer - logical value for java.util classes - collections now display number of elements</li>
-                <li>Application recognizer for Gradle</li>
-                <li>Application recognizers for JDK tools updated</li>
+                <li>Full support for running on/monitoring & profiling JDK 17 (tested to work with OpenJDK 17 Early-Access Build 31):
+                    <ul>
+                        <li><a href="https://github.com/oracle/visualvm/issues/299">GH-299</a>: JDK 17 support</li>
+                    </ul>
+                </li>
+                <li>Support for profiling lock contention:
+                    <ul>
+                        <li><a href="https://github.com/oracle/visualvm/issues/298">GH-298</a>: Add lock contention profiling</li>
+                    </ul>
+                </li>
+                <li>JFR improvements: start / dump / stop JFR for a running Java process:
+                    <ul>
+                        <li><a href="https://github.com/oracle/visualvm/issues/297">GH-297</a>: Allow to save JFR recording</li>
+                    </ul>
+                </li>
+                <li>Sources support improvements:
+                    <ul>
+                        <li><a href="https://github.com/oracle/visualvm/issues/327">GH-327</a>: Provide Go To Source Support In Core Tool</li>
+                        <li><a href="https://github.com/oracle/visualvm/issues/302">GH-302</a>: Make It Easier To Define JDK Source Roots</li>
+                    </ul>
+                </li>
+                <li>New command-line options <code>--threaddump</code>, <code>--heapdump</code>, <code>--start-cpu-sampler</code>, <code>--start-memory-sampler</code>, <code>--snapshot-sampler</code>, <code>--stop-sampler</code>, <code>--start-jfr</code>, <code>--dump-jfr</code>, <code>--stop-jfr</code>, <code>--window-to-front</code>:
+                    <ul>
+                        <li><a href="https://github.com/oracle/visualvm/issues/319">GH-319</a>: Command-Line Option To Take a Thread Dump</li>
+                        <li><a href="https://github.com/oracle/visualvm/issues/320">GH-320</a>: Command-Line Option To Take a Heap Dump</li>
+                        <li><a href="https://github.com/oracle/visualvm/issues/321">GH-321</a>: Command-Line Options To Control Sampler</li>
+                        <li><a href="https://github.com/oracle/visualvm/issues/322">GH-322</a>: Command-Line Options To Control JFR</li>
+                        <li><a href="https://github.com/oracle/visualvm/issues/323">GH-323</a>: Command-Line Option To Focus VisualVM Window</li>
+                    </ul>
+                </li>
+                <li>Powered by the NetBeans Platform 12.4:
+                    <ul>
+                        <li><a href="https://github.com/oracle/visualvm/issues/316">GH-316</a>: Update NetBeans Platform to 12.4</li>
+                    </ul>
+                </li>                
             </ul>
             
             
-            <a name="api_changes"></a>
+            <!--a name="api_changes"></a>
             <h3>API Changes:</h3>
             <ul>
-                <li><a href="https://github.com/oracle/visualvm/issues/282">GH-282</a>: Add generics to public API of org.graalvm.visualvm.lib.jfluid.heap package</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/283">GH-283</a>: Add a way to obtain Heap from Instance</li>
-            </ul>
+                <li><a href="https://github.com/oracle/visualvm/issues/xxx">GH-xxx</a>: XXXXXXXXXX</li>
+            </ul-->
 
             
             <a name="fixed_bugs"></a>
             <h3>Fixed Bugs:</h3>
             <ul>
-                <li><a href="https://github.com/oracle/visualvm/issues/127">GH-127</a>: Incorrect max heap for G1GC</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/257">GH-257</a>: "Opening snapshot failed." due to incomplete compressed data read</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/263">GH-263</a>: Retained size calculated as negative</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/268">GH-268</a>: Detect that VisualVM is running on Eclipse OpenJ9</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/272">GH-272</a>: References are computed without progressbar</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/273">GH-273</a>: NPE: Cannot invoke "java.lang.management.MemoryMXBean.gc()"</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/274">GH-274</a>: Logical value: '...' added to complete string</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/276">GH-276</a>: Missing known blocking method</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/277">GH-277</a>: Incorrect horizontal scrolling</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/278">GH-278</a>: NPE at LongBuffer.startReading()</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/280">GH-280</a>: Incorrect selection background color on macOS</li>
-                <li>HeapViewer - logical value fixed for PythonModule, SourceImpl$Key, InetSocketAddress, BigDecimal</li>
-                <li>Memory sampler - improved refreshing under heavy load</li>
-                <li>Improved detection of IntelliJ applications</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/288">GH-288</a>: NPE from JavaClassesProvider.getHeapGCRoots()</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/289">GH-289</a>: IOException: Can not attach to current VM</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/291">GH-291</a>: Try to avoid JMX connection until user opens the application</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/292">GH-292</a>: Plugins | Settings | Proxy Settings Button Doesn't Work</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/300">GH-300</a>: Full Classname Displayed in Bold in JFR | Exceptions View</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/303">GH-303</a>: Truncated heap dump not detected</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/307">GH-307</a>: Endless computation of thread dump</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/308">GH-308</a>: Slow computation of thread dump</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/309">GH-309</a>: JavaFrameGCRoot.getThreadGCRoot() is slow</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/310">GH-310</a>: VisualVM unable to profile TruffleRuby</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/311">GH-311</a>: Logfile/Options location instructions on macOS unclear</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/312">GH-312</a>: CPU Sampler | Hot Spots Showing No Results</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/314">GH-314</a>: Second invocation of specific OQL query doesn't show anything.</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/317">GH-317</a>: Use Consistent Wording in Sampler/Profiler</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/324">GH-324</a>: Two JMX MonitoredData timers</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/326">GH-326</a>: NPE at TreeTableView.isColumnVisible(TreeTableView.java:287)</li>
             </ul>
             
         </div>
