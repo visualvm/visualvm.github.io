@@ -1,0 +1,489 @@
+---
+layout: visualvm_base_layout
+title: Command Line Options
+css: ../css/command-line-options.css
+---
+
+<div class="content_main">
+    <div class="centered_content">
+        <h1>Command Line Options</h1>
+        
+        <p class="description_first description_last2">
+            This document describes the command line options of the VisualVM launcher.
+        </p>
+        
+        <h3>On this page:</h3>
+        
+        <ul>
+            <li><a href="#setup_options">Setup Options</a></li>
+            <li><a href="#appearance_options">Appearance Options</a></li>
+            <li><a href="#functional_options">Functional Options</a></li>
+            <li><a href="#system_properties">System Properties</a></li>
+        </ul>
+        
+        <hr class="textsect">
+        
+        <h2 id="setup_options">Setup Options</h2>
+        
+        <ul id="jdkhome" class="option">
+            <li class="definition">
+                <code>--jdkhome&nbsp;</code>Sets the JDK installation to run VisualVM.
+            </li>
+            <li class="detail">
+                Usage:<br>
+                <code>visualvm --jdkhome &lt;path_to_jdk&gt;</code>
+            </li>
+            <li class="detail">
+                Example:<br>
+                <code>visualvm --jdkhome "C:\Program Files\Java\jdk11"&nbsp;</code>(Windows)<br>
+                <code>visualvm --jdkhome /Library/Java/JavaVirtualMachines/jdk-11.jdk/Contents/Home&nbsp;</code>(macOS)<br>
+                <code>visualvm --jdkhome /usr/java/jdk11&nbsp;</code>(Linux)
+            </li>
+        </ul>
+        
+        <ul id="userdir" class="option">
+            <li class="definition">
+                <code>--userdir&nbsp;</code>Defines the directory to store user settings, like remote hosts, JMX connections, etc.
+            </li>
+            <li class="detail">
+                Usage:<br>
+                <code>visualvm --userdir &lt;path_to_userdir&gt;</code>
+            </li>
+            <li class="detail">
+                Example:<br>
+                <code>visualvm --userdir C:\Users\Me\visualvm_userdir&nbsp;</code>(Windows)<br>
+                <code>visualvm --userdir /home/me/visualvm_userdir&nbsp;</code>(macOS, Linux)
+            </li>
+        </ul>
+        
+        <ul id="cachedir" class="option">
+            <li class="definition">
+                <code>--cachedir&nbsp;</code>Defines the directory to store user cache, must be different from userdir.
+            </li>
+            <li class="detail">
+                Usage:<br>
+                <code>visualvm --cachedir &lt;path_to_userdir&gt;</code>
+            </li>
+            <li class="detail">
+                Example:<br>
+                <code>visualvm --cachedir C:\Users\Me\visualvm_cachedir&nbsp;</code>(Windows)<br>
+                <code>visualvm --cachedir /home/me/visualvm_cachedir&nbsp;</code>(macOS, Linux)
+            </li>
+        </ul>
+        
+        <ul id="cp" class="option">
+            <li class="definition">
+                <code>--cp:p</code> and <code>--cp:a&nbsp;</code>Prepends or appends custom classpath to the VisualVM classpath.
+            </li>
+            <li class="detail">
+                Usage:<br>
+                <code>visualvm --cp:p &lt;custom_classpath&gt;</code><br>
+                <code>visualvm --cp:a &lt;custom_classpath&gt;</code>
+            </li>
+            <li class="detail">
+                Example:<br>
+                <code>visualvm --laf com.my.LookAndFeel --cp:a %TEMP%\mylookandfeel.jar</code>
+            </li>
+        </ul>
+        
+        <h2 id="appearance_options">Appearance Options</h2>
+        
+        <ul id="laf" class="option">
+            <li class="definition">
+                <code>--laf&nbsp;</code>Defines the Swing look and feel used to render the VisualVM GUI.
+            </li>
+            <li class="detail">
+                Usage:<br>
+                <code>visualvm --laf &lt;LaF_name&gt;&nbsp;</code>where <code>LaF_name</code> is one of Metal | Windows | Aqua | GTK<br>
+                <code>visualvm --laf &lt;LaF_classname&gt;&nbsp;</code>where <code>LaF_classname</code> is the custom LaF classname
+            </li>
+            <li class="detail">
+                Example:<br>
+                <code>visualvm --laf Metal</code><br>
+                <code>visualvm --laf com.my.LookAndFeel --cp:a %TEMP%\mylookandfeel.jar</code>
+            </li>
+        </ul>
+        
+        <ul id="fontsize" class="option">
+            <li class="definition">
+                <code>--fontsize&nbsp;</code>Defines the base font size used in the VisualVM GUI.
+            </li>
+            <li class="detail">
+                Usage:<br>
+                <code>visualvm --fontsize &lt;font_size&gt;</code>
+            </li>
+            <li class="detail">
+                Example:<br>
+                <code>visualvm --fontsize 15</code>
+            </li>
+        </ul>
+        
+        <h2 id="functional_options">Functional Options</h2>
+        
+        <ul id="openfile" class="option">
+            <li class="definition">
+                <code>--openfile&nbsp;</code>Opens the provided file or snapshot in the VisualVM GUI, if supported (.tdump, .hprof, .nps, .npss, .jfr, .apps).
+            </li>
+            <li class="detail">
+                Usage:<br>
+                <code>visualvm --openfile &lt;file&gt;</code>
+            </li>
+            <li class="detail">
+                Example:<br>
+                <code>visualvm --openfile %TEMP%\recording.jfr</code>
+            </li>
+        </ul>
+        
+        <ul id="openid" class="option">
+            <li class="definition">
+                <code>--openid&nbsp;</code>Opens a process with the provided id in the VisualVM GUI.
+            </li>
+            <li class="detail">
+                The id is defined by the process' system property visualvm.id: <code>java -Dvisualvm.id=custom_id -jar process.jar</code>.
+            </li>
+            <li class="detail">
+                Usage:<br>
+                <code>visualvm --openid &lt;id&gt;</code><br>
+                <code>visualvm --openid &lt;id@tab_idx&gt;&nbsp;</code>where <code>tab_idx</code> is a 1-based index of the process' tab to select
+            </li>
+            <li class="detail">
+                Example:<br>
+                <code>visualvm --openid custom_id</code><br>
+                <code>visualvm --openid custom_id@2</code>
+            </li>
+        </ul>
+        
+        <ul id="openpid" class="option">
+            <li class="definition">
+                <code>--openpid&nbsp;</code>Opens a process with the provided pid in the VisualVM GUI.
+            </li>
+            <li class="detail">
+                Usage:<br>
+                <code>visualvm --openpid &lt;pid&gt;</code><br>
+                <code>visualvm --openpid &lt;pid@tab_idx&gt;&nbsp;</code>where <code>tab_idx</code> is a 1-based index of the process' tab to select
+            </li>
+            <li class="detail">
+                Example:<br>
+                <code>visualvm --openpid 12345</code><br>
+                <code>visualvm --openpid 12345@2</code>
+            </li>
+        </ul>
+        
+        <ul id="openjmx" class="option">
+            <li class="definition">
+                <code>--openjmx&nbsp;</code>Opens a process specified by the provided JMX connection in the VisualVM GUI.
+            </li>
+            <li class="detail">
+                Usage:<br>
+                <code>visualvm --openjmx &lt;host:port&gt;</code>
+            </li>
+            <li class="detail">
+                Example:<br>
+                <code>visualvm --openjmx 10.0.0.100:12345</code>
+            </li>
+        </ul>
+        
+        <ul id="threaddump" class="option">
+            <li class="definition">
+                <code>--threaddump&nbsp;</code>Takes thread dump of the provided process and opens it in VisualVM GUI.
+            </li>
+            <li class="detail">
+                Usage:<br>
+                <code>visualvm --threaddump &lt;pid&gt;</code>
+            </li>
+            <li class="detail">
+                Example:<br>
+                <code>visualvm --threaddump 12345</code>
+            </li>
+        </ul>
+        
+        <ul id="heapdump" class="option">
+            <li class="definition">
+                <code>--heapdump&nbsp;</code>Takes heap dump of the provided process and opens it in VisualVM GUI.
+            </li>
+            <li class="detail">
+                Usage:<br>
+                <code>visualvm --heapdump &lt;pid&gt;</code>
+            </li>
+            <li class="detail">
+                Example:<br>
+                <code>visualvm --heapdump 12345</code>
+            </li>
+        </ul>
+        
+        <ul id="start-cpu-sampler" class="option">
+            <li class="definition">
+                <code>--start-cpu-sampler&nbsp;</code>Starts CPU sampler session for the provided process.
+            </li>
+            <li class="detail">
+                Usage:<br>
+                <code>visualvm --start-cpu-sampler &lt;pid&gt;&nbsp;</code>for default settings<br>
+                <code>visualvm --start-cpu-sampler &lt;pid@include-classes=&lt;filter&gt;,sampling-rate=&lt;rate_ms&gt;&gt;</code><br>
+                <code>visualvm --start-cpu-sampler &lt;pid@exclude-classes=&lt;filter&gt;,sampling-rate=&lt;rate_ms&gt;&gt;</code><br>
+                <code>visualvm --start-cpu-sampler &lt;pid@settings-file=&lt;settings_file&gt;&gt;</code>
+            </li>
+            <li class="detail">
+                Example:<br>
+                <code>visualvm --start-cpu-sampler 12345</code><br>
+                <code>visualvm --start-cpu-sampler 12345@exclude-classes=java.**,sampling-rate=20</code><br>
+                <code>visualvm --start-cpu-sampler 12345@settings-file=%TEMP%\sampler_settings.properties</code>
+            </li>
+        </ul>
+        
+        <ul id="start-memory-sampler" class="option">
+            <li class="definition">
+                <code>--start-memory-sampler&nbsp;</code>Starts memory sampler session for the provided process.
+            </li>
+            <li class="detail">
+                Usage:<br>
+                <code>visualvm --start-memory-sampler &lt;pid&gt;&nbsp;</code>for default settings<br>
+                <code>visualvm --start-memory-sampler &lt;pid@sampling-rate=&lt;rate_ms&gt;&gt;</code><br>
+                <code>visualvm --start-memory-sampler &lt;pid@settings-file=&lt;settings_file&gt;&gt;</code>
+            </li>
+            <li class="detail">
+                Example:<br>
+                <code>visualvm --start-memory-sampler 12345</code><br>
+                <code>visualvm --start-memory-sampler 12345@sampling-rate=2000</code><br>
+                <code>visualvm --start-memory-sampler 12345@settings-file=%TEMP%\sampler_settings.properties</code>
+            </li>
+        </ul>
+        
+        <ul id="snapshot-sampler" class="option">
+            <li class="definition">
+                <code>--snapshot-sampler&nbsp;</code>Takes snapshot of the sampling data collected so far for the provided process.
+            </li>
+            <li class="detail">
+                Usage:<br>
+                <code>visualvm --snapshot-sampler &lt;pid&gt;</code>
+            </li>
+            <li class="detail">
+                Example:<br>
+                <code>visualvm --snapshot-sampler 12345</code>
+            </li>
+        </ul>
+        
+        <ul id="stop-sampler" class="option">
+            <li class="definition">
+                <code>--stop-sampler&nbsp;</code>Stops the sampler session of the provided process.
+            </li>
+            <li class="detail">
+                Usage:<br>
+                <code>visualvm --stop-sampler &lt;pid&gt;</code>
+            </li>
+            <li class="detail">
+                Example:<br>
+                <code>visualvm --stop-sampler 12345</code>
+            </li>
+        </ul>
+        
+        <ul id="start-jfr" class="option">
+            <li class="definition">
+                <code>--start-jfr&nbsp;</code>Starts flight recording of the provided process.
+            </li>
+            <li class="detail">
+                Usage:<br>
+                <code>visualvm --start-jfr &lt;pid&gt;&nbsp;</code>for default settings<br>
+                <code>visualvm --start-jfr &lt;pid@name=&lt;recording_name&gt;,settings=&lt;jfr_settings&gt;&gt;&nbsp;</code>for custom settings<br>
+                <code>visualvm --start-jfr &lt;pid@settings-file=&lt;settings_file&gt;&gt;&nbsp;</code>for custom settings defined in a properties file
+            </li>
+            <li class="detail">
+                Example:<br>
+                <code>visualvm --start-jfr 12345</code><br>
+                <code>visualvm --start-jfr 12345@name=MyRecording,settings=default</code><br>
+                <code>visualvm --start-jfr 12345@settings-file=%TEMP%\jfr_settings.properties</code>
+            </li>
+        </ul>
+        
+        <ul id="dump-jfr" class="option">
+            <li class="definition">
+                <code>--dump-jfr&nbsp;</code>Dumps the flight recorder data collected so far for the provided process.
+            </li>
+            <li class="detail">
+                Usage:<br>
+                <code>visualvm --dump-jfr &lt;pid&gt;</code>
+            </li>
+            <li class="detail">
+                Example:<br>
+                <code>visualvm --dump-jfr 12345</code>
+            </li>
+        </ul>
+        
+        <ul id="stop-jfr" class="option">
+            <li class="definition">
+                <code>--stop-jfr&nbsp;</code>Stops the flight recording of the provided process.
+            </li>
+            <li class="detail">
+                Usage:<br>
+                <code>visualvm --stop-jfr &lt;pid&gt;</code>
+            </li>
+            <li class="detail">
+                Example:<br>
+                <code>visualvm --stop-jfr 12345</code>
+            </li>
+        </ul>
+        
+        <ul id="source-roots" class="option">
+            <li class="definition">
+                <code>--source-roots&nbsp;</code>Defines the source roots to be searched for the sources by VisualVM.
+            </li>
+            <li class="detail">
+                Usage:<br>
+                <code>visualvm --source-roots="&lt;source_root[subpaths=subpath1:subpath2][encoding=encoding_name]&gt;"</code>
+            </li>
+            <li class="detail">
+                Example:<br>
+                <code>visualvm --source-roots="C:\Sources\Root1;C:\Sources\Root2[subpaths=src:test\src]"&nbsp;</code>(Windows)<br>
+                <code>visualvm --source-roots="/home/user/src/root1[encoding=UTF-16]:/home/user/src/root2"&nbsp;</code>(macOS, Linux)
+            </li>
+            <li class="detail">
+                Details:<br>
+                See the <a href="{{ '../sourcessupport.html#config-api' | prepend: site.baseurl }}">Sources Support</a> document.
+            </li>
+        </ul>
+        
+        <ul id="source-viewer" class="option">
+            <li class="definition">
+                <code>--source-viewer&nbsp;</code>Defines the command to launch an external sources viewer from VisualVM using Go to Source action.
+            </li>
+            <li class="detail">
+                Usage:<br>
+                <code>visualvm --source-viewer="&lt;viewer_command&gt;"</code>
+            </li>
+            <li class="detail">
+                Example:<br>
+                <code>visualvm --source-viewer="C:\Software\VSCode\bin\code.cmd -g {file}:{line}:{column}"</code>
+            </li>
+            <li class="detail">
+                Details:<br>
+                See the <a href="{{ '../sourcessupport.html#config-api' | prepend: site.baseurl }}">Sources Support</a> document.
+            </li>
+        </ul>
+        
+        <ul id="source-config" class="option">
+            <li class="definition">
+                <code>--source-config&nbsp;</code>Defines --source-roots and --source-viewer in a single step using a properties file.
+            </li>
+            <li class="detail">
+                The file contains at least one of source-roots and source-viewer key/value pair in java.util.Properties format, UTF-8 encoding.
+            </li>
+            <li class="detail">
+                Usage:<br>
+                <code>visualvm --source-config &lt;config_file&gt;</code>
+            </li>
+            <li class="detail">
+                Example:<br>
+                <code>visualvm --source-config %TEMP%\source-config.properties</code>
+            </li>
+            <li class="detail">
+                Details:<br>
+                See the <a href="{{ '../sourcessupport.html#config-api' | prepend: site.baseurl }}">Sources Support</a> document.
+            </li>
+        </ul>
+        
+        <ul id="window-to-front" class="option">
+            <li class="definition">
+                <code>--window-to-front&nbsp;</code>Brings the currently opened VisualVM window to front if supported by the OS window system.
+            </li>
+            <li class="detail">
+                Usage:<br>
+                <code>visualvm --window-to-front</code>
+            </li>
+        </ul>
+        
+        <h2 id="system_properties">System Properties</h2>
+        
+        <p>
+            Some VisualVM features or behavior can be configured using the system properties provided to the VisualVM launcher.<br>
+            Make sure to use the <code>visualvm -J-Dsystem.property=value</code> format.
+        </p>
+        
+        <h3 style="padding-top: 20px;">Selected VisualVM System Properties:</h3>
+        
+        <p>
+            <b>Note</b>: System properties specific to VisualVM are not considered a stable API, they may vary among releases and/or be discontinued at any time.
+        </p>
+        
+        <ul id="visualvm.tmpdir" class="option">
+            <li class="definition">
+                <code>visualvm.tmpdir&nbsp;</code>Defines location for storing temporary files like thread dumps, profiler snapshots, etc.
+            </li>
+            <li class="detail">
+                Example:<br>
+                <code>visualvm -J-Dvisualvm.tmpdir=%TEMP%\visualvm_tmpdir</code>
+            </li>
+        </ul>
+        
+        <ul id="org.graalvm.visualvm.modules.startup.DisableStartupCheck" class="option">
+            <li class="definition">
+                <code>org.graalvm.visualvm.modules.startup.DisableStartupCheck&nbsp;</code>Disables the initial check for a supported JDK on VisualVM startup.
+            </li>
+            <li class="detail">
+                Example:<br>
+                <code>visualvm -J-Dorg.graalvm.visualvm.modules.startup.DisableStartupCheck=true</code>
+            </li>
+        </ul>
+        
+        <ul id="visualvm.search.process.timeout" class="option">
+            <li class="definition">
+                <code>visualvm.search.process.timeout&nbsp;</code>Maximum number milliseconds to wait for a process id/pid to become available when processing command line options like --openid, --threaddump, --start-cpu-sampler, etc.
+            </li>
+            <li class="detail">
+                Example:<br>
+                <code>visualvm -J-Dvisualvm.search.process.timeout=10000</code>
+            </li>
+        </ul>
+        
+        <ul id="graphs.forceSpeed" class="option">
+            <li class="definition">
+                <code>graphs.forceSpeed&nbsp;</code>Special performance mode for the VisualVM charts disabling transparency & antialiasing.
+            </li>
+            <li class="detail">
+                Example:<br>
+                <code>visualvm -J-Dgraphs.forceSpeed=true</code>
+            </li>
+        </ul>
+        
+        <ul id="OQLController.limitResults" class="option">
+            <li class="definition">
+                <code>OQLController.limitResults&nbsp;</code>Maximum number of results returned by an OQL query in the heap viewer OQL Console.
+            </li>
+            <li class="detail">
+                Example:<br>
+                <code>visualvm -J-DOQLController.limitResults=200</code>
+            </li>
+        </ul>
+        
+        <h3 style="padding-top: 20px;">Useful Apperance System Properties:</h3>
+        
+        <ul id="sun.java2d.uiScale.enabled" class="option">
+            <li class="definition">
+                <code>sun.java2d.uiScale.enabled&nbsp;</code>Enabling/disabling the implicit Swing scaling on high DPI displays.
+            </li>
+            <li class="detail">
+                Example:<br>
+                <code>visualvm -J-Dsun.java2d.uiScale.enabled=false</code>
+            </li>
+        </ul>
+        
+        <ul id="sun.java2d.uiScale" class="option">
+            <li class="definition">
+                <code>sun.java2d.uiScale&nbsp;</code>Definition of the UI scale for the implicit Swing scaling on high DPI displays.
+            </li>
+            <li class="detail">
+                Example:<br>
+                <code>visualvm -J-Dsun.java2d.uiScale=1.0</code>
+            </li>
+        </ul>
+        
+        <ul id="jdk.gtk.version" class="option">
+            <li class="definition">
+                <code>jdk.gtk.version&nbsp;</code>Definition of GTK engine version to render the VisualVM GUI.
+            </li>
+            <li class="detail">
+                Example:<br>
+                <code>visualvm -J-Djdk.gtk.version=2</code>
+            </li>
+        </ul>
+        
+    </div>
+</div>
