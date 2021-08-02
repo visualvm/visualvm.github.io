@@ -8,8 +8,12 @@ css: ../css/command-line-options.css
     <div class="centered_content">
         <h1>Command Line Options</h1>
         
-        <p class="description_first description_last2">
-            This document describes the command line options of the VisualVM launcher.
+        <p class="description_first">
+            This document describes the most useful command line options of the VisualVM launcher.
+        </p>
+        
+        <p class="description_last2">
+            Use <code>visualvm --help</code> for a complete list of all available options.
         </p>
         
         <h3>On this page:</h3>
@@ -30,6 +34,9 @@ css: ../css/command-line-options.css
                 <code>--jdkhome&nbsp;</code>Sets the JDK installation to run VisualVM.
             </li>
             <li class="detail">
+                Typically VisualVM finds and uses a compatible JDK automatically. Use the <code>--jdkhome</code> option only if needed.
+            </li>
+            <li class="detail">
                 Usage:<br>
                 <code>visualvm --jdkhome &lt;path_to_jdk&gt;</code>
             </li>
@@ -43,8 +50,18 @@ css: ../css/command-line-options.css
         
         <ul id="userdir" class="option">
             <li class="definition">
-                <code>--userdir&nbsp;</code>Defines the directory to store user settings, like remote hosts, JMX connections, etc.
+                <code>--userdir&nbsp;</code>Defines the directory to store user settings like remote hosts, JMX connections, etc., and installed plugins.
             </li>
+            <li class="detail">
+                VisualVM starts with a default user directory without any configuration. Use the <code>--userdir</code> option only if needed.
+            </li>
+            <li class="detail">
+                Default user directory:<br>
+                <code>C:\Users\&lt;user&gt;\AppData\Roaming\VisualVM\&lt;version&gt;&nbsp;</code>(Windows)<br>
+                <code>/Users/&lt;user&gt;/Library/Application Support/VisualVM/&lt;version&gt;&nbsp;</code>(macOS)<br>
+                <code>/home/&lt;user&gt;/.visualvm/&lt;version&gt;&nbsp;</code>(Linux)
+            </li>
+
             <li class="detail">
                 Usage:<br>
                 <code>visualvm --userdir &lt;path_to_userdir&gt;</code>
@@ -59,6 +76,15 @@ css: ../css/command-line-options.css
         <ul id="cachedir" class="option">
             <li class="definition">
                 <code>--cachedir&nbsp;</code>Defines the directory to store user cache, must be different from userdir.
+            </li>
+            <li class="detail">
+                VisualVM starts with a default cache directory without any configuration. Use the <code>--cachedir</code> option only if needed.
+            </li>
+            <li class="detail">
+                Default cache directory:<br>
+                <code>C:\Users\&lt;user&gt;\AppData\Local\VisualVM\Cache\&lt;version&gt;&nbsp;</code>(Windows)<br>
+                <code>/Users/&lt;user&gt;/Library/Caches/VisualVM/&lt;version&gt;&nbsp;</code>(macOS)<br>
+                <code>/home/&lt;user&gt;/.cache/visualvm/&lt;version&gt;&nbsp;</code>(Linux)
             </li>
             <li class="detail">
                 Usage:<br>
