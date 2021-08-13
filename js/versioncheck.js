@@ -2,7 +2,7 @@ function checkVersion(pagebase) {
     if (window.location.search) {
         var version = window.location.search.substring(1);
 
-        if (version.startsWith("VisualVM_1")) document.getElementById("header_div").innerHTML += visualVMUpgrade(pagebase, version);
+        if (version.startsWith("VisualVM_1") || version.startsWith("VisualVM_2.0")) document.getElementById("header_div").innerHTML += visualVMUpgrade(pagebase, version);
         else if (version.startsWith("Java_VisualVM")) document.getElementById("header_div").innerHTML += javaVisualVMUpgrade(pagebase);
     }
 }
