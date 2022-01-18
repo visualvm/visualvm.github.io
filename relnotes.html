@@ -1,13 +1,13 @@
 ---
 layout: visualvm_base_layout
-title: 2.1.1 Release Notes
+title: 2.1.2 Release Notes
 ---
 
 <div class="content_main">
     <div class="centered_content">
         <h1>Release Notes</h1>
         <p class="description_first description_last2">
-            VisualVM 2.1.1 has been released on October 19th, 2021. This document describes changes introduced by this release.
+            VisualVM 2.1.2 has been released on January 18th, 2022. This document describes changes introduced by this release.
         </p>
 
         <a name="system_requirements"></a>
@@ -25,12 +25,13 @@ title: 2.1.1 Release Notes
 
             <h3>Required Software:</h3>
             <ul>
-                <li>Oracle JDK 8~17</li>
+                <li>Oracle JDK 8~18*</li>
 
-                <li>OpenJDK 8~17</li>
+                <li>OpenJDK 8~18*</li>
                 
-                <li>GraalVM 19~21</li>
+                <li>GraalVM 19~22</li>
             </ul>
+            <small>* Tested to work with OpenJDK 18 Early-Access Build 31</small>
 
         </div>
         
@@ -42,21 +43,27 @@ title: 2.1.1 Release Notes
             <a name="features_enhancements"></a>
             <h3>Features and Enhancements:</h3>
             <ul>
-                <li>JFR viewer compatibility improvements:
+                <li>Support for JDK 18:
                     <ul>
-                        <li><a href="https://github.com/oracle/visualvm/issues/339">GH-339</a>: Update generic JFR loader to the latest version</li>
+                        <li><a href="https://github.com/oracle/visualvm/issues/362">GH-362</a>: JDK 18 support</li>
                     </ul>
                 </li>
-                <li>Standalone library for handling .hprof:
+                <li>VisualVM-JFR Streaming plugin for exact thread state monitoring:
                     <ul>
-                        <li><a href="https://github.com/oracle/visualvm/issues/343">GH-343</a>: Extract Heap library to a separate module</li>
+                        <li><a href="https://github.com/oracle/visualvm/issues/363">GH-363</a>: Add exact thread state monitoring</li>
                     </ul>
                 </li>
                 <li>Heap viewer usability improvements:
                     <ul>
-                        <li><a href="https://github.com/oracle/visualvm/issues/344">GH-344</a>: [HeapViewer] display logical value of com.sun.tools.javac.code.Symbol and its subclasses</li>
+                        <li><a href="https://github.com/oracle/visualvm/issues/354">GH-354</a>: [HeapViewer] display logical value of java.nio.file.Path</li>
+                        <li><a href="https://github.com/oracle/visualvm/issues/360">GH-360</a>: Display number of elements as logical value for ConcurrentHashMap</li>
                     </ul>
-                </li>              
+                </li>
+                <li>GraalJS plugin updated:
+                    <ul>
+                        <li><a href="https://github.com/oracle/visualvm/issues/359">GH-359</a>: Update graaljs plugin to GraalVM 21.3.</li>
+                    </ul>
+                </li>
             </ul>
             
             
@@ -70,12 +77,21 @@ title: 2.1.1 Release Notes
             <a name="fixed_bugs"></a>
             <h3>Fixed Bugs:</h3>
             <ul>
-                <li><a href="https://github.com/oracle/visualvm/issues/329">GH-329</a>: ProfilerPresets: Cannot invoke "String.indexOf(String)" because "args" is null</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/330">GH-330</a>: java.lang.SecurityException from org.graalvm.visualvm.jmx.impl.JmxSupport.executeJCmd</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/331">GH-331</a>: ProfilerPresets.getMainClass() - local file access for remote application</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/334">GH-334</a>: BTrace based tracer plugins do not work with GraalJS</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/335">GH-335</a>: NPE in InstanceNode.getName(InstanceNode.java:92)</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/336">GH-336</a>: JavaFrameGCRoot.getThreadGCRoot() can be much faster</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/349">GH-349</a>: Polyglot sampler does not distinguish python methods with the same name.</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/350">GH-350</a>: Improve detection of Apache NetBeans Dev builds</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/351">GH-351</a>: Graal.js: java.lang.IllegalStateException: Multi threaded access requested by thread</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/355">GH-355</a>: typo in isSubclassOf</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/361">GH-361</a>: NPE from HprofHeap.fillHeapTagBounds(HprofHeap.java:1320)</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/364">GH-364</a>: VisualVM default gtk plaf not working on a default Ubuntu install</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/365">GH-365</a>: Cannot initialize GTK colors on Linux</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/366">GH-366</a>: An illegal reflective access warning on Linux</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/367">GH-367</a>: Missing known blocking method</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/368">GH-368</a>: NPE when trying to connect to packaged application</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/369">GH-369</a>: Error getting SA agent: ClassNotFoundException: sun.jvm.hotspot.HotSpotAgent</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/370">GH-370</a>: NPE: Cannot invoke "Instance.getJavaClass()" because "loc" is null</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/371">GH-371</a>: CCE: class DynamicObject$Property$1 cannot be cast to class ObjectFieldValue</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/373">GH-373</a>: NPE in StringDecoder.&lt;init&gt;</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/376">GH-376</a>: Eclipse Launcher is not signed</li>
             </ul>
             
         </div>

@@ -1,0 +1,94 @@
+---
+layout: visualvm_base_layout
+title: 2.1.1 Release Notes
+---
+
+<div class="content_main">
+    <div class="centered_content">
+        <h1>Release Notes</h1>
+        <p class="description_first description_last2">
+            VisualVM 2.1.1 has been released on October 19th, 2021. This document describes changes introduced by this release.
+        </p>
+
+        <a name="system_requirements"></a>
+        <h2>System Requirements</h2>
+        <div>
+            <h3>Supported OS:</h3>
+            <ul>
+                <li>Microsoft Windows</li>
+
+                <li>Linux: Intel platform, ARM HFLT, AArch64</li>
+
+                <li>macOS: Intel platform, Apple M1</li>
+            </ul>
+
+
+            <h3>Required Software:</h3>
+            <ul>
+                <li>Oracle JDK 8~17</li>
+
+                <li>OpenJDK 8~17</li>
+                
+                <li>GraalVM 19~21</li>
+            </ul>
+
+        </div>
+        
+        <hr class="textsect">
+
+        <a name="changes"></a>
+        <h2>Changes</h2>
+        <div>
+            <a name="features_enhancements"></a>
+            <h3>Features and Enhancements:</h3>
+            <ul>
+                <li>JFR viewer compatibility improvements:
+                    <ul>
+                        <li><a href="https://github.com/oracle/visualvm/issues/339">GH-339</a>: Update generic JFR loader to the latest version</li>
+                    </ul>
+                </li>
+                <li>Standalone library for handling .hprof:
+                    <ul>
+                        <li><a href="https://github.com/oracle/visualvm/issues/343">GH-343</a>: Extract Heap library to a separate module</li>
+                    </ul>
+                </li>
+                <li>Heap viewer usability improvements:
+                    <ul>
+                        <li><a href="https://github.com/oracle/visualvm/issues/344">GH-344</a>: [HeapViewer] display logical value of com.sun.tools.javac.code.Symbol and its subclasses</li>
+                    </ul>
+                </li>              
+            </ul>
+            
+            
+            <!--a name="api_changes"></a>
+            <h3>API Changes:</h3>
+            <ul>
+                <li><a href="https://github.com/oracle/visualvm/issues/xxx">GH-xxx</a>: XXXXXXXXXX</li>
+            </ul-->
+
+            
+            <a name="fixed_bugs"></a>
+            <h3>Fixed Bugs:</h3>
+            <ul>
+                <li><a href="https://github.com/oracle/visualvm/issues/329">GH-329</a>: ProfilerPresets: Cannot invoke "String.indexOf(String)" because "args" is null</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/330">GH-330</a>: java.lang.SecurityException from org.graalvm.visualvm.jmx.impl.JmxSupport.executeJCmd</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/331">GH-331</a>: ProfilerPresets.getMainClass() - local file access for remote application</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/334">GH-334</a>: BTrace based tracer plugins do not work with GraalJS</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/335">GH-335</a>: NPE in InstanceNode.getName(InstanceNode.java:92)</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/336">GH-336</a>: JavaFrameGCRoot.getThreadGCRoot() can be much faster</li>
+            </ul>
+            
+        </div>
+        
+        <hr class="textsect">
+
+        <a name="known_problems"></a>
+        <h2>Known Problems</h2>
+        <div>
+            <p>To view all known problems please see the <a href="https://github.com/oracle/visualvm/issues">VisualVM Issues</a> page.</p>
+            
+            <p>To resolve the most common problems please follow the <a href="https://visualvm.github.io/troubleshooting.html">Troubleshooting Guide</a>.</p>
+        </div>
+            
+    </div>
+</div>
