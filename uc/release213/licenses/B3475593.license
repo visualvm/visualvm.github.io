@@ -385,11 +385,11 @@ your version.
 
 
 ==================================================
-Additional license (btrace-client-2.2.0-license.txt) associated with the following files:
+Additional license (btrace-client-2.2.2-license.txt) associated with the following files:
 modules/ext/btrace-agent.jar
 modules/ext/btrace-boot.jar
 
-Copyright (c) 2008, 2021, Oracle and/or its affiliates. All rights reserved.
+Copyright (c) 2008, 2022, Oracle and/or its affiliates. All rights reserved.
 
 GNU General Public License, version 2, with the Classpath Exception
 
