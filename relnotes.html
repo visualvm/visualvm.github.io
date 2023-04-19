@@ -1,13 +1,13 @@
 ---
 layout: visualvm_base_layout
-title: 2.1.5 Release Notes
+title: 2.1.6 Release Notes
 ---
 
 <div class="content_main">
     <div class="centered_content">
         <h1>Release Notes</h1>
         <p class="description_first description_last2">
-            VisualVM 2.1.5 has been released on October 18th, 2022. This document describes changes introduced by this release.
+            VisualVM 2.1.6 has been released on April 19th, 2023. This document describes changes introduced by this release.
         </p>
 
         <a name="system_requirements"></a>
@@ -25,9 +25,9 @@ title: 2.1.5 Release Notes
 
             <h3>Required Software:</h3>
             <ul>
-                <li>Oracle JDK 8~19</li>
+                <li>Oracle JDK 8~20</li>
 
-                <li>OpenJDK 8~19</li>
+                <li>OpenJDK 8~20</li>
                 
                 <li>GraalVM 19~22</li>
             </ul>
@@ -42,29 +42,26 @@ title: 2.1.5 Release Notes
             <a name="features_enhancements"></a>
             <h3>Features and Enhancements:</h3>
             <ul>
-                <li>Full support for running on/monitoring & profiling JDK 19:
+                <li>Full support for running on/monitoring & profiling JDK 20:
                     <ul>
-                        <li><a href="https://github.com/oracle/visualvm/issues/415">GH-415</a>: JDK 19 support</li>
+                        <li><a href="https://github.com/oracle/visualvm/issues/483">GH-483</a>: JDK 20 support</li>
                     </ul>
                 </li>
-                <li>Heap viewer usability improvements:
+                <li>Heap viewer improvements:
                     <ul>
-                        <li><a href="https://github.com/oracle/visualvm/issues/437">GH-437</a>: Add logical value for several Nodes</li>
-                        <li><a href="https://github.com/oracle/visualvm/issues/431">GH-431</a>: [HeapViewer] add logical value for python class 'decimal.Decimal'</li>
-                        <li><a href="https://github.com/oracle/visualvm/issues/430">GH-430</a>: [HeapViewer] Add support for TruffleString in Python heap viewer</li>
+                        <li><a href="https://github.com/oracle/visualvm/issues/481">GH-481</a>: [HeapViewer] display number of GC roots attached to particular instance</li>
+                        <li><a href="https://github.com/oracle/visualvm/issues/478">GH-478</a>: [HeapViewer] display logical value of java.security.CodeSource</li>
+                        <li><a href="https://github.com/oracle/visualvm/issues/477">GH-477</a>: [OQL] add signers and protectionDomain properties</li>
+                        <li><a href="https://github.com/oracle/visualvm/issues/455">GH-455</a>: [HeapViewer] display logical value of subclasses of java.nio.Buffer</li>
+                        <li><a href="https://github.com/oracle/visualvm/issues/454">GH-454</a>: Allow keyboard shortcut to execute oql</li>
+                        <li><a href="https://github.com/oracle/visualvm/issues/452">GH-452</a>: [HeapViewer] show array items</li>
                     </ul>
                 </li>
                 <li>Other improvements:
                     <ul>
-                        <li><a href="https://github.com/oracle/visualvm/issues/448">GH-448</a>: Detect GraalVM language using system property</li>
-                        <li><a href="https://github.com/oracle/visualvm/issues/435">GH-435</a>: Add information about JDK release date and LTS</li>
-                        <li><a href="https://github.com/oracle/visualvm/issues/423">GH-423</a>: Remove Self time nodes from the sampler/profiler CPU trees when their total time is at 0,0 ms.</li>
-                        <li><a href="https://github.com/oracle/visualvm/issues/429">GH-429</a>: Update generic JFR loader to version 8.2.1</li>
-                    </ul>
-                </li>
-                <li>Powered by the NetBeans Platform 14.0:
-                    <ul>
-                        <li><a href="https://github.com/oracle/visualvm/issues/438">GH-438</a>: Upgrade NetBeans Platform</li>
+                        <li><a href="https://github.com/oracle/visualvm/issues/468">GH-468</a>: Update generic JFR loader to version 8.3.0</li>
+                        <li><a href="https://github.com/oracle/visualvm/issues/466">GH-466</a>: Add application recognizers for JDK tools</li>
+                        <li><a href="https://github.com/oracle/visualvm/issues/464">GH-464</a>: Update graaljs plugin to GraalVM 22.3.</li>
                     </ul>
                 </li>
             </ul>
@@ -80,27 +77,14 @@ title: 2.1.5 Release Notes
             <a name="fixed_bugs"></a>
             <h3>Fixed Bugs:</h3>
             <ul>
-                <li><a href="https://github.com/oracle/visualvm/issues/451">GH-451</a>: [Heapviewer] Fix logical value for Ruby classes</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/446">GH-446</a>: [HeapViewer] Cannot call progress on a task that was never started</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/442">GH-442</a>: NPE from JvmJvmstatModel.getFirstArgument()</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/436">GH-436</a>: NPE in TruffleFrame.createLocals()</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/434">GH-434</a>: Incorrect colour of diff bar in memory sampler</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/432">GH-432</a>: [HeapViewer] Python 'dict' does not have any items</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/428">GH-428</a>: Profiler tab updates for terminated applications</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/426">GH-426</a>: GitHub issue template should explain how to obtain messages.log</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/425">GH-425</a>: Nodejs heap dump does not have any JavaScript objects</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/424">GH-424</a>: NPE in TruffleFrame.getObjectArray</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/422">GH-422</a>: Automatic re-connect of JXM application does not work</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/421">GH-421</a>: Remote JMX application reported as &lt;unknown&gt;</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/420">GH-420</a>: Arguments line of remote JVM cropped at 1024 characters</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/418">GH-418</a>: JFR does not work for remote OracleJDK 8</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/417">GH-417</a>: JFR enabled for JDK 7</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/416">GH-416</a>: Move JFR support to org.graalvm.visualvm.tools module</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/414">GH-414</a>: Profiler calibration fails on Solaris with JDK 11</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/304">GH-304</a>: Don't see polyglot functionality when running via JMX</li>
-                
-                
-                
+                <li><a href="https://github.com/oracle/visualvm/issues/487">GH-487</a>: Snapshot data are not released when snapshot is closed</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/485">GH-485</a>: Delay loading previous nps captures for servers in Applications tree</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/484">GH-484</a>: When enumerating the roots nextElement can fail with: Cannot read property "getInstanceId" from null</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/475">GH-475</a>: NPE in RecursiveMethodInstrumentor.scanBytecode()</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/474">GH-474</a>: [HeapViewer] Slow computation of threads view</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/470">GH-470</a>: VisualVM GUI slow when monitoring host</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/457">GH-457</a>: Unusual proxy port notation</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/445">GH-445</a>: AWT thread blocked for few minutes while expanding GC root</li>
             </ul>
             
         </div>
