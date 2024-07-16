@@ -1,0 +1,111 @@
+---
+layout: visualvm_base_layout
+title: 2.1.8 Release Notes
+---
+
+<div class="content_main">
+    <div class="centered_content">
+        <h1>Release Notes</h1>
+        <p class="description_first description_last2">
+            VisualVM 2.1.8 has been released on March 19th, 2024. This document describes changes introduced by this release.
+        </p>
+
+        <a name="system_requirements"></a>
+        <h2>System Requirements</h2>
+        <div>
+            <h3>Supported OS:</h3>
+            <ul>
+                <li>Microsoft Windows</li>
+
+                <li>Linux: Intel platform, ARM HFLT, AArch64</li>
+
+                <li>macOS: Intel platform, Apple Silicon</li>
+            </ul>
+
+
+            <h3>Required Software:</h3>
+            <ul>
+                <li>Oracle JDK 8~22</li>
+
+                <li>OpenJDK 8~22</li>
+                
+                <li>GraalVM 19~23</li>
+            </ul>
+
+        </div>
+        
+        <hr class="textsect">
+
+        <a name="changes"></a>
+        <h2>Changes</h2>
+        <div>
+            <a name="features_enhancements"></a>
+            <h3>Features and Enhancements:</h3>
+            <ul>
+                <li>Full support for running on/monitoring & profiling JDK 22:
+                    <ul>
+                        <li><a href="https://github.com/oracle/visualvm/issues/556">GH-556</a>: JDK 22 support</li>
+                    </ul>
+                </li>
+                <li>Heap viewer improvements:
+                    <ul>
+                        <li><a href="https://github.com/oracle/visualvm/issues/553">GH-553</a>: [HeapViewer] display logical value of WindowsPathWithAttributes</li>
+                        <li><a href="https://github.com/oracle/visualvm/issues/545">GH-545</a>: [HeapViewer] Allow to share heap cache (*.hwcache) between different computers</li>
+                        <li><a href="https://github.com/oracle/visualvm/issues/539">GH-539</a>: [HeapViewer] failed to show threads when heap dump contains virtual threads (JDK 22)</li>
+                        <li><a href="https://github.com/oracle/visualvm/issues/534">GH-534</a>: [HeapViewer] Improve logical value for LogRecord</li>
+                    </ul>
+                </li>
+                <li>Other improvements:
+                    <ul>
+                        <li><a href="https://github.com/oracle/visualvm/issues/536">GH-536</a>: Recognize Maven Wrapper process</li>
+                        <li><a href="https://github.com/oracle/visualvm/issues/527">GH-527</a>: Update generic JFR loader to version 8.3.1</li>
+                        <li><a href="https://github.com/oracle/visualvm/issues/526">GH-526</a>: Upgrade NetBeans Platform to 19</li>
+                    </ul>
+                </li>
+            </ul>
+            
+            
+            <!--a name="api_changes"></a>
+            <h3>API Changes:</h3>
+            <ul>
+                <li><a href="https://github.com/oracle/visualvm/issues/xxx">GH-xxx</a>: XXXXXXXXXX</li>
+            </ul-->
+
+            
+            <a name="fixed_bugs"></a>
+            <h3>Fixed Bugs:</h3>
+            <ul>
+                <li><a href="https://github.com/oracle/visualvm/issues/560">GH-560</a>: CPU Sampler Results Not Reset For a New Session</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/559">GH-559</a>: Go to source does not work for JDK classes</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/555">GH-555</a>: Opening heap dump on M1 Mac is slow</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/551">GH-551</a>: CPU sample from JFR file can take a long time</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/550">GH-550</a>: Missing known blocking method in Object and Thread</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/548">GH-548</a>: VisualVM Throws Exceptions On Startup (Proxy vs. JavaScript)</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/543">GH-543</a>: [HeapViewer] NPE from processGCRootReference()</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/538">GH-538</a>: GraalVM 23.1 standalone languages distributions not recognized</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/537">GH-537</a>: Polyglot Sampler doesn't work with GraalVM for JDK 21</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/535">GH-535</a>: Mac OS distribution - missing CFBundleIdentifier</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/533">GH-533</a>: VisualVM fails on parsing/showing object of LogRecord class if it uses an extended Level class</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/530">GH-530</a>: Additional File in HeapViewer's hwcache on Windows</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/529">GH-529</a>: Sort threads by name is incorrect</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/521">GH-521</a>: selected Thread switches</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/497">GH-497</a>: Running VisualVM.app from Finder still needs Rosetta</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/482">GH-482</a>: JDBC profiler - SQL query is truncated to 1024 chars</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/476">GH-476</a>: JFluid wire protocol error: code does not correspond to command or response.</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/306">GH-306</a>: Password are saved in the connection configuration files</li>
+            </ul>
+            
+        </div>
+        
+        <hr class="textsect">
+
+        <a name="known_problems"></a>
+        <h2>Known Problems</h2>
+        <div>
+            <p>To view all known problems please see the <a href="https://github.com/oracle/visualvm/issues">VisualVM Issues</a> page.</p>
+            
+            <p>To resolve the most common problems please follow the <a href="https://visualvm.github.io/troubleshooting.html">Troubleshooting Guide</a>.</p>
+        </div>
+            
+    </div>
+</div>
