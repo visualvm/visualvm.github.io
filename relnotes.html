@@ -1,13 +1,13 @@
 ---
 layout: visualvm_base_layout
-title: 2.1.10 Release Notes
+title: 2.2 Release Notes
 ---
 
 <div class="content_main">
     <div class="centered_content">
         <h1>Release Notes</h1>
         <p class="description_first description_last2">
-            VisualVM 2.1.10 has been released on September 17th, 2024. This document describes changes introduced by this release.
+            VisualVM 2.2 has been released on April 22nd, 2025. This document describes changes introduced by this release.
         </p>
 
         <a name="system_requirements"></a>
@@ -25,11 +25,11 @@ title: 2.1.10 Release Notes
 
             <h3>Required Software:</h3>
             <ul>
-                <li>Oracle JDK 8~23</li>
+                <li>Oracle JDK 8~24</li>
 
-                <li>OpenJDK 8~23</li>
+                <li>OpenJDK 8~24</li>
                 
-                <li>GraalVM 19 ~ GraalVM for JDK 23</li>
+                <li>GraalVM 19 ~ GraalVM for JDK 24</li>
             </ul>
 
         </div>
@@ -42,9 +42,14 @@ title: 2.1.10 Release Notes
             <a name="features_enhancements"></a>
             <h3>Features and Enhancements:</h3>
             <ul>
-                <li><a href="https://github.com/oracle/visualvm/issues/597">GH-597</a>: Upgrade NetBeans Platform to 22</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/590">GH-590</a>: Add support for JDK 23</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/439">GH-439</a>: [Threads tab] Ability to show only running or sleeping or waiting, threads</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/627">GH-627</a>: Consider exposing metrics from JDK24 VirtualThreadSchedulerMXBean visually</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/619">GH-619</a>: Add KillApplication plugin to VisualVM distribution</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/614">GH-614</a>: Recognize Gradle Worker Daemon process</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/613">GH-613</a>: Recognize Gradle Wrapper process</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/610">GH-610</a>: Try to speed-up opening of JMX connection</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/606">GH-606</a>: Display 'Average Time' as a column similar to 'Total Time'</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/602">GH-602</a>: Add support for JDK version 24</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/340">GH-340</a>: Support Jolokia and kubernetes connections</li>
             </ul>
             
             
@@ -58,12 +63,16 @@ title: 2.1.10 Release Notes
             <a name="fixed_bugs"></a>
             <h3>Fixed Bugs:</h3>
             <ul>
-                <li><a href="https://github.com/oracle/visualvm/issues/605">GH-605</a>: Wrong macOS in JFR Viewer</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/599">GH-599</a>: [HeapViewer] Slow computation of retained size</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/598">GH-598</a>: VSCode Extension - Source Roots don't work in VSCode extension</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/596">GH-596</a>: [HeapViewer] Do not expand all threads</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/595">GH-595</a>: [HeapViewer] Cannot expand 'null' node</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/524">GH-524</a>: Problems Displaying OS in JFR Viewer</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/631">GH-631</a>: Speed up loading of heap dump</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/630">GH-630</a>: Incorrect path to GC roots</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/628">GH-628</a>: Unable to view JS Heap from VisualVM 2.1.10 for Java Graal JS polyglot application</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/622">GH-622</a>: OOME when opening CPU samples in JFR</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/617">GH-617</a>: JDK 17: javax.script.ScriptException: TypeError</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/616">GH-616</a>: VisualVM freezes if JVM stops while connecting</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/609">GH-609</a>: [HeapViewer] Slow sorting of strings via logical value</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/608">GH-608</a>: Null pointer opening heapdump</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/549">GH-549</a>: Profiled program crashes when profiling virtual thread using jdk21</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/117">GH-117</a>: Incorrect percentage in Field histogram</li>
             </ul>
             
         </div>
