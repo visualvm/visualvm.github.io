@@ -1,13 +1,13 @@
 ---
 layout: visualvm_base_layout
-title: 2.2 Release Notes
+title: 2.2.1 Release Notes
 ---
 
 <div class="content_main">
     <div class="centered_content">
         <h1>Release Notes</h1>
         <p class="description_first description_last2">
-            VisualVM 2.2 has been released on April 22nd, 2025. This document describes changes introduced by this release.
+            VisualVM 2.2.1 has been released on February 15th, 2026. This document describes changes introduced by this release.
         </p>
 
         <a name="system_requirements"></a>
@@ -25,11 +25,11 @@ title: 2.2 Release Notes
 
             <h3>Required Software:</h3>
             <ul>
-                <li>Oracle JDK 8~24</li>
+                <li>Oracle JDK 8~25</li>
 
-                <li>OpenJDK 8~24</li>
+                <li>OpenJDK 8~25</li>
                 
-                <li>GraalVM 19 ~ GraalVM for JDK 24</li>
+                <li>GraalVM 19 ~ GraalVM for JDK 25</li>
             </ul>
 
         </div>
@@ -42,14 +42,10 @@ title: 2.2 Release Notes
             <a name="features_enhancements"></a>
             <h3>Features and Enhancements:</h3>
             <ul>
-                <li><a href="https://github.com/oracle/visualvm/issues/627">GH-627</a>: Consider exposing metrics from JDK24 VirtualThreadSchedulerMXBean visually</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/619">GH-619</a>: Add KillApplication plugin to VisualVM distribution</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/614">GH-614</a>: Recognize Gradle Worker Daemon process</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/613">GH-613</a>: Recognize Gradle Wrapper process</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/610">GH-610</a>: Try to speed-up opening of JMX connection</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/606">GH-606</a>: Display 'Average Time' as a column similar to 'Total Time'</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/602">GH-602</a>: Add support for JDK version 24</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/340">GH-340</a>: Support Jolokia and kubernetes connections</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/623">GH-623</a>: Honor the JAVA_HOME environment variable</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/637">GH-637</a>: Update Nashorn library to version 15.6</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/639">GH-639</a>: Add UI to switch Swing Look and Feel</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/648">GH-648</a>: JDK 25 support</li>
             </ul>
             
             
@@ -63,16 +59,11 @@ title: 2.2 Release Notes
             <a name="fixed_bugs"></a>
             <h3>Fixed Bugs:</h3>
             <ul>
-                <li><a href="https://github.com/oracle/visualvm/issues/631">GH-631</a>: Speed up loading of heap dump</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/630">GH-630</a>: Incorrect path to GC roots</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/628">GH-628</a>: Unable to view JS Heap from VisualVM 2.1.10 for Java Graal JS polyglot application</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/622">GH-622</a>: OOME when opening CPU samples in JFR</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/617">GH-617</a>: JDK 17: javax.script.ScriptException: TypeError</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/616">GH-616</a>: VisualVM freezes if JVM stops while connecting</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/609">GH-609</a>: [HeapViewer] Slow sorting of strings via logical value</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/608">GH-608</a>: Null pointer opening heapdump</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/549">GH-549</a>: Profiled program crashes when profiling virtual thread using jdk21</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/117">GH-117</a>: Incorrect percentage in Field histogram</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/636">GH-636</a>: VisualVM 2.2 misses visualvm.conf at import </li>
+                <li><a href="https://github.com/oracle/visualvm/issues/640">GH-640</a>: Clicking on Sampler view causes a GC_HeapInspection event </li>
+                <li><a href="https://github.com/oracle/visualvm/issues/642">GH-642</a>: Missing known blocking method in WEPoll</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/647">GH-647</a>: Profiling gives "Redefinition failed with error 62"</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/654">GH-654</a>: [JDK 25] Zero CPU usage and GC activity</li>
             </ul>
             
         </div>
