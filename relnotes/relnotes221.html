@@ -1,13 +1,13 @@
 ---
 layout: visualvm_base_layout
-title: 2.2.2 Release Notes
+title: 2.2.1 Release Notes
 ---
 
 <div class="content_main">
     <div class="centered_content">
         <h1>Release Notes</h1>
         <p class="description_first description_last2">
-            VisualVM 2.2.2 has been released on September 8th, 2026. This document describes changes introduced by this release.
+            VisualVM 2.2.1 has been released on February 15th, 2026. This document describes changes introduced by this release.
         </p>
 
         <a name="system_requirements"></a>
@@ -25,11 +25,11 @@ title: 2.2.2 Release Notes
 
             <h3>Required Software:</h3>
             <ul>
-                <li>Oracle JDK 8~26</li>
+                <li>Oracle JDK 8~25</li>
 
-                <li>OpenJDK 8~26</li>
+                <li>OpenJDK 8~25</li>
                 
-                <li>GraalVM 19 ~ GraalVM for JDK 26</li>
+                <li>GraalVM 19 ~ GraalVM for JDK 25</li>
             </ul>
 
         </div>
@@ -42,10 +42,10 @@ title: 2.2.2 Release Notes
             <a name="features_enhancements"></a>
             <h3>Features and Enhancements:</h3>
             <ul>
-                <li><a href="https://github.com/oracle/visualvm/issues/505">GH-505</a>: Monitor total allocated bytes on the Java heap by the JVM</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/658">GH-658</a>: Add a check if "which" command exist</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/659">GH-659</a>: [macOS] Honor the JAVA_HOME environment variable</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/660">GH-660</a>: JDK26 Support</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/623">GH-623</a>: Honor the JAVA_HOME environment variable</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/637">GH-637</a>: Update Nashorn library to version 15.6</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/639">GH-639</a>: Add UI to switch Swing Look and Feel</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/648">GH-648</a>: JDK 25 support</li>
             </ul>
             
             
@@ -59,9 +59,11 @@ title: 2.2.2 Release Notes
             <a name="fixed_bugs"></a>
             <h3>Fixed Bugs:</h3>
             <ul>
-                <li><a href="https://github.com/oracle/visualvm/issues/657">GH-657</a>: Cannot initialize Polygot Sampler in <code>--module-path</code> mode</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/662">GH-662</a>: ClosedByInterruptException while computing Path to GC Root in Heap Viewer</li>
-                <li><a href="https://github.com/oracle/visualvm/issues/665">GH-665</a>: Heap dump comparison can fail with NullPointerException</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/636">GH-636</a>: VisualVM 2.2 misses visualvm.conf at import </li>
+                <li><a href="https://github.com/oracle/visualvm/issues/640">GH-640</a>: Clicking on Sampler view causes a GC_HeapInspection event </li>
+                <li><a href="https://github.com/oracle/visualvm/issues/642">GH-642</a>: Missing known blocking method in WEPoll</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/647">GH-647</a>: Profiling gives "Redefinition failed with error 62"</li>
+                <li><a href="https://github.com/oracle/visualvm/issues/654">GH-654</a>: [JDK 25] Zero CPU usage and GC activity</li>
             </ul>
             
         </div>
