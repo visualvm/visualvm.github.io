@@ -1,0 +1,122 @@
+---
+layout: visualvm_documentation_layout
+title: "VisualVM 入门指南"
+css: /css/documentation.css
+lang: zh-CN
+---
+
+<h1>VisualVM 入门指南</h1>
+        <hr>
+        <p>VisualVM 提供在 Java 虚拟机 (Java Virutal Machine, JVM) 上运行的 Java 应用程序的详细信息。在 VisualVM 的图形用户界面中，您可以方便、快捷地查看多个 Java 应用程序的相关信息。</p>
+
+        <p>本入门指南应当对您快速设置并运行 VisualVM 有所帮助。本指南将演示如何安装 VisualVM，以及如何通过安装 VisualVM 更新中心提供的插件向该工具添加功能。本指南还将介绍如何启动 VisualVM，以及如何查看可以获取的一些有关本地和远程 JVM 上运行的应用程序的信息。</p>
+
+        <br>
+
+        <h3>VisualVM 实践</h3>
+        <p>以下简短的截屏视频显示了最初在 java.sun.com 中介绍的 VisualVM 功能：</p>
+        <p><iframe width="420" height="315" src="//www.youtube-nocookie.com/embed/z8n7Bg7-A4I" frameborder="0" allowfullscreen></iframe></p>
+
+        <br>
+
+        <h3>安装 VisualVM</h3>
+        <ol>
+            <li>从 <a href="{{ '/index.html' | prepend: site.baseurl }}">VisualVM 项目页</a>下载 VisualVM 安装程序。</li>
+            <li>将 VisualVM 安装程序解压缩到本地系统。</li>
+            <li>导航至 VisualVM 安装目录的 <tt>bin</tt> 目录，然后启动应用程序。</li>
+        </ol>
+
+        <h3>使用“应用程序”窗口</h3>
+        <p>在启动应用程序后，将打开 VisualVM 的主窗口。缺省情况下，“应用程序”窗口显示在主窗口的左窗格中。在“应用程序”窗口中，可以快速查看本地和远程 JVM 上运行的 Java 应用程序。</p>
+        <img src="{{ '/docs/zh_CN/images/getstarted/vvm-anagram-applications.png' | prepend: site.baseurl }}" style="border:1px solid;" alt="屏幕快照：“应用程序”窗口"
+        title="屏幕快照：“应用程序”窗口">
+        <p>“应用程序”窗口是查看特定应用程序详细信息的主入口点。右键单击应用程序节点将打开弹出式菜单，从该弹出式菜单中可以选择是打开主应用程序标签，还是生成线程 dump 或堆 dump。</p>
+
+        <p>有关如何使用“应用程序”窗口查看和保存应用程序相关数据的更多详细信息，请参见以下页面：</p>
+        <ul>
+            <li><a href="{{ '/docs/applications_window.html' | prepend: site.baseurl }}">Using the Applications Window</a>（使用“应用程序”窗口）</li>
+        </ul>
+
+        <h3>浏览堆 Dump</h3>
+        <p>VisualVM 有一个可视化窗口，通过该窗口可以轻松浏览堆 dump。您可以装入现有堆 dump，或为本地运行的应用程序生成堆快照。</p>
+
+        <p>要生成本地应用程序的堆 dump，可以执行下列任一操作：</p>
+        <ul>
+            <li>在“应用程序”窗口中右键单击应用程序节点，然后选择“堆 Dump”。</li>
+            <li>在“应用程序”窗口中双击应用程序节点以打开应用程序标签，然后在“监视”标签中单击“堆 Dump”。</li>
+        </ul>
+        <p>要打开保存的堆 dump，请从主菜单中选择“文件”&gt;“装入”，然后找到保存的堆 dump。</p>
+
+        <p>浏览打开的堆 dump：</p>
+        <ol>
+            <li>单击“堆 Dump”工具栏中的“类”，以查看活动类和对应实例的列表。</li>
+            <li>双击某个类名打开“实例”视图，以查看实例列表。</li>
+            <li>从列表中选择某个实例，以查看对该实例的引用。</li>
+        </ol>
+        <img src="{{ '/docs/zh_CN/images/getstarted/vvm-anagram-heapdump.png' | prepend: site.baseurl }}" style="border:1px solid;" alt="屏幕快照：堆 dump 的“实例”标签"
+        title="屏幕快照：堆 dump 的“实例”标签">
+
+        <p>在生成堆 dump 后，VisualVM 将在新标签中打开该堆 dump，并在“应用程序”窗口中的应用程序节点下为该堆 dump 创建一个节点。要保存生成的堆 dump，请右键单击该堆 dump 节点，然后选择“另存为”。如果没有明确保存生成的堆 dump，则在应用程序关闭时将删除该 dump。</p>
+
+        <p>有关更多信息，请参见以下文档：</p>
+        <ul>
+            <li><a href="{{ '/docs/heapdump.html' | prepend: site.baseurl }}">Browsing a Heap Dump</a>（浏览堆 Dump）</li>
+        </ul>
+
+        <h3>对应用程序进行性能分析</h3>
+        <p>VisualVM 包括一个 Profiler，可以使用它对本地 JVM 上运行的应用程序进行性能分析。您可以在应用程序标签的 &quot;Profiler&quot; 标签中访问性能分析控件。通过该 Profiler，可以分析本地应用程序的内存使用情况和 CPU 性能。<br/>
+        <b>注意：</b>要对 JDK 6 上运行的应用程序进行性能分析，需要关闭该应用程序的类共享，否则该应用程序可能会崩溃。要关闭类共享，请使用 <tt>-Xshare:off</tt> 参数启动应用程序。</p>
+
+        <ol>
+            <li>启动本地 Java 应用程序。（使用 <tt>-Xshare:off</tt> 参数启动该应用程序。）</li>
+            <li>在“应用程序”窗口的“本地”节点下，右键单击该应用程序节点，然后选择“打开”以打开该应用程序标签。</li>
+            <li>在该应用程序标签中单击 &quot;Profiler&quot; 标签。</li>
+            <li>在 &quot;Profiler&quot; 标签中单击“内存”或 &quot;CPU&quot;。
+            <p>在选择性能分析任务后，VisualVM 将在 &quot;Profiler&quot; 标签中显示性能分析数据。</p>
+            </li>
+        </ol>
+        <img src="{{ '/docs/zh_CN/images/getstarted/vvm-anagram-profiler.png' | prepend: site.baseurl }}" style="border:1px solid;" alt="屏幕快照：包含性能分析结果的 &quot;Profiler&quot; 标签"
+        title="屏幕快照：分析内存分配时显示的性能分析结果">
+
+
+        <p>有关使用 VisualVM 进行性能分析的更多信息，请参见以下文档：</p>
+        <ul>
+            <li><a href="{{ '/docs/profiler.html' | prepend: site.baseurl }}">对应用程序进行性能分析</a></li>
+        </ul>
+
+        <h3>连接到远程主机</h3>
+        <p>通过 VisualVM，可以轻松监视远程主机上运行的应用程序，并查看有关远程系统的常规数据。要查看远程主机上应用程序的相关信息，必须首先连接到远程主机。已连接的远程主机将列在“应用程序”窗口的“远程”节点下。展开远程主机节点可查看远程主机上运行的应用程序。</p>
+        <p>要从远程应用程序中检索数据，需要在远程 JVM 上运行 <tt>jstatd</tt> 实用程序。有关如何启动 <tt>jstatd</tt> 的更多信息 请参见 <a href="http://java.sun.com/javase/6/docs/technotes/tools/share/jstatd.html">jstatd - Virtual Machine jstat Daemon</a>（jstatd - 虚拟机 jstat 守护进程）。无法对远程主机上运行的应用程序进行性能分析。</p>
+        <ol>
+            <li>右键单击“应用程序”窗口中的“远程”节点，然后选择“添加远程主机”。</li>
+            <li>在“添加远程主机”对话框中，键入远程计算机的主机名或 IP 地址。</li>
+            <li>（可选）键入远程主机的显示名称。此名称将显示在“应用程序”窗口中。如果没有输入显示名称，则在“应用程序”窗口中使用主机名标识远程主机。</li>
+            <li>单击“确定”。</li>
+        </ol>
+        <p>单击“确定”后，将在“远程”节点下显示远程主机的节点。展开远程主机节点可查看远程主机上运行的 Java 应用程序。</p>
+        <p>您可以双击远程应用程序的名称，在 VisualVM 中打开该应用程序标签。</p>
+        <img src="{{ '/docs/zh_CN/images/getstarted/vvm-applications-remote.png' | prepend: site.baseurl }}" style="border:1px solid;" alt="屏幕快照：包含远程主机的“应用程序”窗口"
+        title="屏幕快照：包含远程主机的“应用程序”窗口">
+
+        <p>有关更多信息，请参见以下文档：</p>
+        <ul>
+            <li><a href="{{ '/docs/applications_remote.html' | prepend: site.baseurl }}">Working with Remote Applications</a>（使用远程应用程序）</li>
+        </ul>
+
+        <h3>安装 VisualVM 插件</h3>
+        <p>通过安装 VisualVM 更新中心提供的插件，可以向 VisualVM 添加功能。例如，安装 VisualVM-MBeans 插件可以向应用程序标签中添加 &quot;MBeans&quot; 标签，通过此标签，可以在 VisualVM 内<a href="http://java.sun.com/javase/6/docs/technotes/guides/management/jconsole.html#gdeap">监视和管理 MBeans</a>。</p>
+        <p><b>安装 VisualVM 插件：</b></p>
+        <ol>
+            <li>从主菜单中选择“工具”&gt;“插件”。</li>
+            <li>在“可用插件”标签中，选中该插件的“安装”复选框。单击“安装”。</li>
+            <li>逐步完成插件安装程序。<br/>
+        </ol>
+        <img src="{{ '/docs/zh_CN/images/getstarted/vvm-plugins-window.png' | prepend: site.baseurl }}" alt="屏幕快照：“插件”窗口"
+        title="屏幕快照：“插件”窗口">
+        <p class="small">该屏幕快照显示了选中 VisualVM-MBeans 插件的“插件”管理器。</p>
+
+        <h2>其他 VisualVM 文档</h2>
+        <p>本文档介绍了 VisualVM 的某些功能。VisualVM 旨在提供一个直观的可视界面，使您可以轻松浏览有关本地和远程 JVM 上运行的 Java 应用程序的信息。有关使用 VisualVM 功能的更多详细信息，请参见以下文档：</p>
+        <ul>
+            <li><a href="{{ '/documentation.html' | prepend: site.baseurl }}">VisualVM Documentation and Resources</a>（VisualVM 文档和资源）。</li>
+        </ul>

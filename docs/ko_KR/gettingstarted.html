@@ -1,0 +1,139 @@
+---
+layout: visualvm_documentation_layout
+title: "VisualVM 시작"
+css: /css/documentation.css
+lang: ko
+---
+
+<h1>VisualVM 시작</h1>
+    <hr />
+
+    <p>VisualVM은 자바 애플리케이션이 자바 가상머신(JVM)에서 실행중인 동안 세부적인 정보를 제공한다.
+            VisualVM의 그래픽 사용자 인터페이스는 여러개의 자바 애플리케이션에 대한 정보를 빠르고 쉽게 보여준다. </p>
+
+    <p>이 시작문서는 VisualVM을 사용을 쉽게 시작하기 위해 도움이 될 것이다.
+            이 문서는 VisualVM을 설치하는 방법을 보여주고 VisualVM업데이트 센터에서 플러그인을 설치해서 기능을 추가하는 방법또한 보여준다.
+            이 문서는 VisualVM을 시작하는 방법을 보여주고 로컬및 원격 JVM에서 실행중인 애플리케이션의 정보를 보는 방법을 설명한다. </p>
+
+    <br />
+
+    <h3>VisualVM 사용</h3>
+    <p>짧은 스크린캐스르를 먼저 보고 VisualVM의 기능을 알아보자. </p>
+    <p><iframe width="420" height="315" src="//www.youtube-nocookie.com/embed/z8n7Bg7-A4I" frameborder="0" allowfullscreen></iframe></p>
+
+    <br />
+
+    <h3>VisualVM 설치</h3>
+    <ol>
+        <li><a href="{{ '/index.html' | prepend: site.baseurl }}">VisualVM 프로젝트 페이지</a>에서 인스톨러를 다운로드한다. </li>
+        <li>로컬 시스템에서 VisualVM 인스톨러를 압축해제한다. </li>
+        <li>VisualVM 설치 디렉터리의 <tt>bin</tt>디렉터리로 이동해서 애플리케이션을 실행한다. </li>
+    </ol>
+
+    <h3>Applications 창 사용</h3>
+    <p>VisualVM의 메인창은 실행한 애플리케이션을 보여준다.
+            기본적으로 Applications창은 메인창의 왼쪽에 보여진다.
+            Applications창은 로컬과 원격 JVM에서 실행중인 자바 애플리케이션을 빠르게 보여준다. </p>
+    <img src="{{ '/docs/images/getstarted/vvm-anagram-applications.png' | prepend: site.baseurl }}" style="border:1px solid;" alt="Applications 창의 스크린샷" title="Applications 창의 스크린샷" />
+    <p>Applications창은 특정 애플리케이션의 세부정보를 보여주기 위한 진입지점이다.
+            애플리케이션 노드에 마우스 오른쪽 버튼을 클릭하면 메인 애플리케이션 탭을 열거나 쓰레드 또는 힙 덤프를 얻을 수 있는 팝업 메뉴를 열어준다. </p>
+
+    <p>애플리케이션에 대한 데이터를 보거나 저장하기 위해 Applications창을 다루는 방법을 좀더 알기 위해서는 다음 페이지를 보자. </p>
+    <ul>
+        <li><a href="http://ldg.pe.kr/framework_reference/visualvm/ko_KR/applications_window.html">Applications 창 사용</a></li>
+    </ul>
+
+    <h3>힙 덤프 살펴보기</h3>
+    <p>VisualVM은 힙 덤프의 내용을 좀더 쉽게 보여주는 기능을 가진다.
+            이미 존재하는 힙 덤프를 로드하거나 로컬에서 실행중인 애플리케이션의 힙 메모리의 내용을 스냅샷으로 만들수도 있다. </p>
+
+    <p>로컬 애플리케이션에서 힙 덤프를 만들기 위해서 다음의 과정을 거치면 된다. </p>
+    <ul>
+        <li>Applications 창에서 대상 애플리케이션 노드에서 마우스 오른쪽 버튼을 클릭하고 Heap Dump를 선택한다. </li>
+        <li>대상 애플리케이션을 열기 위해 Applications 창에서 대상 애플리케이션을 더블클릭하고 Monitor탭에서 Heap Dump를 클릭한다. </li>
+    </ul>
+    <p>저장해둔 힙덤프를 열기 위해, 메인 메뉴에서 File &gt; Load 를 선택하고 저장한 힙덤프를 선택한다. </p>
+
+    <p>열어둔 힙 덤프 살펴보기</p>
+    <ol>
+        <li>살아있는 클래스와 관련 인스턴스의 목록을 보기위해 Heap Dump 툴바의 대상 클래스를 클릭한다. </li>
+        <li>인스턴스의 목록을  보는 Instance뷰를 열기 위해 클래스명을 더블클릭한다. </li>
+        <li>인스턴스의 참조를 보기 위해 목록의 인스턴스를 선택한다. </li>
+    </ol>
+    <img src="{{ '/docs/images/getstarted/vvm-anagram-heapdump.png' | prepend: site.baseurl }}" style="border:1px solid;" alt="햅덤프의 Instances 탭 스크린샷" title="햅덤프의 Instances 탭 스크린샷" />
+
+    <p>힙덤프를 생성하면 VisualVM은 새로운 탭으로 힙덤프를 열고 Applications 창의 대상 애플리케이션 노드아래 힙덤프의 노드를 추가로 생성한다.
+            생성된 힙덤프를 저장하기 위해, 힙덤프 노드를 선택하고 마우스 오른쪽 버튼을 클릭하고 Save As를 선택한다.
+            생성한 힙덤프를 저장하지 않는다면, 애플리케이션을 닫을때 덤프는 자동으로 삭제된다. </p>
+
+    <p>좀더 세부적인 정보를 보기 위해서는 아래 문서를 보라. </p>
+    <ul>
+        <li><a href="http://ldg.pe.kr/framework_reference/visualvm/ko_KR/heapdump.html">햅덤프 살펴보기</a></li>
+    </ul>
+
+    <h3>애플리케이션 프로파일링</h3>
+    <p>VisualVM은 로컬 JVM에서 실행중인 애플리케이션을 프로파일링할 수 있도록 프로파일러를 포함하고 있다.
+            애플리케이션 탭의 Profiler탭에서 프로파일링을 제어할 수 있다.
+            프로파일러는 로컬 애플리케이션의 메모리 사용이나 CPU성능을 분석할 수 있게 해준다. <br />
+    <b>알림.</b> JDK 6에서 실행중인 애플리케이션을 프로파일링하기 위해, 클래스 공유(class sharing) 기능을 커야 한다. 그렇지 않으면 애플리케이션에 문제가 발생할 수 있다. 클래스 공유 기능을 끄기 위해서는 애플리케이션을 실행할때 <tt>-Xshare:off</tt> 인자를 추가하면 된다. </p>
+
+    <ol>
+        <li>로컬 자바 애플리케이션 실행. (<tt>-Xshare:off</tt> 인자를 사용해서 애플리케이션을 시작)</li>
+        <li>Applications 창의 Local 노드에서, 애플리케이션 노드를 마우스 오른쪽 버튼을 클릭하고 애플리케이션 탭에서 열기 위해 Open메뉴를 선택한다. </li>
+        <li>애플리케이션 탭에서 Profiler탭을 클릭한다. </li>
+        <li>Profiler탭에서 Memory나 CPU를 클릭한다.
+        <p>프로파일링을 사용한다면, VisualVM은 Profiler탭에서 프로파일링 데이터를 보여줄것이다. </p>
+        </li>
+    </ol>
+    <img src="{{ '/docs/images/getstarted/vvm-anagram-profiler.png' | prepend: site.baseurl }}" style="border:1px solid;" alt="프로파일링 결과를 가진 Profiler탭의 스크린샷" title="메모리 할당을 분석해서 프로파일링 결과를 보여주는 스크린샷" />
+
+
+    <p>VisualVM을 사용한 프로파일링에 대해 좀더 많은 것을 알고 싶다면 다음 문서를 보라. </p>
+    <ul>
+        <li><a href="http://ldg.pe.kr/framework_reference/visualvm/ko_KR/profiler.html">애플리케이션 프로파일링</a></li>
+    </ul>
+
+    <h3>원격 호스트에 연결</h3>
+    <p>VisualVM은 원격 호스트에 실행중인 애플리케이션을 쉽게 모니터링할 수 있고 원격 시스템의 일반적인 데이터를 볼수도 있다.
+            원격 호스트의 애플리케이션 정보를 보기 위해, 먼저 원격 호스트에 먼저 접속을 해야 한다.
+            Applications 창에 Remote노드아래 연결된 원격 호스트의 목록이 나열된다.
+            원격 호스트에서 실행중인 애플리케이션을 보기 위해 원격 호스트 노드의 + 버튼을 열어보자. </p>
+    <p>원격 애플리케이션에서 데이터를 받기 위해, 원격 JVM에서 <tt>jstatd</tt> 유틸리티가 필요하다.
+            <tt>jstatd</tt>를 시작하는 방법을 좀더 알고 싶다면, <a href="http://java.sun.com/javase/6/docs/technotes/tools/share/jstatd.html">jstatd - 가상 머신의 jstat 데몬</a>를 보라. </a>.
+            원격 호스트에서 실행중인 애플리케이션을 프로파일링할수는 없다. </p>
+    <ol>
+        <li>Applications 창에서 Remote에 마우스 오른쪽 버튼을 클릭하고 Add Remote Host메뉴를 선택한다. </li>
+        <li>Add Remote Host 다이얼로그 박스에서, 원격호스트의 호스트명과 아이피 주소를 넣는다. </li>
+        <li>(선택사항) 원격 호스트의 표시이름(display name)을 넣는다. 이 이름은 Applications 창에 표기되는 문자열이다.
+                    표시이름을 넣지 않으면, 호스트명이 사용된다. </li>
+        <li>OK를 클릭한다. </li>
+    </ol>
+    <p>OK를 클릭하면, Remote 노드 아래 원격 호스트에 대한 노드가 나타난다.
+            원격 호스트에서 실행중인 자바 애플리케이션을 보기 위해 원격 호스트의 + 버튼을 열어보자. </p>
+    <p>VisualVM에서 애플리케이션 탭을 열기 위해 원격 애플리케이션의 이름을 더블클릭할 수 있다. </p>
+    <img src="{{ '/docs/images/getstarted/vvm-applications-remote.png' | prepend: site.baseurl }}" style="border:1px solid;" alt="원격 호스트를 가진 Applications 창의 스크린샷" title="원격 호스트를 가진 Applications 창의 스크린샷" />
+
+    <p>좀더 많은 정보를 보고 싶다면 아래 문서를 보라.</p>
+    <ul>
+        <li><a href="http://ldg.pe.kr/framework_reference/visualvm/ko_KR/applications_remote.html">원격 애플리케이션을 사용</a></li>
+    </ul>
+
+    <h3>VisualVM 플러그인 설치</h3>
+    <p>VisualVM 업데이트 센터를 사용해서 설치가능한 플러그인을 설치하면 VisualVM에 기능을 추가할 수 있다.
+            예를들어, VisualVM-MBeans 플러그인은 VisualVM에서 <a href="http://java.sun.com/javase/6/docs/technotes/guides/management/jconsole.html#gdeap">MBeans을 모니터링하고 관리하는</a>  애플리케이션 탭을 추가한다. </p>
+    <p><b>VisualVM 플러그인 설치방법</b></p>
+    <ol>
+        <li>메인 메뉴에서 Tools &gt; Plugins 를 선택한다. </li>
+        <li>Available Plugins 탭에서 사용할 플러그인의 체크박스를 선택한다. 그리고 Install 을 클릭한다. </li>
+        <li>단계를 거치면 플러그인 설치가 완료된다. <br />
+    </li></ol>
+    <img src="{{ '/docs/images/getstarted/vvm-plugins-window.png' | prepend: site.baseurl }}" alt="screenshot of Plugins window" title="Plugins 창의 스크린샷" />
+    <p class="small">VisualVM-MBeans 플러그인을 선택한 Plugin관리자의 스크린샷</p>
+
+    <h2>VisualVM 추가문서</h2>
+    <p>이 문서는 VisualVM의 몇가지 기능을 소개한다.
+            VisualVM은 로컬과 원격 JVM에 실행되는 자바 애플리케이션의 정보를 쉽게 찾아보기 위한 시각적인 인터페이스로 디자인되었다.
+            VisualVM기능에 대한 좀더 상세한 정보는 보기 위해서는 아래의 문서를 보라.</p>
+    <ul>
+        <li><a href="{{ '/documentation.html' | prepend: site.baseurl }}">VisualVM 문서와 관련 자료들</a>.</li>
+    </ul>

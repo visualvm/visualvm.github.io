@@ -7,11 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <meta http-equiv="refresh" content="0; url={{ page.redirect }}">
+    <meta http-equiv="refresh" content="0; url={{ page.redirect | prepend: site.baseurl }}">
 
     <title>VisualVM: {{ page.title }}</title>
 
-    <link rel="canonical" href="{{ page.redirect }}"/>
+    <link rel="canonical" href="{{ page.redirect | prepend: site.baseurl }}"/>
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:regular,bold">
     <link rel="stylesheet" type="text/css" href="{{ '/css/visualvm_base.css' | prepend: site.baseurl }}">
 
@@ -25,8 +25,8 @@
         <div class="content_main">
             <div class="centered_content" style="padding-top: 200px; padding-bottom: 500px;">
 
-                <p>Redirecting to <a href="{{ page.redirect }}">{{ page.redirect }}</a> until the content is migrated to GitHub.</p>
-                <script>location='{{ page.redirect }}'</script>
+                <p>This page has moved to <a href="{{ page.redirect | prepend: site.baseurl }}">{{ page.title }}</a>.</p>
+                <script>location.replace({{ page.redirect | prepend: site.baseurl | jsonify }} + location.search + location.hash);</script>
 
             </div>
         </div>

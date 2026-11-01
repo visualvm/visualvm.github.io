@@ -1,0 +1,62 @@
+.documentation_container {
+    display: block;
+    width: calc(100% - 32px);
+    max-width: 1000px;
+}
+
+.documentation {
+    overflow-wrap: break-word;
+}
+
+.documentation nav {
+    margin-bottom: 20px;
+}
+
+.documentation img {
+    max-width: 100%;
+    height: auto;
+}
+
+.documentation iframe {
+    max-width: 100%;
+}
+
+.documentation pre {
+    overflow-x: auto;
+}
+
+.documentation .style1 {
+    font-family: "Courier New", Courier, monospace;
+}
+
+.documentation #contents_hints {
+    border-top: 1px solid #dbdbdb;
+    margin-top: 24px;
+}
+
+.documentation #contents_hints a {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.documentation table.ct {
+    width: 100%;
+}
+
+.documentation th.ct, .documentation td.ct {
+    padding: 10px;
+}
+
+.documentation th.ct {
+    background-color: #cad7f0;
+}
+
+.documentation td.ct {
+    background-color: #f2f2f2;
+}
+
+@media (max-width: 600px) {
+    .documentation {
+        padding: 20px;
+    }
+}

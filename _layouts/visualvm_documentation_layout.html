@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: 'en' }}">
+
+  {% include visualvm_base_head.html %}
+
+  <body>
+    {% include visualvm_base_header.html %}
+
+    <div class="content_main">
+      <div class="centered_content documentation_container">
+        <main class="content_document documentation">
+          {% unless page.url == '/documentation.html' %}
+          <nav aria-label="Documentation"><a href="{{ '/documentation.html' | prepend: site.baseurl }}">VisualVM Documentation</a></nav>
+          {% endunless %}
+          {{ content }}
+        </main>
+      </div>
+    </div>
+
+    {% include visualvm_base_footer.html %}
+  </body>
+</html>

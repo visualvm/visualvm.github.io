@@ -1,0 +1,82 @@
+---
+layout: visualvm_documentation_layout
+title: "VisualVM 简介"
+css: /css/documentation.css
+lang: zh-CN
+---
+
+<h1>VisualVM 简介</h1>
+        <hr />
+        <p>VisualVM 是一个工具，它提供了一个可视界面，用于查看 Java 虚拟机 (Java Virtual Machine, JVM) 上运行的基于 Java 技术的应用程序（Java 应用程序）的详细信息。VisualVM 对 Java Development Kit (JDK) 工具所检索的 JVM 软件相关数据进行组织，并通过一种使您可以快速查看有关多个 Java 应用程序的数据的方式提供该信息。您可以查看本地应用程序以及远程主机上运行的应用程序的相关数据。此外，还可以捕获有关 JVM 软件实例的数据，并将该数据保存到本地系统，以供后期查看或与其他用户共享。</p>
+        <p>为了能充分利用所有的 Java VisualVM 功能，应运行 Java Platform, Standard Edition (Java SE) 版本 6。 </p>
+        <h3>启动 VisualVM</h3>
+        <p>在下载 VisualVM zip 归档文件并将其解压缩到本地系统之后，导航至展开的归档文件的 <tt>bin</tt> 目录，然后双击 VisualVM 可执行文件，或在命令 (shell) 提示符下键入以下内容：
+
+        <p><tt>visualvm</tt></p>
+        <p>首次启动 VisualVM 时，系统将提示您接受许可证协议。</p>
+
+        <h3>VisualVM 用户目录</h3>
+        <p>在 Windows 上，VisualVM 用户目录<tt></tt>的缺省位置为： </p>
+        <p><tt>C:\Documents and Settings\<i>&lt;USER&gt;</i>\Application Data\.visualvm\FCS</tt></p>
+        <p>要查找 VisualVM 用户目录<tt></tt>的位置，请从主菜单中选择“帮助”&gt;“关于”，然后在“关于 VisualVM”窗口中单击“详细信息”。</p>
+
+
+        <h2>VisualVM 窗口</h2>
+        <p>在启动 VisualVM 后，将打开 VisualVM 主窗口。VisualVM 主窗口分为两个窗口。
+        </p>
+        <img src="{{ '/docs/zh_CN/images/docs/vvm-start.png' | prepend: site.baseurl }}" style="border:1px solid;" alt="屏幕快照：包含起始屏幕的 VisualVM 窗口"
+        title="屏幕快照：包含起始屏幕的 VisualVM 窗口" width="600" height="430"  />
+        <p>首次启动 VisualVM 时，“应用程序”窗口显示在主窗口的左侧，“起始页”显示在主窗口的右侧。“起始页”包含指向 VisualVM 文档 Web 页和其他资源的链接。<br />
+        <b>注意：</b>缺省情况下，每次启动 VisualVM 时都将打开“起始页”。通过从主菜单中选择“帮助”&gt;“起始页”，可以随时打开“起始页”。此外，还可以通过取消选中“启动时显示”复选框隐藏“起始页”。 </p>
+
+        <h3>“应用程序”窗口</h3>
+        <p>启动应用程序后，将在 VisualVM 主窗口的左侧打开“应用程序”窗口。“应用程序”窗口是浏览正在运行的应用程序详细信息的主入口点。“应用程序”窗口采用树结构，以便您可以快速查看本地计算机和任何已连接的远程计算机上运行的应用程序。您还可以从“应用程序”窗口中访问核心 dump (Solaris/Linux) 和保存的快照。</p>
+
+        <p>右键单击“应用程序”窗口中的某个节点将打开一个弹出式菜单，通过该菜单可以执行与该节点相关的操作，其中包括打开应用程序标签、生成堆 dump 和线程 dump，以及在主窗口中打开快照。</p>
+
+
+        <p>有关如何使用“应用程序”窗口查看和保存数据的更多详细信息，请参见以下页面：</p>
+        <ul>
+            <li><a href="{{ '/docs/applications_window.html' | prepend: site.baseurl }}">Using the Applications Window</a>（使用“应用程序”窗口）</li>
+            <li><a href="{{ '/docs/applications_local.html' | prepend: site.baseurl }}">Working with Local Applications</a>（使用本地应用程序）</li>
+            <li><a href="{{ '/docs/applications_remote.html' | prepend: site.baseurl }}">Working with Remote Applications</a>（使用远程应用程序）</li>
+            <li><a href="{{ '/docs/coredumps.html' | prepend: site.baseurl }}">使用 VM 核心 dump</a></li>
+            <li><a href="{{ '/docs/snapshots.html' | prepend: site.baseurl }}">Working with Snapshots</a>（使用快照）</li>
+        </ul>
+
+        <h3>主窗口</h3>
+        <p>主窗口中显示有关应用程序的详细信息。在查看有关应用程序的数据时，主窗口中的每个标签表示一个应用程序，这使您可以轻松查看和导航数据。保存的线程 dump 和堆 dump 也可以在主窗口中打开。</p>
+
+        <p>有关主窗口中可以显示的应用程序数据的信息，请参见以下页面：</p>
+        <ul>
+            <li><a href="{{ '/docs/overview_tab.html' | prepend: site.baseurl }}">应用程序“概述”标签</a></li>
+            <li><a href="{{ '/docs/monitor_tab.html' | prepend: site.baseurl }}">在“监视”标签中监视应用程序</a></li>
+            <li><a href="{{ '/docs/threads.html' | prepend: site.baseurl }}">在“线程”标签中监视线程</a></li>
+            <li><a href="{{ '/docs/heapdump.html' | prepend: site.baseurl }}">Browsing a Heap Dump</a>（浏览堆 Dump）</li>
+            <li><a href="{{ '/docs/profiler.html' | prepend: site.baseurl }}">在 &quot;Profiler&quot; 标签中对应用程序进行性能分析</a>（仅限本地应用程序）</li>
+            <li><a href="{{ '/docs/mbeans_tab.html' | prepend: site.baseurl }}">MBeans Tab</a>（&quot;MBeans&quot; 标签，需要 MBeans 插件）</li>
+        </ul>
+
+
+        <h2>VisualVM 插件</h2>
+        <p>通过使用“插件”管理器安装由“VisualVM 插件中心”提供的插件，可以向 VisualVM 添加功能。您也可以开发自己的插件，然后将其添加到更新中心来扩展 VisualVM 的功能。</p>
+
+        <p>例如，安装 VisualVM-MBeans 插件可以向应用程序标签中添加 <a href="{{ '/docs/mbeans_tab.html' | prepend: site.baseurl }}">&quot;MBeans&quot; 标签</a>，通过此标签，可以在 VisualVM 内监视和管理 MBeans。</p>
+        <p><b>安装 VisualVM 插件：</b></p>
+        <ol>
+            <li>从主菜单中选择“工具”&gt;“插件”。</li>
+            <li>在“可用插件”标签中，选中该插件的“安装”复选框。单击“安装”。</li>
+            <li>逐步完成插件安装程序。<br/>
+        </ol>
+        <img src="{{ '/docs/zh_CN/images/getstarted/vvm-plugins-window.png' | prepend: site.baseurl }}" alt="屏幕快照：“插件”窗口"
+        title="屏幕快照：“插件”窗口">
+
+
+
+        <p>有关创建 VisualVM 插件的更多信息，请参见以下文档：</p>
+        <ul>
+            <!--<li><a href="plugins.html">Working with VisualVM Plugins</a></li>-->
+            <li><a href="{{ '/docs/api-quickstart.html' | prepend: site.baseurl }}">Getting Started Extending VisualVM</a>（VisualVM 扩展入门指南）</li>
+        </ul>
+        <hr/>
+        <p><a href="{{ '/documentation.html' | prepend: site.baseurl }}">返回至 VisualVM 文档索引</a></p>

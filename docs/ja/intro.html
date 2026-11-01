@@ -1,0 +1,82 @@
+---
+layout: visualvm_documentation_layout
+title: "VisualVM の概要"
+css: /css/documentation.css
+lang: ja
+---
+
+<h1>VisualVM の概要</h1>
+        <hr />
+        <p>VisualVM は、Java 仮想マシン (JVM) で実行中の Java テクノロジベースのアプリケーション (Java アプリケーション) に関する詳細情報を表示するための、ビジュアルインタフェースを提供するツールです。VisualVM は、JDK (Java Development Kit) ツールによって取得された JVM ソフトウェアに関するデータを編成し、複数の Java アプリケーションに関するデータをすぐに表示できるような方法で、情報を提示します。ローカルアプリケーション、およびリモートホストで実行中のアプリケーションに関するデータを表示できます。また、JVM ソフトウェアインスタンスに関するデータを取り込んでローカルシステムに保存し、データをあとで表示したり、ほかのメンバーとデータを共有したりできます。</p>
+        <p>Java VisualVM の機能をすべて活用するためには、Java SE (Java Platform Standard Edition) version 6 を実行するようにしてください。 </p>
+        <h3>VisualVM の起動</h3>
+        <p>VisualVM の zip アーカイブをローカルシステムにダウンロードして抽出したあと、展開したアーカイブの <tt>bin</tt> ディレクトリに移動し、VisualVM の実行可能ファイルをダブルクリックするか、コマンド (shell) プロンプトに次を入力します。
+
+        <p><tt>visualvm</tt></p>
+        <p>はじめて VisualVM を起動する場合、使用許諾契約書への同意を求められます。</p>
+
+        <h3>VisualVM の Userdir</h3>
+        <p>Windows の場合、VisualVM の <tt>userdir</tt> のデフォルトの場所は次のとおりです。 </p>
+        <p><tt>C:\Documents and Settings\<i>&lt;ユーザー&gt;</i>\Application Data\.visualvm\FCS</tt></p>
+        <p>VisualVM の <tt>userdir</tt> の場所を検索するには、メインメニューから「ヘルプ」&gt;「製品について」を選択し、「VisualVM の概要」ウィンドウの「詳細」をクリックします。</p>
+
+
+        <h2>VisualVM のウィンドウ</h2>
+        <p>VisualVM を起動すると、VisualVM のメインウィンドウが開きます。VisualVM のメインウィンドウは、2 つのウィンドウに分かれています。
+        </p>
+        <img src="{{ '/docs/ja/images/docs/vvm-start.png' | prepend: site.baseurl }}" style="border:1px solid;" alt="開始画面がある VisualVM ウィンドウのスクリーンショット"
+        title="開始画面がある VisualVM ウィンドウのスクリーンショット" width="600" height="430"  />
+        <p>最初に VisualVM を起動すると、ウィンドウの左側に「アプリケーション」ウィンドウが表示され、メインウィンドウの右側に開始ページが表示されます。開始ページには、VisualVM のドキュメントの Web ページと追加リソースへのリンクがあります。<br />
+        <b>注:</b> 開始ページは、デフォルトでは VisualVM を起動するたびに開きます。メインメニューから「ヘルプ」&gt;「開始ページ」を選択すると、いつでも開始ページを表示できます。「起動時に表示」チェックボックスを選択解除して、開始ページを非表示にすることもできます。 </p>
+
+        <h3>「アプリケーション」ウィンドウ</h3>
+        <p>アプリケーションを起動すると、VisualVM のメインウィンドウの左側に「アプリケーション」ウィンドウが表示されます。「アプリケーション」ウィンドウは、実行中のアプリケーションの詳細を調査するための、主な入場点です。「アプリケーション」ウィンドウではツリー構造が使用されており、ローカルマシンおよび接続されているリモートマシンで実行中のアプリケーションをすばやく表示できます。また、コアダンプにアクセスし (Solaris/Linux)、スナップショットを「アプリケーション」ウィンドウから保存することもできます。</p>
+
+        <p>「アプリケーション」ウィンドウのノードを右クリックするとポップアップメニューが開き、そのノードに関連するアクションを実行できます。アクションには、アプリケーションのタブを開く、ヒープダンプおよびスレッドダンプを取得する、メインウィンドウでスナップショットを開くなどがあります。</p>
+
+
+        <p>「アプリケーション」ウィンドウを使用して、データを表示および保存する方法の詳細については、次のページを参照してください。</p>
+        <ul>
+            <li><a href="{{ '/docs/applications_window.html' | prepend: site.baseurl }}">「アプリケーション」ウィンドウの使用</a></li>
+            <li><a href="{{ '/docs/applications_local.html' | prepend: site.baseurl }}">ローカルアプリケーションの操作</a></li>
+            <li><a href="{{ '/docs/applications_remote.html' | prepend: site.baseurl }}">リモートアプリケーションの操作</a></li>
+            <li><a href="{{ '/docs/coredumps.html' | prepend: site.baseurl }}">VM のコアダンプの操作</a></li>
+            <li><a href="{{ '/docs/snapshots.html' | prepend: site.baseurl }}">スナップショットの操作</a></li>
+        </ul>
+
+        <h3>メインウィンドウ</h3>
+        <p>メインウィンドウには、アプリケーションに関する詳細情報が表示されます。アプリケーションに関するデータを表示すると、各アプリケーションがメインウィンドウのタブで表示され、データを簡単に表示したり移動したりできます。保存したスレッドダンプとヒープダンプも、メインウィンドウで表示されます。</p>
+
+        <p>メインウィンドウで表示できるアプリケーションデータについては、次のページを参照してください。</p>
+        <ul>
+            <li><a href="{{ '/docs/overview_tab.html' | prepend: site.baseurl }}">アプリケーションの「概要」タブ</a></li>
+            <li><a href="{{ '/docs/monitor_tab.html' | prepend: site.baseurl }}">「監視」タブでのアプリケーションの監視</a></li>
+            <li><a href="{{ '/docs/threads.html' | prepend: site.baseurl }}">「スレッド」タブでのスレッドの監視</a></li>
+            <li><a href="{{ '/docs/heapdump.html' | prepend: site.baseurl }}">ヒープダンプの参照</a></li>
+            <li><a href="{{ '/docs/profiler.html' | prepend: site.baseurl }}">「プロファイラ」タブでのアプリケーションのプロファイル</a> (ローカルアプリケーションのみ)</li>
+            <li><a href="{{ '/docs/mbeans_tab.html' | prepend: site.baseurl }}">「MBeans」タブ</a> (MBeans プラグインが必要)</li>
+        </ul>
+
+
+        <h2>VisualVM プラグイン</h2>
+        <p>プラグインマネージャーを使用して、VisualVM プラグインセンターからプラグインをインストールすると、VisualVM に機能を追加できます。独自のプラグインを開発して VisualVM の機能を拡張することもできます。このプラグインをアップデートセンターに追加することもできます。</p>
+
+        <p>たとえば、VisualVM-MBeans プラグインをインストールすると、アプリケーションのタブに<a href="{{ '/docs/mbeans_tab.html' | prepend: site.baseurl }}">「MBeans」タブ</a>が追加されます。これを使用すると、VisualVM 内から MBeans を監視および管理できます。</p>
+        <p><b>VisualVM プラグインをインストールするには、次の手順に従います。</b></p>
+        <ol>
+            <li>メインメニューから「ツール」&gt;「プラグイン」を選択します。</li>
+            <li>「Available Plugins」タブで、プラグインの「Install」チェックボックスを選択します。「インストール」をクリックします。</li>
+            <li>手順を続行してプラグインのインストーラを完了します。<br/>
+        </ol>
+        <img src="{{ '/docs/ja/images/getstarted/vvm-plugins-window.png' | prepend: site.baseurl }}" alt="「プラグイン」ウィンドウのスクリーンショット"
+        title="「プラグイン」ウィンドウのスクリーンショット">
+
+
+
+        <p>VisualVM プラグインの作成の詳細については、次のドキュメントを参照してください。</p>
+        <ul>
+            <!--<li><a href="plugins.html">Working with VisualVM Plugins</a></li>-->
+            <li><a href="{{ '/docs/api-quickstart.html' | prepend: site.baseurl }}">VisualVM の拡張入門</a></li>
+        </ul>
+        <hr/>
+        <p><a href="{{ '/documentation.html' | prepend: site.baseurl }}">VisualVM のドキュメントの索引に戻る</a></p>

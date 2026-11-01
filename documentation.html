@@ -1,26 +1,108 @@
 ---
-layout: visualvm_stretch_layout
-title: Documentation
-css: /css/feedback.css
+layout: visualvm_documentation_layout
+title: "Documentation and Resources"
+css: /css/documentation.css
 ---
 
-<div class="content_main stretch_container">
-    <div class="centered_content stretch_container">
-        
-        <div class="stretch_first"></div>
-        
-        <h1>Documentation</h1>
+<div id="contents_div">
 
-        <p class="description_first description_last2">
-            This page displays the VisualVM documentation originally available at Java.net - powered by <a href="https://htmlpreview.github.io">https://htmlpreview.github.io</a>. Meanwhile we're working on an up to date GitHub-friendly documentation.
-        </p>
+    <div id="contents_contents">
+        <div id="contents_main">
 
-        <div class="stretch_filler">
-            <iframe class="whiterounded" id="gitter_feedback" src="https://htmlpreview.github.io/?https://raw.githubusercontent.com/visualvm/visualvm.java.net.backup/master/www/docindex.html">Documentation could not be displayed. Please use the link below:</iframe>
+            <h1>VisualVM Documentation and Resources</h1>
+
+            <p style="margin-bottom: 15px;">
+                This page contains links to articles, documentation, blogs, presentations
+        and wiki pages with information for users and developers of VisualVM (<small><a href="http://ldg.pe.kr/framework_reference/visualvm/ko_KR/docindex.html">external mirror in Korean <img src="{{ '/docs/ko_KR/images/korean.png' | prepend: site.baseurl }}" style="border: 0px; vertical-align: bottom;"/></a></small>).
+            </p>
+
+            <a name="getting_started"></a>
+            <h3>Getting Started Documentation</h3>
+            <div>
+                <p style="margin-top: 5px;">The following document provide a quick introduction on how to start using VisualVM and extending VisualVM with plugins.
+                </p>
+
+                <ul>
+                    <li><a href="{{ '/docs/gettingstarted.html' | prepend: site.baseurl }}">Getting Started with VisualVM</a> <small>(<a href="{{ '/docs/ja/gettingstarted.html' | prepend: site.baseurl }}">Japanese <img src="{{ '/docs/ja/images/japanese.png' | prepend: site.baseurl }}" style="border: 0px; vertical-align: bottom;"/></a>, <a href="{{ '/docs/zh_CN/gettingstarted.html' | prepend: site.baseurl }}">Simplified Chinese <img src="{{ '/docs/zh_CN/images/simplified_chinese.png' | prepend: site.baseurl }}" style="border: 0px; vertical-align: bottom;"/></a>, <a href="{{ '/docs/ko_KR/gettingstarted.html' | prepend: site.baseurl }}">Korean <img src="{{ '/docs/ko_KR/images/korean.png' | prepend: site.baseurl }}" style="border: 0px; vertical-align: bottom;"/></a>)</small></li>
+                    <li><a href="{{ '/docs/api-quickstart.html' | prepend: site.baseurl }}">Getting Started Extending VisualVM</a></li>
+                </ul>
+            </div>
+
+            <a name="visualvm_documentation"></a>
+            <h3>VisualVM Documentation</h3>
+            <div>
+                <p style="margin-top: 5px;">The following documents provide information on how to work with VisualVM.
+                </p>
+
+                <ul>
+                <li><a href="{{ '/docs/intro.html' | prepend: site.baseurl }}">Introduction to VisualVM</a> <small>(<a href="{{ '/docs/ja/intro.html' | prepend: site.baseurl }}">Japanese <img src="{{ '/docs/ja/images/japanese.png' | prepend: site.baseurl }}" style="border: 0px; vertical-align: bottom;"/></a>, <a href="{{ '/docs/zh_CN/intro.html' | prepend: site.baseurl }}">Simplified Chinese <img src="{{ '/docs/zh_CN/images/simplified_chinese.png' | prepend: site.baseurl }}" style="border: 0px; vertical-align: bottom;"/></a>, <a href="{{ '/docs/ko_KR/intro.html' | prepend: site.baseurl }}">Korean <img src="{{ '/docs/ko_KR/images/korean.png' | prepend: site.baseurl }}" style="border: 0px; vertical-align: bottom;"/></a>)</small>
+                <ul>
+                <li><a href="{{ '/docs/applications_window.html' | prepend: site.baseurl }}">Using the Applications Window</a></li>
+                <li><a href="{{ '/docs/applications_local.html' | prepend: site.baseurl }}">Working with Local Applications</a>
+                    <ul>
+                        <li><a href="{{ '/docs/overview_tab.html' | prepend: site.baseurl }}">Viewing Application Overview</a></li>
+                        <li><a href="{{ '/docs/monitor_tab.html' | prepend: site.baseurl }}">Monitoring an Application</a></li>
+                        <li><a href="{{ '/docs/threads.html' | prepend: site.baseurl }}">Monitoring Application Threads</a></li>
+                        <li><a href="{{ '/docs/profiler.html' | prepend: site.baseurl }}">Profiling Applications</a></li>
+                        <li><a href="{{ '/docs/jmx_connections.html' | prepend: site.baseurl }}">Connecting to JMX Agents Explicitly</a></li>
+                    </ul>
+
+                </li>
+                <li><a href="{{ '/docs/applications_remote.html' | prepend: site.baseurl }}">Working with Remote Applications</a>
+                    <ul>
+                        <li><a href="{{ '/docs/overview_tab.html' | prepend: site.baseurl }}">Viewing Application Overview</a></li>
+                        <li><a href="{{ '/docs/monitor_tab.html' | prepend: site.baseurl }}">Monitoring an Application</a></li>
+                        <li><a href="{{ '/docs/threads.html' | prepend: site.baseurl }}">Monitoring Application Threads</a></li>
+                        <li><a href="{{ '/docs/jmx_connections.html' | prepend: site.baseurl }}">Connecting to JMX Agents Explicitly</a></li>
+                    </ul>
+                </li>
+                <li><a href="{{ '/docs/coredumps.html' | prepend: site.baseurl }}">Working with Coredumps</a></li>
+                <li><a href="{{ '/docs/snapshots.html' | prepend: site.baseurl }}">Working with Snapshots</a></li>
+                <li><a href="{{ '/docs/heapdump.html' | prepend: site.baseurl }}">Browsing a Heap Dump</a></li>
+                <li><a href="{{ '/docs/oqlhelp.html' | prepend: site.baseurl }}">Analyzing a Heap Dump Using OQL</a></li>
+                <li><a href="{{ '/docs/jmx_connections.html' | prepend: site.baseurl }}">Connecting to JMX Agents Explicitly</a></li>
+                <li><a href="{{ '/docs/mbeans_tab.html' | prepend: site.baseurl }}">Working with MBeans</a></li>
+                <li><a href="{{ '/docs/jconsole_plugin_wrapper_tab.html' | prepend: site.baseurl }}">JConsole Plug-In Wrapper Tab</a></li>
+              </ul>
+            </li>
+            <li><a href="{{ '/docs/troubleshooting.html' | prepend: site.baseurl }}">Troubleshooting Guide</a></li>
+            </ul>
+            </div>
+
+            <a name="developing_plugins"></a>
+            <h3>Developing Plugins for VisualVM</h3>
+            <div>
+                <p style="margin-top: 5px;">The following documents provide information for developers insterested in developing plugins to extend VisualVM.
+                </p>
+
+                <ul>
+                    <li><a href="{{ '/docs/api-quickstart.html' | prepend: site.baseurl }}">Getting Started Extending VisualVM</a></li>
+                    <li><a href="{{ '/docs/api-faq.html' | prepend: site.baseurl }}">VisualVM API FAQs</a></li>
+                </ul>
+            </div>
+
         </div>
-        <center class="stretch_row"><small><a href="https://htmlpreview.github.io/?https://raw.githubusercontent.com/visualvm/visualvm.java.net.backup/master/www/docindex.html" target="_blank">Open the Documentation in separate view</a></small></center>
-        
-        <div class="stretch_last"></div>
+    </div>
+
+    <div id="contents_hints">
+
+        <h3 class="first">On This Page</h3>
+        <div>
+            <a href="#getting_started">Getting Started Documentation</a>
+            <a href="#visualvm_documentation">VisualVM Documentation</a>
+            <a href="#developing_plugins">Developing Plugins for VisualVM</a>
+        </div>
+
+        <h3>Quick Links</h3>
+        <div>
+            <a href="{{ '/docs/intro.html' | prepend: site.baseurl }}">Introduction to VisualVM</a>
+            <a href="{{ '/docs/troubleshooting.html' | prepend: site.baseurl }}">Troubleshooting Guide</a>
+            <a href="{{ '/feedback.html' | prepend: site.baseurl }}">Ask the Community</a>
+            <a href="{{ '/feedback.html' | prepend: site.baseurl }}">Send Feedback</a>
+        </div>
 
     </div>
+
+    <div id="contents_clear"></div>
+
 </div>
