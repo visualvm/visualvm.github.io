@@ -72,7 +72,7 @@ title: Startup Profiler
             <br><br>
             For <b>CPU profiling</b>, you have to define the profiling starting point(s). See the tooltip for a hint on the required format. At least you should clear the text field, which will setup the profiler to start profiling from the application's main method and will also profile each new Thread and/or Runnable. Note that the profiling overhead will be significant in this case.
             <br><br>
-            To get a reasonable profiling data, you should define custom starting point like <code>org.mypackage.**</code> or a more specific <code>org.mypackage.subpackage.*</code> or <code>org.mypackage.MyClass</code>. The more concrete starting point and restrictive Profile only/Do not profile filter you define, the lower is the profiling overhead. When custom starting points are defined, the Profile new Runnables option should typically be unchecked.
+            To get reasonable profiling data, you should define custom starting point like <code>org.mypackage.**</code> or a more specific <code>org.mypackage.subpackage.*</code> or <code>org.mypackage.MyClass</code>. The more concrete starting point and restrictive Profile only/Do not profile filter you define, the lower is the profiling overhead. When custom starting points are defined, the Profile new Runnables option should typically be unchecked.
             <br><br>
             For <b>Memory profiling</b>, you can continue with the defaults. The Profile object allocations and GC mode is useful for uncovering slow memory leaks as it provides the Generations count (see the <a href="https://blogs.oracle.com/nbprofiler/entry/what_do_the_surviving_generations">What Do The Surviving Generations Metrics Mean?</a> article for details). The Profile object allocations mode can be used to see live instances and their trends.
             <br><br>
@@ -97,7 +97,7 @@ title: Startup Profiler
             <br><br>
             Once the target application is configured, it is important to submit the Profile Startup dialog first and after that start the application. The profiler checks whether the application hasn't been started prior to submitting the dialog and eventually asks the user to terminate it if started too soon. Note that the application must be started by the user running the host VisualVM instance, otherwise the profiling data may not be available.
             <br><br>
-            After submitting the Profile Startup dialog, the profiler checks whether the target Java platform has already been calibrated for profiling. If not, it will ask you to select the correct Java binary and calibrates it. To get unbiased calibration data, make sure there's no heavy load running on the machine and disable any dynamic CPU frequency switching technology if enabled.
+            After submitting the Profile Startup dialog, the profiler checks whether the target Java platform has already been calibrated for profiling. If not, it will ask you to select the correct Java binary and will calibrate it. To get unbiased calibration data, make sure there's no heavy load running on the machine and disable any dynamic CPU frequency switching technology if enabled.
             <br><br>
             As soon as the profiler is ready for profiling startup of the application, it will display a Progress dialog saying "Connecting to the target VM...". This is the right time to start the profiled application. The profiler connects to the application immediately and you should see messages in the profiled application's terminal or log similar to these:
         </p>
@@ -108,7 +108,7 @@ Profiler Agent: Waiting for connection on port 5140 (Protocol version: 13)
 Profiler Agent: Established connection with the tool
 Profiler Agent: Local accelerated session</pre>
         <p class="description_last2">
-            Now the profiled application appears in the Applications view in VisualVM and shortly after it's opened and switched to the Profiler tab displaying the live profiling data. A short-living process being profiled can finish its execution sooner than recognized or opened in VisualVM. For this case the profiler displays a notification dialog allowing to take a final snapshot of the collected profiling data. The profiled process is kept alive until the dialog is closed, so you may want to wait a while for the application to open before clicking OK.
+            Now the profiled application appears in the Applications view in VisualVM and shortly after it's opened and switched to the Profiler tab displaying the live profiling data. A short-lived process being profiled can finish its execution sooner than recognized or opened in VisualVM. For this case the profiler displays a notification dialog allowing to take a final snapshot of the collected profiling data. The profiled process is kept alive until the dialog is closed, so you may want to wait a while for the application to open before clicking OK.
             <br><br>
             After finishing the profiling session, you may directly terminate the profiled application. This is faster than stopping the profiling session in VisualVM, which just removes the bytecode instrumentation from the application and doesn't terminate its process. Note that for Java 5 applications you won't be able to re-attach the profiler to the running process once the profiling session has been finished.
         </p>
@@ -121,7 +121,7 @@ Profiler Agent: Local accelerated session</pre>
 
         <h4>Profiled application does not start</h4>
         <p class="description_first2">
-            When started the application with the provided <code>-agentpath</code> parameter, its terminal or log should display messages similar to the above section. If you see any error messages instead, it means that the application failed to start. This is most likely caused by incorrect <code>-agentpath</code> parameter. Doublecheck that the application runs using the Java platform and architecture selected in the Profile Startup dialog and make sure the parameter is typed exactly as provided by the dialog. Also verify that the profiling port isn't blocked by a firewall or already used.
+            When started the application with the provided <code>-agentpath</code> parameter, its terminal or log should display messages similar to the above section. If you see any error messages instead, it means that the application failed to start. This is most likely caused by incorrect <code>-agentpath</code> parameter. Double-check that the application runs using the Java platform and architecture selected in the Profile Startup dialog and make sure the parameter is typed exactly as provided by the dialog. Also verify that the profiling port isn't blocked by a firewall or already used.
         </p>
 
 

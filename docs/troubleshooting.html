@@ -81,7 +81,7 @@ css: /css/documentation.css
             the running applications. There are two possible causes:</p>
         <ul>
             <li><i>Insufficient permissions for <code>%TMP%\hsperfdata_username</code> folder</i> - make sure you're able to create a file in the directory and eventually update the permissions for full folder access. Alternatively you can just re-create the folder which should automatically set the correct access rights.
-                See see this <a href="http://forum.java.sun.com/thread.jspa?threadID=5133218&tstart=0">forums.sun.com thread</a> for more details.</li>
+                See this <a href="http://forum.java.sun.com/thread.jspa?threadID=5133218&tstart=0">forums.sun.com thread</a> for more details.</li>
             <li><i>Having <code>%TMP%\hsperfdata_username</code> folder on a FAT disk</i> - by default <code>jvmstat</code> doesn't work on FAT disks due to security restrictions. You can bypass the security check by
                 setting the <code>-XX:+PerfBypassFileSystemCheck</code> flag for both VisualVM and the monitored application. See the <a href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=5042659">JDK bug #5042659</a>
                 for more details.</li>
@@ -178,6 +178,6 @@ css: /css/documentation.css
 
         <a name="gfnoservlets"></a>
         <h3>No Servlets Displayed In The Runtime Area Of GlassFish Web Application Tab</h3>
-        <p><b>Description:&nbsp;</b>There are no servlets displayed in the runtime are of GlassFish web application tab (see <a target="_blank" href="{{ '/docs/images/troubleshoot/visualvm_gf_noservlets.png' | prepend: site.baseurl }}">here</a>)</p>
+        <p><b>Description:&nbsp;</b>There are no servlets displayed in the runtime area of GlassFish web application tab (see <a target="_blank" href="{{ '/docs/images/troubleshoot/visualvm_gf_noservlets.png' | prepend: site.baseurl }}">here</a>)</p>
         <p><b>Resolution:&nbsp;&nbsp;</b>Only servlets with some statistics available are displayed. In order to generate statistics put some load on the web application.</p>
         <br/>

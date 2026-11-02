@@ -44,7 +44,7 @@ keyword is not specified, only the instances of exact class specified are select
 
 <p>
 In <span class="key">select</span> and (optional) <span class="key">where</span> clauses, the expression
-used in JavaScript expression. Java heap objects are wrapped as convenient script objects so that
+used is a JavaScript expression. Java heap objects are wrapped as convenient script objects so that
 fields may be accessed in natural syntax. For example, Java fields can be accessed with obj.field_name
 syntax and array elements can be accessed with array[index] syntax. Each Java object selected is
 bound to a JavaScript variable of the identifier name specified in <span class="key">from</span> clause.
@@ -188,8 +188,8 @@ By default, paths with weak reference(s) are not included.
     select heap.livepaths(s) from java.lang.String s
 </code>
 </pre>
-Each element of this array itself is another array. The later array is
-contains an objects that are in the 'reference chain' of the path.
+Each element of this array itself is another array. The latter array
+contains the objects that are in the 'reference chain' of the path.
 </li>
 <li><b>heap.roots</b> -- returns an Enumeration of Roots of the heap.
 <a name="rootobj"></a>
@@ -403,7 +403,7 @@ Examples:
 <h5>referees function</h5>
 <p>
 Returns an array of Java objects to which the given Java
-object directly refers to.
+object directly refers.
 </p>
 Example: to print all static reference fields of java.io.File class
 <pre>
@@ -438,7 +438,7 @@ Example:
 </pre>
 
 <a name="rsizeof"></a>
-<h5>retainedsize function</h5>
+<h5>rsizeof function</h5>
 
 Returns size of the retained set of the given Java object in bytes
 <b>Warning! Using this function for the first time on a heap dump may take
@@ -513,7 +513,7 @@ enumeration).
 <a name="contains"></a>
 <h5>contains function</h5>
 <p>
-Returns whether the given array/enumeration contains an element
+Returns whether the given array/enumeration contains an element satisfying
 the given boolean expression specified in code. The code evaluated
 can refer to the following built-in variables.
 </p>
@@ -523,7 +523,7 @@ can refer to the following built-in variables.
 <li>array -> array/enumeration that is being iterated
 </ul>
 Example: select all Properties objects that are referred by
-some static field some class.
+some static field of some class.
 <pre>
 <code>
     select p from java.util.Properties p
@@ -660,7 +660,7 @@ Examples:
     select min(map(heap.objects('java.util.Vector', false), 'it.elementData.length'))
 </code>
 </pre>
-<li>find Vector instance that has the maximum length
+<li>find Vector instance that has the minimum length
 <pre>
 <code>
     select min(heap.objects('java.util.Vector'), 'lhs.elementData.length &lt; rhs.elementData.length')
@@ -701,7 +701,7 @@ size as well.
 <p>
 returns top N elements of the given array/enumeration. Optionally accepts code expression to
 compare elements of the array and the number of top elements. By default the first 10 elements
-in the order of appearence is returned.
+in the order of appearance are returned.
 The comparison expression can use the following built-in variables:
 </p>
 <ul>
@@ -824,11 +824,11 @@ and walk until parent is null using the callback function to map call.
 The above query uses the following facts:
 <ul>
 <li>java.lang.System has static field by name 'props' of type java.util.Properties.
-<li>java.util.Properties has field by 'table' of type java.util.Hashtable$Entry
+<li>java.util.Properties has field named 'table' of type java.util.Hashtable$Entry
 (this field is inherited from java.util.Hashtable). This is the hashtable
 buckets array.
 <li>java.util.Hashtable$Entry has 'key', 'value' and 'next' fields. Each
-entry points the next entry (or null) in the same hashtable bucket.
+entry points to the next entry (or null) in the same hashtable bucket.
 <li>java.lang.String class has 'value' field of type char[].
 </ul>
 <p>

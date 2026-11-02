@@ -30,7 +30,7 @@ css: /css/documentation.css
                 <li><b>Application Snapshot.</b> Creates an application snapshot containing all application dumps and snapshots.
                 A node for the application snapshot appears under the Snapshots node.</li>
                 <li><b>Enable Heap Dump on OOME.</b> Select this if you want VisualVM to automatically take a heap dump when
-                the application encounters an OutOfMemoryException.</li>
+                the application encounters an OutOfMemoryError.</li>
             </ul>
 
         <p>You can perform the following tasks directly from the popup menu.</p>
@@ -84,7 +84,7 @@ css: /css/documentation.css
         <h4>Profile an Application</h4>
         <p>VisualVM includes a profiler that enables you to analyze the performance and memory usage of a local application.
         You can profile an application without restarting it. To start a profiling session,
-        right-click the application node and choosing Profile from the popup menu to open the profiling tab.<br/>
+        right-click the application node and choose Profile from the popup menu to open the profiling tab.<br/>
         <b>Note:</b> VisualVM cannot be used to Profile itself.</p>
         <p>For more see the following document:</p>
         <ul><li><a href="{{ '/docs/profiler.html' | prepend: site.baseurl }}">Profiling Applications</a></li></ul>
@@ -96,7 +96,7 @@ css: /css/documentation.css
         You can save snapshots to your local system and then examine them later or send them to others.</p>
         <p>VisualVM enables you to take the following types of snapshots:</p>
         <ul>
-            <li><b>Profiler snapshots.</b> A profiler snapshot captures the profiling data at the moment the snapshot is takes.
+            <li><b>Profiler snapshots.</b> A profiler snapshot captures the profiling data at the moment the snapshot is taken.
             The snapshot is either a memory snapshot or a CPU snapshot.
             You can take a profiler snapshot only when you are profiling an application.</li>
             <li><b>Application snapshots.</b> An application snapshot is an archive that contains all the heap dumps,
