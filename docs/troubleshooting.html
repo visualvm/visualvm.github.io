@@ -47,7 +47,7 @@ css: /css/documentation.css
         <p><b>Description:&nbsp;</b>'Java(TM) Platform SE binary has stopped working' dialog is shown during VisualVM startup by the operating system, VisualVM process terminates.</p>
         <p><b>Resolution:&nbsp;&nbsp;</b>This is a known JDK bug in the d3d rendering pipeline affecting Windows 64bit systems. To disable d3d acceleration
         use <code>visualvm.exe -J-Dsun.java2d.d3d=false</code> to start VisualVM. Alternatively you may update the <code>&lt;visualvm_installdir&gt;\etc\visualvm.conf</code>
-        file to include the <code>-J-Dsun.java2d.d3d=false</code> switch in the <code>default_options</code> section. See the <a href="http://bugs.sun.com/view_bug.do?bug_id=6772139">JDK bug #6772139</a>
+        file to include the <code>-J-Dsun.java2d.d3d=false</code> switch in the <code>default_options</code> section. See the <a href="https://bugs.openjdk.org/browse/JDK-6772139">JDK bug #6772139</a>
         for more details.</p><br>
 
         <a name="jrehost"></a>
@@ -72,7 +72,7 @@ css: /css/documentation.css
         <p><b>Description:&nbsp;</b>No running applications are shown in Applications tree, an exception is thrown after VisualVM startup (<code>java.lang.NullPointerException at JvmJvmstatModelProvider.createModelFor(JvmJvmstatModelProvider)</code>).</p>
         <p><b>Resolution:&nbsp;&nbsp;</b>This happens for VisualVM 1.1 and previous releases and for Java VisualVM 6u11 and previous releases when there's at least one Java application
         running on JDK 6 Update 12 on the system (incl. the VisualVM itself). To fix this problem, download and install the latest VisualVM-Extensions plugin from the Plugin Center using
-        Tools -> Plugins. Details can be found in <a href="https://blogs.oracle.com/nbprofiler/entry/visualvm_fixed_to_correctly_recognize">this blog post</a>.</p><br>
+        Tools -> Plugins. Details can be found in <a href="https://web.archive.org/web/20150526023542/https://blogs.oracle.com/nbprofiler/entry/visualvm_fixed_to_correctly_recognize">this blog post</a>.</p><br>
 
         <a name="jpswin"></a>
         <h3>Local Applications Cannot Be Detected (Error Dialog On Startup)</h3>
@@ -81,9 +81,9 @@ css: /css/documentation.css
             the running applications. There are two possible causes:</p>
         <ul>
             <li><i>Insufficient permissions for <code>%TMP%\hsperfdata_username</code> folder</i> - make sure you're able to create a file in the directory and eventually update the permissions for full folder access. Alternatively you can just re-create the folder which should automatically set the correct access rights.
-                See this <a href="http://forum.java.sun.com/thread.jspa?threadID=5133218&tstart=0">forums.sun.com thread</a> for more details.</li>
+                See this <a href="https://web.archive.org/web/20080610133848/http://forum.java.sun.com:80/thread.jspa?threadID=5133218&tstart=0">forums.sun.com thread</a> for more details.</li>
             <li><i>Having <code>%TMP%\hsperfdata_username</code> folder on a FAT disk</i> - by default <code>jvmstat</code> doesn't work on FAT disks due to security restrictions. You can bypass the security check by
-                setting the <code>-XX:+PerfBypassFileSystemCheck</code> flag for both VisualVM and the monitored application. See the <a href="http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=5042659">JDK bug #5042659</a>
+                setting the <code>-XX:+PerfBypassFileSystemCheck</code> flag for both VisualVM and the monitored application. See the <a href="https://bugs.openjdk.org/browse/JDK-5042659">JDK bug #5042659</a>
                 for more details.</li>
         </ul>
         <br>
@@ -108,14 +108,14 @@ css: /css/documentation.css
         <h3>Cannot Add Or Edit Hosts On Linux</h3>
         <p><b>Description:&nbsp;</b>Adding a remote host and/or invoking Properties on an existing host throws <code>java.lang.NullPointerException</code> on Linux/Solaris, new host cannot be added.</p>
         <p><b>Resolution:&nbsp;&nbsp;</b>This happens when running the VisualVM 1.2 or newer on JDK 7 or OpenJDK 6 with GTK LaF. It is caused by a JDK bug introduced in JDK 7 b10. Details are available in
-            <a href="http://java.net/jira/browse/VISUALVM-372">VisualVM bug #372</a>. A quick workaround is to change the look'n'feel using
+            <a href="https://web.archive.org/web/20160812075919/https://java.net/jira/browse/VISUALVM-372">VisualVM bug #372</a>. A quick workaround is to change the look'n'feel using
             <code>visualvm --laf Nimbus</code> or <code>visualvm --laf Metal</code> or use Oracle JDK 7 to run VisualVM.</p><br>
 
         <a name="6u17win"></a>
         <h3>HeapWalker Throws Exceptions When Switching Views</h3>
         <p><b>Description:&nbsp;</b>Switching views (Overview/Classes/Instances/OQL Console) in the HeapWalker throws <code>java.lang.IncompatibleClassChangeError</code>, UI is not repainted.</p>
         <p><b>Resolution:&nbsp;&nbsp;</b>This happens when running the VisualVM on JDK 6 Update 17 and newer using the Windows LaF. Details and hotfix are available in
-            <a href="http://java.net/jira/browse/VISUALVM-333">VisualVM bug #333</a>. A quick workaround is to change the look'n'feel using
+            <a href="https://web.archive.org/web/20160812075205/https://java.net/jira/browse/VISUALVM-333">VisualVM bug #333</a>. A quick workaround is to change the look'n'feel using
             <code>visualvm.exe --laf Nimbus</code> or <code>visualvm.exe --laf Metal</code> or use JDK 6 Update 16 (or previous) to run VisualVM.</p><br>
 
         <a name="xshare"></a>
@@ -123,8 +123,8 @@ css: /css/documentation.css
         <p><b>Description:&nbsp;</b>"Class sharing is enabled for this JVM" warning is shown in red box in Profiler tab, profiling CPU or Memory crashes local applications running on JDK 6 Update 6 and earlier.</p>
         <p><b>Resolution:&nbsp;&nbsp;</b>There is a known problem with dynamic attach which is used for profiling, it may
             cause target JVM to crash when class sharing is enabled. To start an application without class sharing, provide <code>-Xshare:off</code> argument
-            to the <code>java</code> command starting the application. More information can be found in <a href="http://bugs.sun.com/view_bug.do?bug_id=6497639">JDK bug #6497639</a>
-            and <a href="http://bugs.sun.com/view_bug.do?bug_id=6598065">JDK bug #6598065</a>.</p><br>
+            to the <code>java</code> command starting the application. More information can be found in <a href="https://bugs.openjdk.org/browse/JDK-6497639">JDK bug #6497639</a>
+            and <a href="https://bugs.openjdk.org/browse/JDK-6598065">JDK bug #6598065</a>.</p><br>
 
         <a name="xverify"></a>
         <h3>CPU Profiling Fails With "Redefinition failed with error 62"</h3

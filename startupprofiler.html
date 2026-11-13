@@ -68,13 +68,13 @@ title: Startup Profiler
 
         <p>
             The second step defines profiling settings used for the session. Choose whether you want to profile performance or memory of the application and define the desired settings.
-            See the <a href="https://blogs.oracle.com/nbprofiler/entry/profiling_with_visualvm_part_2">Profiling With VisualVM, Part 2</a> article for detailed information on the profiling settings.
+            See the <a href="https://web.archive.org/web/20150908213220/https://blogs.oracle.com/nbprofiler/entry/profiling_with_visualvm_part_2">Profiling With VisualVM, Part 2</a> article for detailed information on the profiling settings.
             <br><br>
             For <b>CPU profiling</b>, you have to define the profiling starting point(s). See the tooltip for a hint on the required format. At least you should clear the text field, which will setup the profiler to start profiling from the application's main method and will also profile each new Thread and/or Runnable. Note that the profiling overhead will be significant in this case.
             <br><br>
             To get reasonable profiling data, you should define custom starting point like <code>org.mypackage.**</code> or a more specific <code>org.mypackage.subpackage.*</code> or <code>org.mypackage.MyClass</code>. The more concrete starting point and restrictive Profile only/Do not profile filter you define, the lower is the profiling overhead. When custom starting points are defined, the Profile new Runnables option should typically be unchecked.
             <br><br>
-            For <b>Memory profiling</b>, you can continue with the defaults. The Profile object allocations and GC mode is useful for uncovering slow memory leaks as it provides the Generations count (see the <a href="https://blogs.oracle.com/nbprofiler/entry/what_do_the_surviving_generations">What Do The Surviving Generations Metrics Mean?</a> article for details). The Profile object allocations mode can be used to see live instances and their trends.
+            For <b>Memory profiling</b>, you can continue with the defaults. The Profile object allocations and GC mode is useful for uncovering slow memory leaks as it provides the Generations count (see the <a href="https://web.archive.org/web/20131215140916/https://blogs.oracle.com/nbprofiler/entry/what_do_the_surviving_generations">What Do The Surviving Generations Metrics Mean?</a> article for details). The Profile object allocations mode can be used to see live instances and their trends.
             <br><br>
             The profiling overhead is always significant when profiling memory, but can be reduced a bit by not tracking each object's allocation. Tracking each 10th object (the default) is typically enough to see the allocation trends and/or monitor the Generations count. If you want to find out from where in the code the objects are being allocated, select the Record allocations stack traces option.
             <br><br>
